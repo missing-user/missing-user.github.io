@@ -1,12 +1,16 @@
-## Welcome to GitHub Pages
+## Welcome to my GitHub Page
 
-You can use the [editor on GitHub](https://github.com/missing-user/missing-user.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Right now this is just a placeholder, I will update it over time and make proper custom themes etc.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Projects
 
-### Markdown
+Here's a list of my projects you can try out immediately in your browser! 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- **Corona Live Counter** A visualization of how often people get infected by corona/recover/die. 
+The data is being fetched from [this API](https://corona.lmao.ninja/) and processed to calculate the average intervals.
+Individual country visualizations are also available. [here](/coronaViz) is the website
+- **Corona Map** a variation of the live counter project that lights up the individual countries in regular intervals, according to the average time between infections in that country. 
+It's not pretty, but it's functional [try it out](/coronaVizMap)
 
 ```markdown
 Syntax highlighted code block
@@ -26,12 +30,3 @@ Syntax highlighted code block
 [Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/missing-user/missing-user.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
