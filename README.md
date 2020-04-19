@@ -11,7 +11,7 @@ Individual country visualizations are also available. [here](https://missing-use
 A variation of the live counter project that lights up the individual countries in regular intervals, according to the average time between infections in that country. It's not pretty, but it's functional [try it out!](https://missing-user.github.io/coronaVizMap/)
 
 ### Virus simulation
-Simple virus simulation to show the effects of social distancing, improved hygiene and different attributes of the virus. Just play around with the parameters
+Simple virus simulation to show the effects of social distancing, improved hygiene and different attributes of the virus. Just play around with the parameters [here](https://missing-user.github.io/pandemicSimulator/)
 
 ### Physics simulation
 My attempt at implementing a spatial hashing algorithm for 2D physics. Full support for overlap detection of circles, points and axis aligned rectangles. Currently simple repulsion and attraction forces are supported for circles, WIP for more. [try it here](https://missing-user.github.io/physicsSim/)
