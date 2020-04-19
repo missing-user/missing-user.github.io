@@ -2,6 +2,9 @@
 Right now this is just a placeholder, I will update it over time and make proper custom themes etc.
 
 
+
+
+
 ## Projects
 ### Corona Live Counter 
 A visualization of how often people get infected by corona/recover/die. The data is being fetched from [this API](https://corona.lmao.ninja/) and processed to calculate the average intervals.
