@@ -1,12 +1,8 @@
-## Welcome to my GitHub Page
-
+# Welcome to my GitHub Page
 Right now this is just a placeholder, I will update it over time and make proper custom themes etc.
 
+
 ## Projects
-
-Here's a few of my projects you can try out immediately in your browser! 
-
-
 ### Corona Live Counter 
 A visualization of how often people get infected by corona/recover/die. The data is being fetched from [this API](https://corona.lmao.ninja/) and processed to calculate the average intervals.
 Individual country visualizations are also available. [here](https://missing-user.github.io/coronaTimer/) is the website
@@ -23,22 +19,4 @@ My attempt at implementing a spatial hashing algorithm for 2D physics. Full supp
 ### Tronald Dump API 
 Just messing around with the [tronald dump API](https://www.tronalddump.io/), if you want to see what I came up with [check it out](https://missing-user.github.io/API_experiments/)
 
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
 
