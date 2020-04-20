@@ -22,5 +22,5 @@ My attempt at implementing a spatial hashing algorithm for 2D physics. Full supp
 ### Tronald Dump API 
 Just messing around with the [tronald dump API](https://www.tronalddump.io/), if you want to see what I came up with [check it out](https://missing-user.github.io/API_experiments/)
 
-### electric fields
+### Electric fields
 visualize electric fields of point charges. [here](https://missing-user.github.io/elektrischeFelder/)
