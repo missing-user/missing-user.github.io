@@ -1,3 +1,6 @@
+layout: post
+title: Philipps projects
+
 # Welcome to my GitHub Page
 Right now this is just a placeholder, I will update it over time and make proper custom themes etc.
 
