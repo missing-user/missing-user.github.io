@@ -1,8 +1,3 @@
----
-layout: post
-title: Welcome to Philipps GitHub Page
-featured-img: sleek
----
 # Welcome to my GitHub Page
 Right now this is just a placeholder, I will update it over time and make proper custom themes etc.
 
