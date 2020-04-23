@@ -34,6 +34,14 @@
   background-image: url("../images/virussim.png");
 }
 
+.no-webp .frust {
+  background-image: url("../images/frust.png");
+}
+
+.webp .frust {
+  background-image: url("../images/frust.webp");
+}
+
 .webp .coronatimer {
   background-image: url("../images/liveCounter.webp");
 }
