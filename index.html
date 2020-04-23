@@ -1,59 +1,99 @@
-<h1>Witty title</h1>
-<p>Right now this is just a placeholder, I will update it over time and make proper custom themes etc.</p>
-<h2>Projects</h2>
-<h3>Corona Live Counter</h3>
-<p>A visualization of how often people get infected by corona/recover/die. The data is being fetched from
-  <a href="https://corona.lmao.ninja/">this API</a>
-  and processed to calculate the average intervals.<br>
-  Individual country visualizations are also available.
-  <a href="https://missing-user.github.io/coronaTimer/">here</a>
-  is the website.<br>
-  <picture>
-    <source type="image/webp" srcset="images/liveCounter.webp"/>
-    <source type="image/png" srcset="images/liveCounter.png"/>
-    <img src="images/liveCounter.png" alt="live counter preview">
-  </picture>
-</p>
-<h3>Corona Map</h3>
-<p>A variation of the live counter project that lights up the individual countries in regular intervals, according to the average time between infections in that country. It's not pretty, but it's functional
-  <a href="https://missing-user.github.io/coronaVizMap/">try it out!</a><br>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Zu dumm für TUM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/darkskelleton.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="modernizr.js"></script>
+  </head>
+  <body class="container">
+    <h1>Zu dumm für TUM präsentiert</h1>
+    <p>Eine Website ohne Sinn und Zweck</p>
+    <hr>
+    <h2>Projects</h2>
 
-  <picture>
-    <source type="image/webp" srcset="images/coronamap.webp"/>
-    <source type="image/png" srcset="images/coronamap.png"/>
-    <img src="images/coronamap.png" alt="corona map preview">
-  </picture>
-</p>
-<h3>Virus simulation</h3>
-<p>Simple virus simulation to show the effects of social distancing, improved hygiene and different attributes of the virus. Just play around with the parameters
-  <a href="https://missing-user.github.io/pandemicSimulator/">here</a><br>
-  <picture>
-    <source type="image/webp" srcset="images/virussim.webp"/>
-    <source type="image/png" srcset="images/virussim.png"/>
-    <img src="images/virussim.png" alt="virus sim preview">
-  </picture>
-</p>
+    <!-- corona live counter -->
+    <div class="row">
+      <div class="column">
+        <h3>Corona Live Counter</h3>
+        <p>A visualization of how often people get infected by corona/recover/die. The data is being fetched from
+          <a href="https://corona.lmao.ninja/">this API</a>
+          and processed to calculate the average intervals.<br>
+          Individual country visualizations are also available.
+          <a href="https://missing-user.github.io/coronaTimer/">here</a>
+          is the website.
+        </p>
+        <div class="u-max-full-width parallax coronatimer"></div>
+      </div>
+    </div>
+    <hr>
 
-<h3>Physics simulation</h3>
-<p>My attempt at implementing a spatial hashing algorithm for 2D physics. Full support for overlap detection of circles, points and axis aligned rectangles. Currently simple repulsion and attraction forces are supported for circles, WIP for more.
-  <a href="https://missing-user.github.io/physicsSim/">try it here</a>
-  <picture>
-    <source type="image/webp" srcset="images/physicssim.webp"/>
-    <source type="image/png" srcset="images/physicssim.png"/>
-    <img src="images/physicssim.png" alt="physics sim preview"/>
-  </picture>
-</p>
-<h3>Tronald Dump API</h3>
-<p>Just messing around with the
-  <a href="https://www.tronalddump.io/">tronald dump API</a>, if you want to see what I came up with
-  <a href="https://missing-user.github.io/API_experiments/">check it out</a>
-</p>
-<h3>Electric fields</h3>
-<p>visualize electric fields of point charges.
-  <a href="https://missing-user.github.io/elektrischeFelder/">here</a>
-</p><br>
-<picture>
-  <source type="image/webp" srcset="images/electric.webp"/>
-  <source type="image/png" srcset="images/electric.png"/>
-  <img src="images/electric.png" alt="electric fields preview"/>
-</picture>
+    <!-- corona map -->
+    <div class="row">
+      <div class="column">
+        <h3>Corona Map</h3>
+        <p>A variation of the live counter project that lights up the individual countries in regular intervals, according to the average time between infections in that country. It's not pretty, but it's functional
+          <a href="https://missing-user.github.io/coronaVizMap/">try it out!</a><br>
+        </p>
+        <div class="u-max-full-width parallax coronamap"></div>
+      </div>
+    </div>
+    <hr>
+
+    <!-- virus simulation -->
+    <div class="row">
+      <div class="column">
+        <h3>Virus simulation</h3>
+        <p>Simple virus simulation to show the effects of social distancing, improved hygiene and different attributes of the virus. Just play around with the parameters
+          <a href="https://missing-user.github.io/pandemicSimulator/">here</a><br>
+
+        </p>
+        <div class="u-max-full-width parallax virussim"></div>
+      </div>
+    </div>
+    <hr>
+
+    <!-- physics simulation -->
+    <div class="row">
+      <div class="column">
+        <h3>Physics simulation</h3>
+        <p>My attempt at implementing a spatial hashing algorithm for 2D physics. Full support for overlap detection of circles, points and axis aligned rectangles. Currently simple repulsion and attraction forces are supported for circles, WIP for more.
+          <a href="https://missing-user.github.io/physicsSim/">try it here</a>
+
+        </p>
+        <div class="u-max-full-width parallax physicssim"></div>
+      </div>
+    </div>
+    <hr>
+
+    <!-- tronald dump -->
+    <div class="row">
+      <div class="column">
+        <h3>Tronald Dump API</h3>
+        <p>Just messing around with the
+          <a href="https://www.tronalddump.io/">tronald dump API</a>, if you want to see what I came up with
+          <a href="https://missing-user.github.io/API_experiments/">check it out</a>
+        </p>
+        <div class="u-max-full-width parallax dump"></div>
+      </div>
+    </div>
+    <hr>
+
+    <!-- electric fields -->
+    <div class="row">
+      <div class="column">
+        <h3>Electric fields</h3>
+        <p>visualize electric fields of point charges.
+          <a href="https://missing-user.github.io/elektrischeFelder/">here</a>
+        </p>
+        <div class="u-max-full-width parallax electric"></div>
+      </div>
+    </div>
+    <hr>
+
+  </body>
+</html>

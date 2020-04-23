@@ -1,0 +1,67 @@
+img {
+  border-radius: 1rem;
+}
+
+.parallax {
+  height: 150rem;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: space;
+  background-size: contain;
+}
+
+.no-webp .coronatimer {
+  background-image: url("../images/liveCounter.png");
+}
+
+.no-webp .virussim {
+  background-image: url("../images/virussim.png");
+}
+
+.no-webp .coronamap {
+  background-image: url("../images/coronamap.png");
+}
+
+.no-webp .dump {
+  background-image: url("../images/dump.png");
+}
+
+.no-webp .electric {
+  background-image: url("../images/electric.png");
+}
+
+.no-webp .physicssim {
+  background-image: url("../images/physicssim.png");
+}
+
+.no-webp .virussim {
+  background-image: url("../images/virussim.png");
+}
+
+.webp .coronatimer {
+  background-image: url("../images/liveCounter.webp");
+}
+
+.webp .virussim {
+  background-image: url("../images/virussim.webp");
+}
+
+.webp .coronamap {
+  background-image: url("../images/coronamap.webp");
+}
+
+.webp .dump {
+  background-image: url("../images/dump.webp");
+}
+
+.webp .electric {
+  background-image: url("../images/electric.webp");
+}
+
+.webp .physicssim {
+  background-image: url("../images/physicssim.webp");
+}
+
+.webp .virussim {
+  background-image: url("../images/virussim.webp");
+}
