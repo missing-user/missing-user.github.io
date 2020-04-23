@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: resize
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -24,6 +24,7 @@ jobs:
     - name: Image Resizer Action
       uses: sharadcodes/img-resizer@v1.1
       with:
+        image-folder: images  
         # New resolution for images
         new-resolution: '750x1200' # default is 420x
         # Folder in which resized images are stored
