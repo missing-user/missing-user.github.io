@@ -3,6 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Zu dumm für TUM</title>
+    <meta name="author" content="Philipp Jurasic">
+
+    <!-- Mobile Specific Metas –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/skeleton.css">
@@ -12,21 +17,21 @@
   </head>
   <body class="container">
     <h1>Zu dumm für TUM präsentiert</h1>
-    <p>Eine Website ohne Sinn und Zweck</p>
+    <p>Eine Website ohne Sinn und Zweck. Ich werde noch eine deutsche Übersetzung machen, hatte nur noch keine Zeit....</p>
     <hr>
     <h2>Projects</h2>
 
     <!-- corona live counter -->
     <div class="row">
-      <div class="column">
+      <div class="twelve columns">
         <h3>Corona Live Counter</h3>
         <p>A visualization of how often people get infected by corona/recover/die. The data is being fetched from
           <a href="https://corona.lmao.ninja/">this API</a>
-          and processed to calculate the average intervals.<br>
-          Individual country visualizations are also available.
-          <a href="https://missing-user.github.io/coronaTimer/">here</a>
-          is the website.
+          and processed to calculate the average intervals. Individual country visualizations are also available.
         </p>
+        <form action="https://missing-user.github.io/coronaTimer/" target="_blank">
+          <button type="submit">check it out</button>
+        </form>
         <div class="u-max-full-width parallax coronatimer"></div>
       </div>
     </div>
@@ -37,8 +42,10 @@
       <div class="column">
         <h3>Corona Map</h3>
         <p>A variation of the live counter project that lights up the individual countries in regular intervals, according to the average time between infections in that country. It's not pretty, but it's functional
-          <a href="https://missing-user.github.io/coronaVizMap/">try it out!</a><br>
         </p>
+        <form action="https://missing-user.github.io/coronaVizMap/" target="_blank">
+          <button type="submit">check it out</button>
+        </form>
         <div class="u-max-full-width parallax coronamap"></div>
       </div>
     </div>
@@ -49,9 +56,10 @@
       <div class="column">
         <h3>Virus simulation</h3>
         <p>Simple virus simulation to show the effects of social distancing, improved hygiene and different attributes of the virus. Just play around with the parameters
-          <a href="https://missing-user.github.io/pandemicSimulator/">here</a><br>
-
         </p>
+        <form action="https://missing-user.github.io/pandemicSimulator/" target="_blank">
+          <button type="submit">check it out</button>
+        </form>
         <div class="u-max-full-width parallax virussim"></div>
       </div>
     </div>
@@ -62,9 +70,10 @@
       <div class="column">
         <h3>Physics simulation</h3>
         <p>My attempt at implementing a spatial hashing algorithm for 2D physics. Full support for overlap detection of circles, points and axis aligned rectangles. Currently simple repulsion and attraction forces are supported for circles, WIP for more.
-          <a href="https://missing-user.github.io/physicsSim/">try it here</a>
-
         </p>
+        <form action="https://missing-user.github.io/physicsSim/" target="_blank">
+          <button type="submit">check it out</button>
+        </form>
         <div class="u-max-full-width parallax physicssim"></div>
       </div>
     </div>
@@ -75,9 +84,11 @@
       <div class="column">
         <h3>Tronald Dump API</h3>
         <p>Just messing around with the
-          <a href="https://www.tronalddump.io/">tronald dump API</a>, if you want to see what I came up with
-          <a href="https://missing-user.github.io/API_experiments/">check it out</a>
+          <a href="https://www.tronalddump.io/">tronald dump API</a>, if you want to see what I came up with, just...
         </p>
+        <form action="https://missing-user.github.io/API_experiments/" target="_blank">
+          <button type="submit">check it out</button>
+        </form>
         <div class="u-max-full-width parallax dump"></div>
       </div>
     </div>
@@ -87,9 +98,12 @@
     <div class="row">
       <div class="column">
         <h3>Electric fields</h3>
-        <p>visualize electric fields of point charges.
-          <a href="https://missing-user.github.io/elektrischeFelder/">here</a>
+        <p>Inspired by the lecture we had, I made a small visualizer that shows how point charges interact with each other, move and most importantly shape the electric field. Click on the green canvas to add charges, modify the parameters, build parcours
+          for them, go nuts! It's not exactly physically accurate, because I'm using discrete time steps, but it gets the job done and looks pretty cool.
         </p>
+        <form action="https://missing-user.github.io/elektrischeFelder/" target="_blank">
+          <button type="submit">check it out</button>
+        </form>
         <div class="u-max-full-width parallax electric"></div>
       </div>
     </div>

@@ -1,12 +1,8 @@
-img {
-  border-radius: 1rem;
-}
-
 .parallax {
-  height: 150rem;
+  height: 100vh;
   background-attachment: fixed;
   background-position: center;
-  background-repeat: space;
+  background-repeat: no-repeat;
   background-size: contain;
 }
 
