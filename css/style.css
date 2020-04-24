@@ -16,3 +16,13 @@ img {
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+.lightText {
+  color: #FFF;
+}
+
+@media (prefers-color-scheme: dark) {
+  .lightText {
+    color: #eeeeec;
+  }
+}
