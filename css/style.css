@@ -6,7 +6,8 @@
 }
 
 img {
-  border-radius: 1.6rem;
+  border-radius: .5rem;
+  /* same as button corners */
 }
 
 .parallax {
