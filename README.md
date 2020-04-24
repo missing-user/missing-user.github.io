@@ -1,5 +1,6 @@
-# Witty title
-Right now this is just a placeholder, I will update it over time and make proper custom themes etc.
+# Project Overview page
+I'm bot uodating the readme as often as the website, so some projects might not be on here yet....
+Anyway, just check out [the website](https://missing-user.github.io) and you'll be up to date.
 
 
 
