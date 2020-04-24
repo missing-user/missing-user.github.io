@@ -1,71 +1,18 @@
+.profile {
+  background: #028cb3;
+  background: linear-gradient(0, #028cb3 0%, #6ac6b4 100%);
+  /*height: 100vh;*/
+  padding: 5rem 0 0 0;
+}
+
+img {
+  border-radius: 1.6rem;
+}
+
 .parallax {
   height: 100vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-}
-
-.no-webp .coronatimer {
-  background-image: url("../images/liveCounter.png");
-}
-
-.no-webp .virussim {
-  background-image: url("../images/virussim.png");
-}
-
-.no-webp .coronamap {
-  background-image: url("../images/coronamap.png");
-}
-
-.no-webp .dump {
-  background-image: url("../images/dump.png");
-}
-
-.no-webp .electric {
-  background-image: url("../images/electric.png");
-}
-
-.no-webp .physicssim {
-  background-image: url("../images/physicssim.png");
-}
-
-.no-webp .virussim {
-  background-image: url("../images/virussim.png");
-}
-
-.no-webp .frust {
-  background-image: url("../images/frust.png");
-}
-
-.webp .frust {
-  background-image: url("../images/frust.webp");
-}
-
-.webp .coronatimer {
-  background-image: url("../images/liveCounter.webp");
-}
-
-.webp .virussim {
-  background-image: url("../images/virussim.webp");
-}
-
-.webp .coronamap {
-  background-image: url("../images/coronamap.webp");
-}
-
-.webp .dump {
-  background-image: url("../images/dump.webp");
-}
-
-.webp .electric {
-  background-image: url("../images/electric.webp");
-}
-
-.webp .physicssim {
-  background-image: url("../images/physicssim.webp");
-}
-
-.webp .virussim {
-  background-image: url("../images/virussim.webp");
 }
