@@ -129,7 +129,8 @@
       <div class="row">
         <div class="one-half column">
           <h5>Physics simulation</h5>
-          <p>My attempt at implementing a spatial hashing algorithm for 2D physics. Full support for overlap detection of circles, points and axis aligned rectangles. Currently simple repulsion and attraction forces are supported for circles, WIP for more.
+          <p>My attempt at implementing a spatial hashing algorithm for 2D physics. The algorithms uses circles, points and axis aligned rectangles as primitives and detects overlaps efficiently. Currently only simple spring repulsion and attraction forces are
+            supported for the primitives. The solver is a semi implicit Euler implementation, I'll try to implement somthing more stable over time.
           </p>
           <form action="https://missing-user.github.io/physicsSim/" target="_blank">
             <button type="submit">check it out</button>
@@ -185,6 +186,29 @@
           </picture>
         </div>
       </div><hr>
+
+      <!-- solar system -->
+      <div class="row">
+        <div class="one-half column">
+          <h5>Solar system orbits</h5>
+          <p>Physics kind of got to my head, so here's an attempt at simulating planetary orbits in our solar system. Since stability is key for such a simulation, this uses a Runge Kutta fourth order algorithm (RK4) to solve the differential equations. This
+            is a very early stage, but if you're curious, check it out.
+          </p>
+          <form action="https://missing-user.github.io/solarSystem/" target="_blank">
+            <button type="submit">check it out</button>
+          </form>
+        </div>
+        <div class="one-half column">
+          <picture>
+            <source type="image/webp" srcset="images/physicssim.webp" media="(prefers-color-scheme: dark)"/>
+            <source type="image/png" srcset="images/physicssim.png" media="(prefers-color-scheme: dark)"/>
+            <source type="image/webp" srcset="images/physicssim-light.webp"/>
+            <source type="image/png" srcset="images/physicssim-light.png"/>
+            <img class="u-full-width" src="images/physicssim-light.png" alt="solar system preview"/>
+          </picture>
+        </div>
+      </div><hr>
+
       <div class="row" style="padding-top: 5rem;">
         <div class="column">
           <footer>Well that was unexpected, you actually made it all the way to the bottom... Here, have a cookie 🍪</footer>
