@@ -147,26 +147,6 @@
         </div>
       </div><hr>
 
-      <!-- tronald dump -->
-      <div class="row">
-        <div class="one-half column">
-          <h5>Tronald Dump API</h5>
-          <p>Just messing around with the
-            <a href="https://www.tronalddump.io/">tronald dump API</a>, if you want to see what I came up with, just...
-          </p>
-          <form action="https://missing-user.github.io/API_experiments/" target="_blank">
-            <button type="submit">check it out</button>
-          </form>
-        </div>
-        <div class="one-half column">
-          <picture>
-            <source type="image/webp" srcset="images/dump.webp"/>
-            <source type="image/png" srcset="images/dump.png"/>
-            <img class="u-full-width" src="images/dump.png" alt="tronald dump preview"/>
-          </picture>
-        </div>
-      </div><hr>
-
       <!-- electric fields -->
       <div class="row">
         <div class="one-half column">
@@ -191,8 +171,11 @@
       <div class="row">
         <div class="one-half column">
           <h5>Solar system orbits</h5>
-          <p>Physics kind of got to my head, so here's an attempt at simulating planetary orbits in our solar system. Since stability is key for such a simulation, this uses a Runge Kutta fourth order algorithm (RK4) to solve the differential equations. This
-            is a very early stage, but if you're curious, check it out.
+          <p>Here's an attempt at simulating planetary orbits in our solar system. Since stability is key for such a simulation, this uses a
+            <a href="https://wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runge Kutta fourth order algorithm (RK4)</a>
+            to solve the differential equations. You can increase planetarymass by selecting the planets and using the = key or - key to decrease it. Planet textures by
+            <a href="http://planetpixelemporium.com/planets.html">planetpixelemporium</a>, the WEBGL library is
+            <a href="https://threejs.org/">three.js</a>.
           </p>
           <form action="https://missing-user.github.io/solarSystem/" target="_blank">
             <button type="submit">check it out</button>
@@ -200,6 +183,7 @@
         </div>
         <div class="one-half column">
           <picture>
+            <source type="image/webp" srcset="images/solarSystem.webp"/>
             <source type="image/png" srcset="images/solarSystem.png"/>
             <img class="u-full-width" src="images/solarSystem.png" alt="solar system preview"/>
           </picture>
