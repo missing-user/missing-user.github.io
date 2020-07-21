@@ -5,17 +5,46 @@
   padding: 5rem 0 0 0;
 }
 
+.prpic {
+  width: 100%;
+  vertical-align: top;
+  image-rendering: pixelated;
+}
+
+.microcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+  image-rendering: pixelated;
+}
+
+.microcon:hover {
+  animation: bounce 0.8s;
+}
+
+@keyframes bounce {
+  0%, 20%, 60%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  80% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+}
+
 img {
   border-radius: .5rem;
   /* same as button corners */
-}
-
-.parallax {
-  height: 100vh;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 
 .lightText {
