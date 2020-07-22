@@ -50,6 +50,95 @@
         </div>
       </div>
 
+
+      <!-- led matrix -->
+      <div class="row">
+        <div class="one-half column">
+          <h5>LED Matrix preview page</h5>
+          <p>A startup idea I'm currently working on. Music reactive LED matrices, that don't just react to music, but rather build intricate custom lightshows to any song you want. The main project is being written in python on a private GitLab repo, but i
+            ported an old version of the code to JavaScript for testing using
+            <a href="https://www.transcrypt.org/">Transcrypt</a>.
+            <br>Go to the website, log into Spotify and play a song to see what it can do!
+          </p>
+          <form action="https://missing-user.github.io/led_matrix/" target="_blank">
+            <button type="submit">check it out</button>
+          </form>
+        </div>
+        <div class="one-half column">
+          <picture>
+            <source type="image/webp" srcset="images/ledMatrix.webp"/>
+            <source type="image/png" srcset="images/ledMatrix.png"/>
+            <img class="u-full-width" src="images/ledMatrix.png" alt="led matrix preview"/>
+          </picture>
+        </div>
+      </div><hr>
+	  
+	  
+      <!-- physics simulation -->
+      <div class="row">
+        <div class="one-half column">
+          <h5>Physics simulation</h5>
+          <p>My attempt at implementing a spatial hashing algorithm for 2D physics. The algorithms uses circles, points and axis aligned rectangles as primitives and detects overlaps efficiently. Currently only simple spring repulsion and attraction forces are
+            supported for the primitives. The solver is a semi implicit Euler implementation, I'll try to implement somthing more stable over time.
+          </p>
+          <form action="https://missing-user.github.io/physicsSim/" target="_blank">
+            <button type="submit">check it out</button>
+          </form>
+        </div>
+        <div class="one-half column">
+          <picture>
+            <source type="image/webp" srcset="images/physicssim.webp" media="(prefers-color-scheme: dark)"/>
+            <source type="image/png" srcset="images/physicssim.png" media="(prefers-color-scheme: dark)"/>
+            <source type="image/webp" srcset="images/physicssim-light.webp"/>
+            <source type="image/png" srcset="images/physicssim-light.png"/>
+            <img class="u-full-width" src="images/physicssim-light.png" alt="physics sim preview"/>
+          </picture>
+        </div>
+      </div><hr>
+
+      <!-- electric fields -->
+      <div class="row">
+        <div class="one-half column">
+          <h5>Electric fields</h5>
+          <p>Inspired by the lecture we had, I made a small visualizer that shows how point charges interact with each other, move and most importantly shape the electric field. Click on the green canvas to add charges, modify the parameters, build parcours
+            for them, go nuts! It's not exactly physically accurate, because I'm using discrete time steps, but it gets the job done and looks pretty cool. Could be improved by using the same Method as the solar system simulation.
+          </p>
+          <form action="https://missing-user.github.io/elektrischeFelder/" target="_blank">
+            <button type="submit">check it out</button>
+          </form>
+        </div>
+        <div class="one-half column">
+          <picture>
+            <source type="image/webp" srcset="images/electric.webp"/>
+            <source type="image/png" srcset="images/electric.png"/>
+            <img class="u-full-width" src="images/electric.png" alt="electric fields preview"/>
+          </picture>
+        </div>
+      </div><hr>
+
+      <!-- solar system -->
+      <div class="row">
+        <div class="one-half column">
+          <h5>Solar system orbits</h5>
+          <p>Here's an attempt at simulating planetary orbits in our solar system. Since stability is key for such a simulation, this uses a
+            <a href="https://wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runge Kutta fourth order algorithm (RK4)</a>
+            to solve the differential equations. You can increase planetarymass by selecting the planets and using the = key or - key to decrease it. Planet textures by
+            <a href="http://planetpixelemporium.com/planets.html">planetpixelemporium</a>, the WEBGL library is
+            <a href="https://threejs.org/">three.js</a>.
+          </p>
+          <form action="https://missing-user.github.io/solarSystem/" target="_blank">
+            <button type="submit">check it out</button>
+          </form>
+        </div>
+        <div class="one-half column">
+          <picture>
+            <source type="image/webp" srcset="images/solarSystem.webp"/>
+            <source type="image/png" srcset="images/solarSystem.png"/>
+            <img class="u-full-width" src="images/solarSystem.png" alt="solar system preview"/>
+          </picture>
+        </div>
+      </div><hr>
+	  
       <!-- corona live counter -->
       <div class="row">
         <div class="one-half column">
@@ -132,92 +221,6 @@
         </div>
       </div><hr>
 
-      <!-- physics simulation -->
-      <div class="row">
-        <div class="one-half column">
-          <h5>Physics simulation</h5>
-          <p>My attempt at implementing a spatial hashing algorithm for 2D physics. The algorithms uses circles, points and axis aligned rectangles as primitives and detects overlaps efficiently. Currently only simple spring repulsion and attraction forces are
-            supported for the primitives. The solver is a semi implicit Euler implementation, I'll try to implement somthing more stable over time.
-          </p>
-          <form action="https://missing-user.github.io/physicsSim/" target="_blank">
-            <button type="submit">check it out</button>
-          </form>
-        </div>
-        <div class="one-half column">
-          <picture>
-            <source type="image/webp" srcset="images/physicssim.webp" media="(prefers-color-scheme: dark)"/>
-            <source type="image/png" srcset="images/physicssim.png" media="(prefers-color-scheme: dark)"/>
-            <source type="image/webp" srcset="images/physicssim-light.webp"/>
-            <source type="image/png" srcset="images/physicssim-light.png"/>
-            <img class="u-full-width" src="images/physicssim-light.png" alt="physics sim preview"/>
-          </picture>
-        </div>
-      </div><hr>
-
-      <!-- electric fields -->
-      <div class="row">
-        <div class="one-half column">
-          <h5>Electric fields</h5>
-          <p>Inspired by the lecture we had, I made a small visualizer that shows how point charges interact with each other, move and most importantly shape the electric field. Click on the green canvas to add charges, modify the parameters, build parcours
-            for them, go nuts! It's not exactly physically accurate, because I'm using discrete time steps, but it gets the job done and looks pretty cool. Could be improved by using the same Method as the solar system simulation.
-          </p>
-          <form action="https://missing-user.github.io/elektrischeFelder/" target="_blank">
-            <button type="submit">check it out</button>
-          </form>
-        </div>
-        <div class="one-half column">
-          <picture>
-            <source type="image/webp" srcset="images/electric.webp"/>
-            <source type="image/png" srcset="images/electric.png"/>
-            <img class="u-full-width" src="images/electric.png" alt="electric fields preview"/>
-          </picture>
-        </div>
-      </div><hr>
-
-      <!-- solar system -->
-      <div class="row">
-        <div class="one-half column">
-          <h5>Solar system orbits</h5>
-          <p>Here's an attempt at simulating planetary orbits in our solar system. Since stability is key for such a simulation, this uses a
-            <a href="https://wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runge Kutta fourth order algorithm (RK4)</a>
-            to solve the differential equations. You can increase planetarymass by selecting the planets and using the = key or - key to decrease it. Planet textures by
-            <a href="http://planetpixelemporium.com/planets.html">planetpixelemporium</a>, the WEBGL library is
-            <a href="https://threejs.org/">three.js</a>.
-          </p>
-          <form action="https://missing-user.github.io/solarSystem/" target="_blank">
-            <button type="submit">check it out</button>
-          </form>
-        </div>
-        <div class="one-half column">
-          <picture>
-            <source type="image/webp" srcset="images/solarSystem.webp"/>
-            <source type="image/png" srcset="images/solarSystem.png"/>
-            <img class="u-full-width" src="images/solarSystem.png" alt="solar system preview"/>
-          </picture>
-        </div>
-      </div><hr>
-
-      <!-- led matrix -->
-      <div class="row">
-        <div class="one-half column">
-          <h5>LED Matrix preview page</h5>
-          <p>A startup idea I'm currently working on. Music reactive LED matrices, that don't just react to music, but rather build intricate custom lightshows to any song you want. The main project is being written in python on a private GitLab repo, but i
-            ported an old version of the code to JavaScript for testing using
-            <a href="https://www.transcrypt.org/">Transcrypt</a>.
-            <br>Go to the website, log into Spotify and play a song to see what it can do!
-          </p>
-          <form action="https://missing-user.github.io/led_matrix/" target="_blank">
-            <button type="submit">check it out</button>
-          </form>
-        </div>
-        <div class="one-half column">
-          <picture>
-            <source type="image/webp" srcset="images/ledMatrix.webp"/>
-            <source type="image/png" srcset="images/ledMatrix.png"/>
-            <img class="u-full-width" src="images/ledMatrix.png" alt="led matrix preview"/>
-          </picture>
-        </div>
-      </div><hr>
 
       <div class="row" style="padding-top: 5rem;">
         <div class="column">
