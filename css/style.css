@@ -42,9 +42,23 @@
   }
 }
 
-img {
+picture {
+  display: block;
+  line-height: 0;
+}
+
+.img_cont {
   border-radius: .5rem;
-  /* same as button corners */
+  overflow: hidden;
+}
+
+.img-hover-zoom {
+  transition: transform .25s ease;
+}
+
+/* The Transformation */
+.img-hover-zoom:hover {
+  transform: scale(1.5);
 }
 
 .lightText {
