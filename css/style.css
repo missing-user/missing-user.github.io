@@ -65,6 +65,20 @@ picture {
   color: #FFF;
 }
 
+hr {
+  visibility: hidden;
+  padding-top: 2rem;
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 550px) {
+  hr {
+    visibility: visible;
+    padding-top: 3rem;
+    padding-bottom: 20rem;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   .lightText {
     color: #eeeeec;
