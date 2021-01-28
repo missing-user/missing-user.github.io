@@ -76,10 +76,17 @@
       'I love HTML <br>',
       'Is this real life?',
       '<div>How to annoy programmers</SPAN>',
-      'Is 2020 over yet?',
+      'Maybe 2021 will be better',
       'Never gonna give you up',
       'Never gonna let you down',
-      'Is is friday yet?'];
+      'Is it friday yet?',
+      "The cake wasn't a lie after all!",
+      'r/notLikeOtherWebsites',
+      'What are you doing here?',
+      'Sleep is cool, but have you tried coffee?',
+      "Nobody expects the spanish inquisition!",
+      "My name is Inigo Montoya, prepare to die"
+    ];
 
     function typeWriter() {
       if (i < txt[thoughtIndex].length) {
@@ -88,6 +95,13 @@
         setTimeout(typeWriter, 50);
       } else {
         setTimeout(resetThoughts, 1000);
+      }
+    }
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
       }
     }
 
@@ -103,7 +117,7 @@
         typeWriter()
       }
     }
-
+    shuffleArray(txt)
     typeWriter()
   </script>
 
