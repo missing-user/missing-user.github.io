@@ -71,6 +71,10 @@ hr {
   padding-bottom: 6rem;
 }
 
+p{
+  text-align: justify;
+}
+
 @media (min-width: 550px) {
   hr {
     visibility: visible;

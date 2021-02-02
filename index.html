@@ -15,7 +15,7 @@
   </script>
 
   <meta charset="utf-8">
-  <title>Philipps Safe Space</title>
+  <title>Philipps Portfolio</title>
   <meta name="author" content="Philipp Jurasic">
   <meta name="description" content="A bunch of projects by a struggling physics student
   ">
@@ -37,7 +37,7 @@
     <div class="container">
       <div class="row">
         <div class="two-thirds column" style="padding-top: 5rem;">
-          <h1 class="lightText">Philipps Safe Space</h1>
+          <h1 class="lightText">Philipp Jurašić</h1>
           <h4 id="thoughts" class="lightText">&#8203;</h4>
           <form action="https://github.com/missing-user" target="_blank">
             <button class="lightText" type="submit">follow me on github</button>
@@ -86,10 +86,10 @@
       'Sleep is cool, but have you tried coffee?',
       "Nobody expects the spanish inquisition!",
       "My name is Inigo Montoya, prepare to die",
-	  "404, Status not found",
-	  "sin(x) = tan(x) = x",
-	  "Integration is hard...",
-	  "have you tried turning it off and on again?"
+      "404, Status not found",
+      "sin(x) = tan(x) = x",
+      "Integration is hard...",
+      "have you tried turning it off and on again?"
     ];
 
     function typeWriter() {
@@ -130,9 +130,11 @@
       <div class="column">
         <h2>Overview</h2>
         <p>
-          I'm Philipp, a physics student from Munich, who likes building stuff. This site is mainly a collection of
-          interactive demos I built and maybe a personal blogpost every now and then. The code for most of the projects
-          is available on
+          My name is Philipp Jurašić, a physics student from Munich. Outside of university I love building electronics
+          projects, websites and interactive simulations. Here's a selection of my recent projects to play around with,
+          most of them are written in plain JS without any additional libraries or frameworks.
+          <br><br>
+          The code for all of the demos is available on
           <a href="https://github.com/missing-user">my GitHub page.</a> <br>
         </p>
       </div>
@@ -142,8 +144,8 @@
     <div class="row">
       <div class="one-half column">
         <h4>Square Lights</h4>
-        <p>For the past few months I've been working hard to build this company. We are producing music reactive LED
-          Panels, so if that sounds like something you're interested in, please check us out!</p>
+        <p>For the past year my colleague and I've been working hard to build this company. We are producing music
+          reactive LED Panels, so if that sounds like something you're interested in, please check us out!</p>
         <div class="row">
           <div class="one-half column">
             <form action="https://square-lights.com/?utm_source=zudummfuertum" target="_blank"
@@ -171,9 +173,8 @@
       <div class="one-half column">
         <h4>Optics</h4>
         <p>Exams are coming up, so I decided to code up a simulation for optical systems. It supports lenses and
-          some basic mirrors. <br>
-          All the rays are calculated according to the thin lens approximation and therefore get quite inaccurate for
-          rays, that are distant from the optical axis.
+          some basic mirrors. All the rays are calculated according to the thin lens approximation and therefore get
+          quite inaccurate for rays, that are distant from the optical axis.
         </p>
         <div class="row">
           <div class="one-half column">
@@ -277,8 +278,9 @@
     <!-- marching squares -->
     <div class="row">
       <div class="one-half column">
-        <h4>Marching sqares</h4>
-        <p>An implementation of the marching squares algorithm with interpolation.
+        <h4>Marching squares</h4>
+        <p>Marching squares is an algorithm to create boundaries around a point cloud. I use it to create these merging
+          blobs, by implementing the algorithm with some linear interpolation.
         </p>
         <div class="row">
           <div class="one-half column">
@@ -313,8 +315,10 @@
       <div class="one-half column">
         <h4>Physics simulation</h4>
         <p>My attempt at implementing a spatial hashing algorithm for 2D physics. The algorithms uses circles, points
-          and axis aligned rectangles as primitives and detects overlaps efficiently. Currently only simple spring forces are 
-		  supported for the primitives. The solver is a semi implicit Euler implementation, so energy isn't perfectly conserved due to rounding errors
+          and axis aligned rectangles as primitives and detects overlaps efficiently. Currently only simple spring
+          forces are
+          supported for the primitives. The solver is a semi implicit Euler implementation, so energy isn't perfectly
+          conserved due to rounding errors
         </p>
         <div class="row">
           <div class="one-half column">
