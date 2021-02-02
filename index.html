@@ -72,7 +72,7 @@
       "Golang is awesome",
       'Maybe next semester will be easier 🤡',
       "It's muffin time",
-      'Should have studied linguistics...',
+      'Should have studied game design...',
       'I love HTML <br>',
       'Is this real life?',
       '<div>How to annoy programmers</SPAN>',
@@ -85,7 +85,11 @@
       'What are you doing here?',
       'Sleep is cool, but have you tried coffee?',
       "Nobody expects the spanish inquisition!",
-      "My name is Inigo Montoya, prepare to die"
+      "My name is Inigo Montoya, prepare to die",
+	  "404, Status not found",
+	  "sin(x) = tan(x) = x",
+	  "Integration is hard...",
+	  "have you tried turning it off and on again?"
     ];
 
     function typeWriter() {
@@ -94,7 +98,7 @@
         i++;
         setTimeout(typeWriter, 50);
       } else {
-        setTimeout(resetThoughts, 1000);
+        setTimeout(resetThoughts, 1200);
       }
     }
 
@@ -309,10 +313,8 @@
       <div class="one-half column">
         <h4>Physics simulation</h4>
         <p>My attempt at implementing a spatial hashing algorithm for 2D physics. The algorithms uses circles, points
-          and axis aligned rectangles as primitives and detects overlaps efficiently. Currently only simple spring
-          repulsion and attraction forces are
-          supported for the primitives. The solver is a semi implicit Euler implementation, I'll try to implement
-          somthing more stable over time.
+          and axis aligned rectangles as primitives and detects overlaps efficiently. Currently only simple spring forces are 
+		  supported for the primitives. The solver is a semi implicit Euler implementation, so energy isn't perfectly conserved due to rounding errors
         </p>
         <div class="row">
           <div class="one-half column">
