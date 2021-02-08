@@ -17,26 +17,25 @@
   <meta charset="utf-8">
   <title>Philipps Portfolio</title>
   <meta name="author" content="Philipp Jurasic">
-  <meta name="description" content="A bunch of projects by a struggling physics student
-  ">
-
+  <meta name="description" content="A bunch of projects by a struggling physics student">
+  <link rel="amphtml" href="index.amp.html">
   <link rel="icon" type="image/png" href="images/favicon.png">
   <!-- Mobile Specific Metas –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=auto">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/darkskelleton.css" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="css/style.css">
-  <script type="text/javascript" src="modernizr.js"></script>
+  <!--<script type="text/javascript" src="modernizr.js"></script>-->
 </head>
 
 <body>
   <div class="profile">
     <div class="container">
       <div class="row">
-        <div class="two-thirds column" style="padding-top: 5rem;">
+        <div class="two-thirds column">
           <h1 class="lightText">Philipp Jurašić</h1>
           <h4 id="thoughts" class="lightText">&#8203;</h4>
           <form action="https://github.com/missing-user" target="_blank">
@@ -45,16 +44,10 @@
         </div>
         <div class="one-third column">
           <div class="u-full-width" style="position: relative;">
-            <picture>
-              <source type="image/png" srcset="images/prpic.png" />
-              <img class="prpic" src="images/prpic.png" alt="profile picture" />
-            </picture>
-            <picture>
-              <source type="image/png" srcset="images/microCon.png" />
-              <img class="microcon" src="images/microCon.png" alt="microcontroller in hand picture" />
-            </picture>
+            <img class="prpic u-full-width"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAb1BMVEUAAABAbY0xY40rYI0gW404Z40VVo0mXY0GU44AAAD/2qygGRncqZi1HhuKExaCXEiXdlH/6714DxT/5MLAhof/4rRxSUBJQU3lwLRWVV6bOkK8nl2ioqC0S0vKrWGHLjvPJR7/8M+yk1mCfW3ZblrndbZ1AAAACXRSTlMAmZmZmZmZmZnEXjKcAAACvUlEQVRYw+2W63aaQBhFIxr1xOlA8JLGW2za93/GntNvYOQyjjar/7pZtBBmb74Q4srTf/4ZkwkgvqCWOwH8hV6W2oUlHtZL7lVVtQ08okuFdCtAqIC7fJnmHz7N32nTs5zgHr86H+izof+pA7sSrHBXIO9L4/dwOJ95QJFmCW0VcMgV6BMEnwE4516IBuFeITuA7ir/YPPLDoB+mQnoAdqP77Pq+sKhzA+wM19647+KUNBjzAcqyN4BLuhtAiVuBp6foUcO2tIbPwYc/UwAoA+YTlrbyAbsldtsqI/icoFxHQEeZgNCfnRAvv8BJBsosXHoOM45rMUPHWYD9F9cx+HcOnlbr8HDuwIkOnZC7gvQd11H2DxwjwSis93qDNCxArlCCERny0ILituBorARIvJjQQNkC93A1kgNkB9hG+gMkC+4fsF0GyBfGDyHRk/6+QR6ej7Ro+jo15dHA9OpfqeJvRDFtOhdx9u78TMdMFufRVozCBzfj8cjC+lA+4k2HmhAwmfAfAWAQSAyGkANXAXqGv07HNttdAAqvinoKXqPwZr0/ReAAisbQv5l5SHiEuou8XwWC9o1GLhcAGc+A54AzRpdkM/AQKdLKKyUcA48WGFF9OXoh+kGvnQtBqTxfYKH+USFGHCsL0b8ZjHguW2ggmGF2YxzSQd6vi6Zb9BXwPxvxAoK6P48mA38uvFtOYFv9FCIASrJQBTgw2kcwQKYpf1oKIB4JkLgFU/ZgGAgznNvQCQDPh2Yzy1AZzRgFxiYfyHgfV1nAx76NwagEwvU1HEzoBdZAWFSe6LRyOn0C+kAUBM6kasTj4/9ab/fw96Doa/rELVPBT5oY54OsEDSAbJxDIy/ycslgD1hIFrwiAH7A5B+IsAFIHqWIxN433xW3wg4oYAfCdTQguAnArpsAd8PeAa0IoBl1/4NhZtnQFJuqhcAAAAASUVORK5CYII="
+              alt="profile picture" />
           </div>
-
         </div>
       </div>
     </div>
@@ -157,11 +150,12 @@
       </div>
 
       <div class="one-half column img_cont">
-        <a href="https://square-lights.com/?utm_source=zudummfuertum">
+        <a href="https://square-lights.com/?utm_source=jurasicPark.de">
           <picture>
             <source type="image/webp" srcset="images/coolGradient.webp" />
             <source type="image/png" srcset="images/coolGradient.jpg" />
-            <img class="u-full-width img-hover-zoom" src="images/coolGradient.jpg" alt="square lights banner" />
+            <img loading="lazy" class="u-full-width img-hover-zoom" src="images/coolGradient.jpg"
+              alt="square lights banner" />
           </picture>
         </a>
       </div>
@@ -197,7 +191,8 @@
             <source type="image/png" srcset="images/optics.png" media="(prefers-color-scheme: dark)" />
             <source type="image/webp" srcset="images/optics_light.webp" />
             <source type="image/png" srcset="images/optics_light.png" />
-            <img class="u-full-width img-hover-zoom" src="images/optics_light.png" alt="optics simulator preview" />
+            <img loading="lazy" class="u-full-width img-hover-zoom" src="images/optics_light.png"
+              alt="optics simulator preview" />
           </picture>
         </a>
       </div>
@@ -229,7 +224,8 @@
           <picture>
             <source type="image/webp" srcset="images/units.webp" />
             <source type="image/png" srcset="images/units.jpg" />
-            <img class="u-full-width img-hover-zoom" src="images/units.jpg" alt="units converter preview" />
+            <img loading="lazy" class="u-full-width img-hover-zoom" src="images/units.jpg"
+              alt="units converter preview" />
           </picture>
         </a>
       </div>
@@ -267,7 +263,7 @@
           <picture>
             <source type="image/webp" srcset="images/ledMatrix.webp" />
             <source type="image/png" srcset="images/ledMatrix.png" />
-            <img class="u-full-width img-hover-zoom" src="images/ledMatrix.png" alt="led matrix preview" />
+            <img loading="lazy"  class="u-full-width img-hover-zoom" src="images/ledMatrix.png" alt="led matrix preview" />
           </picture>
         </a>
       </div>
@@ -303,7 +299,7 @@
             <source type="image/png" srcset="images/marching_squares_dark.png" media="(prefers-color-scheme: dark)" />
             <source type="image/webp" srcset="images/marching_squares_light.webp" />
             <source type="image/png" srcset="images/marching_squares_light.png" />
-            <img class="u-full-width img-hover-zoom" src="images/marching_squares_light.png"
+            <img loading="lazy" class="u-full-width img-hover-zoom" src="images/marching_squares_light.png"
               alt="marching squares preview" />
           </picture>
         </a>
@@ -340,7 +336,8 @@
             <source type="image/png" srcset="images/physicssim.png" media="(prefers-color-scheme: dark)" />
             <source type="image/webp" srcset="images/physicssim-light.webp" />
             <source type="image/png" srcset="images/physicssim-light.png" />
-            <img class="u-full-width img-hover-zoom" src="images/physicssim-light.png" alt="physics sim preview" />
+            <img loading="lazy" class="u-full-width img-hover-zoom" src="images/physicssim-light.png"
+              alt="physics sim preview" />
           </picture>
         </a>
       </div>
@@ -376,7 +373,8 @@
           <picture>
             <source type="image/webp" srcset="images/electric.webp" />
             <source type="image/png" srcset="images/electric.png" />
-            <img class="u-full-width img-hover-zoom" src="images/electric.png" alt="electric fields preview" />
+            <img loading="lazy" class="u-full-width img-hover-zoom" src="images/electric.png"
+              alt="electric fields preview" />
           </picture>
         </a>
       </div>
@@ -413,7 +411,8 @@
           <picture>
             <source type="image/webp" srcset="images/solarSystem.webp" />
             <source type="image/png" srcset="images/solarSystem.png" />
-            <img class="u-full-width img-hover-zoom" src="images/solarSystem.png" alt="solar system preview" />
+            <img loading="lazy" class="u-full-width img-hover-zoom" src="images/solarSystem.png"
+              alt="solar system preview" />
           </picture>
         </a>
       </div>
@@ -448,7 +447,8 @@
           <picture>
             <source type="image/webp" srcset="images/liveCounter.webp" />
             <source type="image/png" srcset="images/liveCounter.png" />
-            <img class="u-full-width img-hover-zoom" src="images/liveCounter.png" alt="live counter preview">
+            <img loading="lazy" class="u-full-width img-hover-zoom" src="images/liveCounter.png"
+              alt="live counter preview">
           </picture>
         </a>
       </div>
@@ -480,7 +480,7 @@
           <picture>
             <source type="image/webp" srcset="images/coronamap.webp" />
             <source type="image/png" srcset="images/coronamap.png" />
-            <img class="u-full-width img-hover-zoom" src="images/coronamap.png" alt="corona map preview">
+            <img loading="lazy" class="u-full-width img-hover-zoom" src="images/coronamap.png" alt="corona map preview">
           </picture>
         </a>
       </div>
@@ -515,7 +515,7 @@
         <a href="https://missing-user.github.io/pandemicSimulator/">
           <picture>
             <source type="image/png" srcset="images/virussim.png" />
-            <img class="u-full-width img-hover-zoom" src="images/virussim.png" alt="virus sim preview">
+            <img loading="lazy" class="u-full-width img-hover-zoom" src="images/virussim.png" alt="virus sim preview">
           </picture>
         </a>
       </div>
@@ -550,7 +550,8 @@
             <source type="image/png" srcset="images/frust.png" media="(prefers-color-scheme: dark)" />
             <source type="image/webp" srcset="images/frust-light.webp" />
             <source type="image/png" srcset="images/frust-light.png" />
-            <img class="u-full-width img-hover-zoom" src="images/frust-light.png" alt="frust app preview" />
+            <img loading="lazy" class="u-full-width img-hover-zoom" src="images/frust-light.png"
+              alt="frust app preview" />
           </picture>
         </a>
       </div>
