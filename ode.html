@@ -30,9 +30,8 @@
     aproximate solutions.</p>
   <h3>Euler integration</h3>
   <p>
-    The simplest method of numerical integration. At each timestep we calculate the current derivative, multiply it by
-    the
-    timestep to get the change in y direction and add it to the previous y value to get the next state.
+    The simplest method for numerical integration. At each timestep we calculate the current derivative, multiply it by
+    the timestep to get the change in y direction and add it to the previous y value to get the next state.
     <!-- y_{n+1} = y_n + h \cdot f(t,y_n) -->
     <br>
     <br>
@@ -51,9 +50,10 @@
   longer
   running simulations.</p>
   <h3>Midpoint method</h3>
-  <p>The midpoint method improves uppon the Euler method, by introducing an intermediate point, where the ODE get's
-    evaluated. The y value of this point is determined through a regular euler iteration. Using this, the Order of the
-    error decreases to O(h&sup3;) per step and O(h&sup2;) for the total solution.
+  <p>The <a href="https://en.wikipedia.org/wiki/Midpoint_method">midpoint method</a> improves uppon the Euler method, by
+    introducing an intermediate point, where the ODE get's evaluated. The y value of this point is determined through a
+    regular euler iteration. Using this, the Order of the error decreases to O(h&sup3;) per step and O(h&sup2;) for the
+    total solution.
 
     <br>
     <br>
@@ -64,10 +64,11 @@
     realtime applications, this is often a good balance between accuracy and performance.
   </p>
   <h3>Runge Kutta 4th Order </h3>
-  <p>The Runge Kutta family of methods takes the concept further, by introducing n evaluations, each more accurate than
-    the previous one, to compute the step. For the vast majority of applications, the fourth order method, also called
-    the standard Runge Kutta Method or RK4, is accurate enough. Even at large step sizes it retains a high stability,
-    since the error per step only scales with O(h^5)
+  <p>The <a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runge Kutta family</a> of methods takes the
+    concept further, by introducing n evaluations, each more accurate than the previous one, to compute the step. For
+    the vast majority of applications, the fourth order method, also called the standard Runge Kutta Method or RK4, is
+    accurate enough. Even at large step sizes it retains a high stability, since the error per step only scales with
+    O(h^5)
     <br>
     A simple JS implementation for the rk4 method is
   <pre><code contenteditable>for (let i = 0; i &lt; resolution; i++) {
@@ -92,14 +93,15 @@ return {
   <h2>Moving to higher orders</h2>
   <p>Until now, we have only looked at solving first order differential equations. To solve higher order ODEs like
     the <a href="https://en.wikipedia.org/wiki/Electromagnetic_wave_equation">wave equation</a> we first have to turn
-    them into several first order ODEs, by writing each derivative as vector entry.
+    it into a system of first order ODEs.
 
-    <br>
-    The demo below implements all three methods with support for ODEs of arbitrary orders. To view the code, either just
+  </p>
+  <hr>
+  <p>The demo below implements all three methods with support for ODEs of arbitrary orders. To view the code, either
+    just
     inspect the site or take a look at the <a href="https://github.com/missing-user/missing-user.github.io">GitHub
       repository</a> for this site
   </p>
-  <hr>
   <label for="resolution_rng">resolution</label>
   <input type="range" oninput="calcOde(Math.pow(2,this.value))" min="2" max="16" name="resolution slider"
     id="resolution_rng">

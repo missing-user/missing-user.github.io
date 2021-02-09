@@ -97,15 +97,15 @@ const opts = {
     series: [
         { label: "t" },
         {
-            label: "euler",
+            label: "Euler",
             stroke: "#D32F2F",
         },
         {
-            label: "rk4",
+            label: "RK4",
             stroke: "#12B02F",
         },
         {
-            label: "midpoint",
+            label: "Midpoint",
             stroke: "#ff8000",
         },
     ],
