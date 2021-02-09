@@ -16,12 +16,10 @@
     Ordinary differential equations, are equations that involve ordinary derivatives of a function. Usually the goal is
     to determine the function that solves this equation. ODEs are characterized by the highest order of their
     derivative, which is also the order of the differential equation.
+  </p>
+  <object data="images/ode.svg" type="image/svg+xml"></object>
 
-    <br>
-    <br>
-    <object data="images/ode.svg" type="image/svg+xml"></object>
-    <br>
-    <br>
+  <p>
     The example given above is the first order differential equation we are goint to solve.
   </p>
   <h2>Numerical methods</h2>
@@ -33,62 +31,62 @@
     The simplest method for numerical integration. At each timestep we calculate the current derivative, multiply it by
     the timestep to get the change in y direction and add it to the previous y value to get the next state.
     <!-- y_{n+1} = y_n + h \cdot f(t,y_n) -->
-    <br>
-    <br>
-    <object data="images/eulerStep.svg" type="image/svg+xml"></object>
-    <br>
-    <br>
-    A possible JS implementation for the euler method is
-  <pre><code contenteditable>for (let i = 0; i &lt; resolution; i++) {
-      ys[i + 1] =  ys[i] + f(ts[i], ys[i]) * h
-    }
-    return {
-      ts: ts, //time series
-      ys: ys //resulting y points
-    }</code></pre>
-  The main drawback of the Euler method is, that the error scales with O(h&sup2;) and therefore may not be stable for
-  longer
-  running simulations.</p>
+  </p>
+  <object data="images/eulerStep.svg" type="image/svg+xml"></object>
+
+  <p>
+    In the following JS implementation of the euler method <code>ts</code> is an array with of
+    linearly spaced values ranging from the initial time t0 to the end time t1. <code>ys</code> is the empty array of
+    the same length, that the resulting points will be stored in.
+  </p>
+  <pre><code contenteditable spellcheck="false">const N = 100, t0 = 0, t1 = 1, y0 = 2
+const h = (t1 - t0) / (N)
+var ts = Array.from(Array(N+1), (_, k) => k * h + t0)
+var ys = Array(N+1).fill(0)
+ys[0] = y0    
+for (let i = 0; i &lt; N; i++) {
+  ys[i + 1] =  ys[i] + f(ts[i], ys[i]) * h
+}</code></pre>
+  <p>
+    The main drawback of the Euler method is, that the error scales with O(h&sup2;) and therefore may not be stable for
+    longer running simulations.
+  </p>
   <h3>Midpoint method</h3>
-  <p>The <a href="https://en.wikipedia.org/wiki/Midpoint_method">midpoint method</a> improves uppon the Euler method, by
+  <p>
+    The <a href="https://en.wikipedia.org/wiki/Midpoint_method">midpoint method</a> improves uppon the Euler method, by
     introducing an intermediate point, where the ODE get's evaluated. The y value of this point is determined through a
     regular euler iteration. Using this, the Order of the error decreases to O(h&sup3;) per step and O(h&sup2;) for the
     total solution.
+  </p>
+  <object data="images/midpointStep.svg" type="image/svg+xml"></object>
 
-    <br>
-    <br>
-    <object data="images/midpointStep.svg" type="image/svg+xml"></object>
-    <br>
-    <br>
+  <p>
     The midpoint method increases stability significantly, while only requiring two evaluations of the ODE per step. In
     realtime applications, this is often a good balance between accuracy and performance.
   </p>
   <h3>Runge Kutta 4th Order </h3>
-  <p>The <a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runge Kutta family</a> of methods takes the
+  <p>
+    The <a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runge Kutta family</a> of methods takes the
     concept further, by introducing n evaluations, each more accurate than the previous one, to compute the step. For
     the vast majority of applications, the fourth order method, also called the standard Runge Kutta Method or RK4, is
     accurate enough. Even at large step sizes it retains a high stability, since the error per step only scales with
     O(h^5)
     <br>
     A simple JS implementation for the rk4 method is
-  <pre><code contenteditable>for (let i = 0; i &lt; resolution; i++) {
-const k1 = f(ts[i], ys[i])
-
-const s1 = ys[i] + k1[j] * h/2
-const k2 = f(ts[i] + h/2, s1)
-
-const s2 = ys[i] + k2[j] * h/2
-const k3 = f(ts[i] + h/2, s2) 
-
-const s3 = ys[i] + k2[j] * h
-const k4 = f(ts[i] + h, s3) // f(t + h, y_n + k3*h)
-ys[i + 1] = ys[i] + (k1/6 + k2/3 + k3/3 + k4/6) * h
-}
-return {
-  ts: ts, //time series
-  ys: ys //resulting y points
-}</code></pre>
   </p>
+  <pre><code contenteditable  spellcheck="false">for (let i = 0; i &lt; resolution; i++) {
+  const k1 = f(ts[i], ys[i])
+
+  const s1 = ys[i] + k1[j] * h/2
+  const k2 = f(ts[i] + h/2, s1)
+
+  const s2 = ys[i] + k2[j] * h/2
+  const k3 = f(ts[i] + h/2, s2) 
+
+  const s3 = ys[i] + k2[j] * h
+  const k4 = f(ts[i] + h, s3) // f(t + h, y_n + k3*h)
+  ys[i + 1] = ys[i] + (k1/6 + k2/3 + k3/3 + k4/6) * h
+}</code></pre>
 
   <h2>Moving to higher orders</h2>
   <p>Until now, we have only looked at solving first order differential equations. To solve higher order ODEs like
