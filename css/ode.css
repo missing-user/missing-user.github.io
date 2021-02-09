@@ -1,0 +1,12 @@
+body{
+    padding: 2rem;
+        font-size: 1.5em; 
+        line-height: 1.6;
+        font-weight: 400;
+        font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #222;
+     }
+     pre { overflow-x: auto; }
+     p{
+         text-align: justify;
+     }

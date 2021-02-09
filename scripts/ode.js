@@ -109,19 +109,14 @@ const opts = {
             stroke: "#ff8000",
         },
     ],
-    axes: [
-        {
-            //	size: 30,
-            label: "time [s]",
-        },
-        {
-            //	size: 40,
-            label: "value [unit]",
-        }
-    ],
 }
+var plotElem = document.getElementById("plot")
+var u = new uPlot(opts, data, plotElem)
 
-u = new uPlot(opts, data, document.body)
+window.addEventListener("resize", e => {
+    u.setSize({ width: plotElem.clientWidth, height: plotElem.clientWidth });
+})
+u.setSize({ width: plotElem.clientWidth, height: plotElem.clientWidth });
 
 function calcOde(resolution) {
     const res = solver.euler(~~resolution)

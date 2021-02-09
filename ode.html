@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ode solver</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ode solver</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=auto">
+  <link rel="stylesheet" href="css/ode.css">
 </head>
+
 <body>
-    <h1>Numerical solutions to Ordinary differential equations</h1>
-    <h2>Basics</h2>
-    <p>
-        Ordinary differential equations, are equations that involve ordinary derivatives of a function. Usually the goal is
-        to determine the function that solves this equation. ODEs are characterized by the highest order of their
-        derivative, which is also the order of the differential equation.
-    
-        <br>
-        <br>
-        <object data="images/ode.svg" type="image/svg+xml"></object>
-        <br>
-        <br>
-        The example given above is the first order differential equation we are goint to solve.
-    <h2>Numerical methods</h2>
-    
+  <h1>Numerical solutions to Ordinary differential equations</h1>
+  <h2>Basics</h2>
+  <p>
+    Ordinary differential equations, are equations that involve ordinary derivatives of a function. Usually the goal is
+    to determine the function that solves this equation. ODEs are characterized by the highest order of their
+    derivative, which is also the order of the differential equation.
+
+    <br>
+    <br>
+    <object data="images/ode.svg" type="image/svg+xml"></object>
+    <br>
+    <br>
+    The example given above is the first order differential equation we are goint to solve.
+  </p>
+  <h2>Numerical methods</h2>
+  <p>
     Since many differential equations are hard to solve mathematically, numerical methods have been developed to compute
-    aproximate solutions.
-    <h3>Euler integration</h3>
-    The simplest method of numerical integration. At each timestep we calculate the current derivative, multiply it by the
+    aproximate solutions.</p>
+  <h3>Euler integration</h3>
+  <p>
+    The simplest method of numerical integration. At each timestep we calculate the current derivative, multiply it by
+    the
     timestep to get the change in y direction and add it to the previous y value to get the next state.
     <!-- y_{n+1} = y_n + h \cdot f(t,y_n) -->
     <br>
@@ -33,25 +40,73 @@
     <br>
     <br>
     A possible JS implementation for the euler method is
-    <code contenteditable>
-    <pre>for (let i = 0; i < resolution; i++) {
+  <pre><code contenteditable>for (let i = 0; i &lt; resolution; i++) {
       ys[i + 1] =  ys[i] + f(ts[i], ys[i]) * h
     }
     return {
-     ts: ts, //time series
-     ys: ys //resulting y points
-    }</pre>
-    </code>
-    The main drawback of the Euler method is, that the error scales with O(h^2) and therefore may not be stable for longer
-    running simulations. 
-    <h3>Midpoint method</h3>
-    <h3>Runge Kutta 4th Order </h3>
-    </p>
-    <label for="resolution_rng">resolution</label>
-    <input type="range" oninput="calcOde(Math.pow(2,this.value))" min="2" max="16" name="resolution slider"
-        id="resolution_rng">
+      ts: ts, //time series
+      ys: ys //resulting y points
+    }</code></pre>
+  The main drawback of the Euler method is, that the error scales with O(h&sup2;) and therefore may not be stable for
+  longer
+  running simulations.</p>
+  <h3>Midpoint method</h3>
+  <p>The midpoint method improves uppon the Euler method, by introducing an intermediate point, where the ODE get's
+    evaluated. The y value of this point is determined through a regular euler iteration. Using this, the Order of the
+    error decreases to O(h&sup3;) per step and O(h&sup2;) for the total solution.
+
+    <br>
+    <br>
+    <object data="images/midpointStep.svg" type="image/svg+xml"></object>
+    <br>
+    <br>
+    The midpoint method increases stability significantly, while only requiring two evaluations of the ODE per step. In
+    realtime applications, this is often a good balance between accuracy and performance.
+  </p>
+  <h3>Runge Kutta 4th Order </h3>
+  <p>The Runge Kutta family of methods takes the concept further, by introducing n evaluations, each more accurate than
+    the previous one, to compute the step. For the vast majority of applications, the fourth order method, also called
+    the standard Runge Kutta Method or RK4, is accurate enough. Even at large step sizes it retains a high stability,
+    since the error per step only scales with O(h^5)
+    <br>
+    A simple JS implementation for the rk4 method is
+  <pre><code contenteditable>for (let i = 0; i &lt; resolution; i++) {
+const k1 = f(ts[i], ys[i])
+
+const s1 = ys[i] + k1[j] * h/2
+const k2 = f(ts[i] + h/2, s1)
+
+const s2 = ys[i] + k2[j] * h/2
+const k3 = f(ts[i] + h/2, s2) 
+
+const s3 = ys[i] + k2[j] * h
+const k4 = f(ts[i] + h, s3) // f(t + h, y_n + k3*h)
+ys[i + 1] = ys[i] + (k1/6 + k2/3 + k3/3 + k4/6) * h
+}
+return {
+  ts: ts, //time series
+  ys: ys //resulting y points
+}</code></pre>
+  </p>
+
+  <h2>Moving to higher orders</h2>
+  <p>Until now, we have only looked at solving first order differential equations. To solve higher order ODEs like
+    the <a href="https://en.wikipedia.org/wiki/Electromagnetic_wave_equation">wave equation</a> we first have to turn
+    them into several first order ODEs, by writing each derivative as vector entry.
+
+    <br>
+    The demo below implements all three methods with support for ODEs of arbitrary orders. To view the code, either just
+    inspect the site or take a look at the <a href="https://github.com/missing-user/missing-user.github.io">GitHub
+      repository</a> for this site
+  </p>
+  <hr>
+  <label for="resolution_rng">resolution</label>
+  <input type="range" oninput="calcOde(Math.pow(2,this.value))" min="2" max="16" name="resolution slider"
+    id="resolution_rng">
+  <div id="plot"></div>
 </body>
 <link rel="stylesheet" href="css/uPlot.min.css">
 <script src="scripts/uplot.min.js"></script>
 <script src="scripts/ode.js"></script>
+
 </html>
