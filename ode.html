@@ -6,6 +6,50 @@
     <title>Ode solver</title>
 </head>
 <body>
+    <h1>Numerical solutions to Ordinary differential equations</h1>
+    <h2>Basics</h2>
+    <p>
+        Ordinary differential equations, are equations that involve ordinary derivatives of a function. Usually the goal is
+        to determine the function that solves this equation. ODEs are characterized by the highest order of their
+        derivative, which is also the order of the differential equation.
+    
+        <br>
+        <br>
+        <object data="images/ode.svg" type="image/svg+xml"></object>
+        <br>
+        <br>
+        The example given above is the first order differential equation we are goint to solve.
+    <h2>Numerical methods</h2>
+    
+    Since many differential equations are hard to solve mathematically, numerical methods have been developed to compute
+    aproximate solutions.
+    <h3>Euler integration</h3>
+    The simplest method of numerical integration. At each timestep we calculate the current derivative, multiply it by the
+    timestep to get the change in y direction and add it to the previous y value to get the next state.
+    <!-- y_{n+1} = y_n + h \cdot f(t,y_n) -->
+    <br>
+    <br>
+    <object data="images/eulerStep.svg" type="image/svg+xml"></object>
+    <br>
+    <br>
+    A possible JS implementation for the euler method is
+    <code contenteditable>
+    <pre>for (let i = 0; i < resolution; i++) {
+      ys[i + 1] =  ys[i] + f(ts[i], ys[i]) * h
+    }
+    return {
+     ts: ts, //time series
+     ys: ys //resulting y points
+    }</pre>
+    </code>
+    The main drawback of the Euler method is, that the error scales with O(h^2) and therefore may not be stable for longer
+    running simulations. 
+    <h3>Midpoint method</h3>
+    <h3>Runge Kutta 4th Order </h3>
+    </p>
+    <label for="resolution_rng">resolution</label>
+    <input type="range" oninput="calcOde(Math.pow(2,this.value))" min="2" max="16" name="resolution slider"
+        id="resolution_rng">
 </body>
 <link rel="stylesheet" href="css/uPlot.min.css">
 <script src="scripts/uplot.min.js"></script>
