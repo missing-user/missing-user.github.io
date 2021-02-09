@@ -11,25 +11,27 @@
   <link rel="preload" href="css/uplot.min.css" as="style">
   <link rel="preload" href="scripts/ode.js" as="script">
   <link rel="preload" href="scripts/uplot.min.js" as="script">
+  <link rel="preload" href="css/prism.css" as="style">
+  <link rel="preload" href="scripts/prism.js" as="script">
 </head>
 
 <body>
   <h1>Numerical solutions to Ordinary differential equations</h1>
   <h2>Basics</h2>
   <p>
-    Ordinary differential equations, are equations that involve ordinary derivatives of a function. Usually the goal is
-    to determine the function that solves this equation. ODEs are characterized by the highest order of their
-    derivative, which is also the order of the differential equation.
+    Ordinary differential equations, are equations that involve ordinary derivatives of a function and the function itself.
+    The order of the differential equation is characterized by the highest order derivative it contains. ODEs are used to
+    model a variety of models, like predator prey systems, financial developments or orbiting planets.
   </p>
   <object data="images/ode.svg" type="image/svg+xml"></object>
-
   <p>
-    The example given above is the first order differential equation we are goint to solve.
+    The example given above is the first order differential equation we are going to solve.
   </p>
   <h2>Numerical methods</h2>
   <p>
     Since many differential equations are hard to solve mathematically, numerical methods have been developed to compute
-    aproximate solutions.</p>
+    aproximate solutions.
+    </p>
   <h3>Euler integration</h3>
   <p>
     The simplest method for numerical integration. At each timestep we calculate the current derivative, multiply it by
@@ -37,13 +39,12 @@
     <!-- y_{n+1} = y_n + h \cdot f(t,y_n) -->
   </p>
   <object data="images/eulerStep.svg" type="image/svg+xml"></object>
-
   <p>
     In the following JS implementation of the euler method <code>ts</code> is an array with of
     linearly spaced values ranging from the initial time t0 to the end time t1. <code>ys</code> is the empty array of
     the same length, that the resulting points will be stored in.
   </p>
-  <pre><code contenteditable spellcheck="false">const N = 100, t0 = 0, t1 = 1, y0 = 2
+  <pre><code  class="language-javascript"  contenteditable spellcheck="false">const N = 100, t0 = 0, t1 = 1, y0 = 2
 const h = (t1 - t0) / (N)
 var ts = Array.from(Array(N+1), (_, k) => k * h + t0)
 var ys = Array(N+1).fill(0)
@@ -78,7 +79,7 @@ for (let i = 0; i &lt; N; i++) {
     <br>
     A simple JS implementation for the rk4 method is
   </p>
-  <pre><code contenteditable  spellcheck="false">for (let i = 0; i &lt; resolution; i++) {
+  <pre><code class="language-javascript" contenteditable spellcheck="false">for (let i = 0; i &lt; resolution; i++) {
   const k1 = f(ts[i], ys[i])
 
   const s1 = ys[i] + k1[j] * h/2
@@ -109,8 +110,9 @@ for (let i = 0; i &lt; N; i++) {
     id="resolution_rng">
   <div id="plot"></div>
 </body>
+<link href="css/prism.css" rel="stylesheet" type="text/css" />
+<script src="scripts/prism.js" type="text/javascript"></script>
 <link rel="stylesheet" href="css/uplot.min.css">
 <script src="scripts/uplot.min.js"></script>
 <script src="scripts/ode.js"></script>
-
 </html>

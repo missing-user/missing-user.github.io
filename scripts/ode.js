@@ -1,10 +1,28 @@
 var canvas = document.getElementById("canvas")
 
 function f(t, y) {
-    // return [Math.sin(t) - 0.2 * y[0]]
-    // return [-y]
     return [2 * Math.sin(3 * t) + y[0] / 4]
 }
+
+/*
+Euler divergiert (gedämpfter Oszilator):
+[y[1], -5*y[0]-y[1]/10]
+solver = new DGLsolver(f, [0,5], -5, 50)
+
+Erzwungene Schwingung
+[y[1], -5*y[0]-y[1]/10 + Math.sin(t)/3]
+solver = new DGLsolver(f, [0,5], 0, 500)
+
+Duffing Oszillator (Nichtlineare Rückstellkraft)   <a href="https://en.wikipedia.org/wiki/Duffing_equation">Duffing Oszillator</a>
+[y[1], 0.5*Math.cos(t)-y[0]*y[0]*y[0]-10*y[0]-0.01*y[1]]
+solver = new DGLsolver(f, [0,1], -50, 150)
+
+Airy function  <a href="https://en.wikipedia.org/wiki/Airy_function">Airy function</a>
+[y[1], t*y[0]]
+solver = new DGLsolver(f, [0.2782174909, 0.2723742043], -15, 5)
+
+*/
+
 
 class DGLsolver {
     constructor(dgl, y0, t0, t1) {
