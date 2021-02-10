@@ -80,13 +80,3 @@ const Duffing = {
     f: (t, y) => [y[1], 0.5 * Math.cos(t) - y[0] * y[0] * y[0] - 10 * y[0] - 0.01 * y[1]],
     parameters: [[0, 1], -50, 150]
 }
-
-const Lorentz = {
-    f: (t, y) => {
-        const delta = 10
-        const beta = 8 / 3
-        const radius = 28
-        return [-delta * (y[0] - y[1]), radius * y[0] - y[1] - y[0] * y[2], -beta * y[2] + y[0] * y[1]]
-    },
-    parameters: [[0.1, 1, 0.5], 0, 50]
-}
