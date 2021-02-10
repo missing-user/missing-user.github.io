@@ -106,7 +106,7 @@ for (let i = 0; i &lt; N; i++) {
       repository</a> for this site
   </p>
   <label for="resolution_rng">resolution</label>
-  <input type="range" oninput="calcOde(Math.pow(2,this.value))" min="2" max="16" name="resolution slider"
+  <input type="range" oninput="u.setData(calcOde(Math.pow(2,this.value)))" min="2" max="16" name="resolution slider"
     id="resolution_rng">
   <div id="plot"></div>
 </body>
@@ -115,4 +115,48 @@ for (let i = 0; i &lt; N; i++) {
 <link rel="stylesheet" href="css/uplot.min.css">
 <script src="scripts/uplot.min.js"></script>
 <script src="scripts/ode.js"></script>
+<script>
+  setOde(DefaultODE)
+
+  const opts = {
+    width: 900,
+    height: 900,
+    title: "Numerical ODE Solution",
+    scales: {
+      x: { time: false },
+    },
+    series: [
+      { label: "t" },
+      {
+        label: "Euler",
+        stroke: "#D32F2F",
+      },
+      {
+        label: "RK4",
+        stroke: "#12B02F",
+      },
+      {
+        label: "Midpoint",
+        stroke: "#ff8000",
+      },
+    ],
+  }
+
+  function calcOde(resolution) {
+    const eres = solver.euler(~~resolution)
+    data = [
+      eres.ts,
+      eres.ys.map((t) => t[0]),
+      solver.rk4(~~resolution).ys.map((t) => t[0]),
+      solver.midpoint(~~resolution).ys.map((t) => t[0]),
+    ]
+    return data
+  }
+
+  var u = new uPlot(opts, calcOde(100), plotElem)
+  u.setSize({ width: plotElem.clientWidth, height: plotElem.clientWidth });
+  window.addEventListener("resize", e => {
+    u.setSize({ width: plotElem.clientWidth, height: plotElem.clientWidth });
+  })
+</script>
 </html>

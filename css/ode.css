@@ -16,3 +16,9 @@ pre {
 p {
     text-align: justify;
 }
+
+.sliderscont {
+    display: flex;
+    flex-flow: column;
+    width: 40%;
+}
