@@ -9,6 +9,10 @@ body {
     margin: auto;
 }
 
+input[type=range] {
+    margin-top: 2em;
+}
+
 pre {
     overflow-x: auto;
 }

@@ -1,6 +1,5 @@
 var canvas = document.getElementById("canvas")
 
-
 class ODEsolver {
     constructor(ode, y0, t0, t1) {
         this.ode = ode
@@ -77,38 +76,9 @@ function setOde(ode) {
 var plotElem = document.getElementById("plot")
 
 //All kinds of different ODEs
-
-const DefaultODE = {
-    f: (t, y) => [2 * Math.sin(3 * t) + y[0] / 4],
-    parameters: [[0.2], 0, 8]
-}
-
-const ForcedOszillator = {
-    f: (t, y) => [y[1], -5 * y[0] - y[1] / 10 + Math.sin(t) / 3],
-    parameters: [[0, 5], 0, 500]
-}
-
-const Oszillator = {
-    f: (t, y) => [y[1], -5 * y[0] - y[1] / 10 + Math.sin(t) / 3],
-    parameters: [[0, 5], 0, 500]
-}
-
-const Airy = {
-    f: (t, y) => [y[1], t * y[0]],
-    parameters: [[0.2782174909, 0.2723742043], -15, 5]
-}
-
 const Duffing = {
     f: (t, y) => [y[1], 0.5 * Math.cos(t) - y[0] * y[0] * y[0] - 10 * y[0] - 0.01 * y[1]],
     parameters: [[0, 1], -50, 150]
-}
-
-const LotkaVolterra = {
-    f: (t, y) => {
-        const alpha = 1.5, beta = 1, delta = 3, gamma = 1
-        return [alpha * y[0] - beta * y[0] * y[1], delta * y[0] * y[1] - gamma * y[1]]
-    },
-    parameters: [[1, 2], 0, 50]
 }
 
 const Lorentz = {
