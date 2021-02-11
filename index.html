@@ -53,31 +53,30 @@ https://github.com/missing-user/missing-user.github.io
     var i = 0;
     var thoughtIndex = 0
     var txt = ["3/10 can't recommend",
-      "Robert'); DROP TABLE Students;--",
+      //"Robert'); DROP TABLE Students;--",
       "I love Doom",
       'Physics is harder than I thought',
-      "I'm this close to burnout: &#8203;",
+      //"I'm this close to burnout: &#8203;",
       "Wait, the exam is next week?",
       "Golang is awesome",
       'Maybe next semester will be easier 🤡',
       "It's muffin time",
       'Should have studied game design...',
-      'I love HTML <br>',
-      'Is this real life?',
-      '<div>How to annoy programmers</SPAN>',
+      //'I love HTML <br>',
+      //'<div>How to annoy programmers</SPAN>',
       'Maybe 2021 will be better',
       'Never gonna give you up',
       'Never gonna let you down',
-      'Is it friday yet?',
+      "I ❤️ Comic Sans",
       "The cake wasn't a lie after all!",
       'r/notLikeOtherWebsites',
-      'What are you doing here?',
+      "Shouldn't you be working?",
       'Sleep is cool, but have you tried coffee?',
       "Nobody expects the spanish inquisition!",
       "My name is Inigo Montoya, prepare to die",
       "404, Status not found",
       "sin(x) = tan(x) = x",
-      "Integration is hard...",
+      "What was the password again?",
       "have you tried turning it off and on again?"
     ];
 
@@ -110,7 +109,20 @@ https://github.com/missing-user/missing-user.github.io
         typeWriter()
       }
     }
-    shuffleArray(txt)
+                      function howLongUntilWeekend() {
+                        var d = new Date()
+                        if (d.getDay() == 6)
+                          return "Weekend's here!!!"
+                        if (d.getDay() == 0)
+                          return "Oh no, tomorrow is monday already..."
+
+                        if (d.getDay() == 5)
+                          return "Weekend's almost here"
+                        return "Just " + (6 - d.getDay()) + " more days till saturday"
+                      }
+                      txt.push(howLongUntilWeekend())
+                shuffleArray(txt)
+
     typeWriter()
   </script>
 
@@ -612,6 +624,12 @@ https://github.com/missing-user/missing-user.github.io
     console.log("it's winter time!!!");
     (function(){var a=document.getElementById("snow"),c=a.getContext("2d"),e=[];a.style.pointerEvents="none";a.style.position="fixed";a.style.top=0;a.style.left=0;a.style.width="100vw";a.style.height="100vh";a.height=a.offsetHeight;a.width=a.offsetWidth;window.onresize=function(){a.height=a.offsetHeight;a.width=a.offsetWidth};var d=Math;setInterval(function(){c.clearRect(0,0,a.width,a.height);c.beginPath();var f=d.random(),g=.05+.95*f;flake={};flake.x=1.5*a.width*d.random()-.5*a.width;flake.y=-9;flake.b=2*g*(d.random()/2+.5);flake.c=(4+2*d.random())*g;flake.a=d.pow(5*f,2)/5;flake.update=function(){this.x+=this.b;this.y+=this.c;c.beginPath();c.arc(this.x,this.y,this.a,0,2*d.PI,!1);c.fillStyle="#FFF";c.fill()};e.push(flake);for(b=0;b<e.length;b++)e[b].y>a.height?e.splice(b,1):e[b].update()},16)})();
   }
+                      if (isThisToday({ day: 24, month: 12 }) || isThisToday({ day: 25, month: 12 }))
+                        txt = ["Ho, ho, ho...", "Merry Christmas!", "I hope you get lots of presents", "Happy holidays!"]
+
+                      if (isThisToday({ day: 11, month: 12 }))
+                        txt = ["It's my birthday!!!", "I woder what presents I'll get", "You're invited!", "Happy birthday to me"]
+
   if (isThisToday({ month: 2, day: 14 })) {
     console.log("happy valentines day");
     document.getElementsByClassName("profile")[0].style.background="linear-gradient(0, #ff0cb5 0%, #ffbaf3 100%)";
