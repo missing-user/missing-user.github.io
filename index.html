@@ -53,20 +53,26 @@ https://github.com/missing-user/missing-user.github.io
     var i = 0;
     var thoughtIndex = 0
     var txt = ["3/10 can't recommend",
-      //"Robert'); DROP TABLE Students;--",
-      "I love Doom",
+      //"Robert'); DROP TABLE Students;--", //XKCD
+      "There's an XKCD for that",
       'Physics is harder than I thought',
-      //"I'm this close to burnout: &#8203;",
       "Wait, the exam is next week?",
       "Golang is awesome",
       'Maybe next semester will be easier 🤡',
       "It's muffin time",
+	  "Where did I save that file???",
+	  "¯\_(ツ)_/¯",
+	  "Sleep is overrated",
+	  "No, I won't fix your computer",
+	  "u/[deleted]",
+	  "Entropy isn’t what it used to be",
+	  "I’d tell a UDP joke, but you might not get it",
+	  "May contain traces of sarcasm",
+	  "Git commit push pull",
       'Should have studied game design...',
-      //'I love HTML <br>',
-      //'<div>How to annoy programmers</SPAN>',
+      '<br> I love HTML',
       'Maybe 2021 will be better',
       'Never gonna give you up',
-      'Never gonna let you down',
       "I ❤️ Comic Sans",
       "The cake wasn't a lie after all!",
       'r/notLikeOtherWebsites',
@@ -76,8 +82,21 @@ https://github.com/missing-user/missing-user.github.io
       "My name is Inigo Montoya, prepare to die",
       "404, Status not found",
       "sin(x) = tan(x) = x",
+	  "π² = g ",
+	  "Wake up, Neo",
+	  "Here’s Johnny!",
+	  "You're tearing me apart, Lisa!",
+	  "Anyway, how's your sex life?",
+	  "Was nothing real?",
+	  "Oh behave!",
+	  "Revive me Jett",
+	  "Don't worry, I got this", 
+	  "1.21 Gigawatts!?!",
+	  "Shiver with Antici.....PATION",
+	  "Let's do the time warp again!",
+	  "Houston, we have a problem.",
       "What was the password again?",
-      "have you tried turning it off and on again?"
+      "Have you tried turning it off and on again?"
     ];
 
     function typeWriter() {
@@ -109,20 +128,18 @@ https://github.com/missing-user/missing-user.github.io
         typeWriter()
       }
     }
-                      function howLongUntilWeekend() {
-                        var d = new Date()
-                        if (d.getDay() == 6)
-                          return "Weekend's here!!!"
-                        if (d.getDay() == 0)
-                          return "Oh no, tomorrow is monday already..."
-
-                        if (d.getDay() == 5)
-                          return "Weekend's almost here"
-                        return "Just " + (6 - d.getDay()) + " more days till saturday"
-                      }
-                      txt.push(howLongUntilWeekend())
-                shuffleArray(txt)
-
+    function howLongUntilWeekend() {
+        var d = new Date()
+        if (d.getDay() == 6)
+            return "Weekend's here!!!"
+        if (d.getDay() == 0)
+            return "Oh no, tomorrow is monday already..."
+		if (d.getDay() == 5)
+            return "Weekend's almost here"
+        return "Just " + (6 - d.getDay()) + " more days till saturday"
+    }
+    txt.push(howLongUntilWeekend())
+    shuffleArray(txt)
     typeWriter()
   </script>
 
@@ -132,9 +149,9 @@ https://github.com/missing-user/missing-user.github.io
       <div class="column">
         <h2>Overview</h2>
         <p>
-          My name is Philipp Jurašić, a physics student from Munich. Outside of university I love building electronics
-          projects, websites and interactive simulations. Here's a selection of my recent projects to play around with,
-          most of them are written in plain JS without any additional libraries or frameworks.
+          Hi, I'm Philipp Jurašić, a physics student from Munich. Outside of university I love building electronics
+          projects, websites and interactive simulations. Here's a selection of recent projects to play around with,
+          most of them are written in plain JS.
           <br><br>
           The code for all of the demos is available on
           <a href="https://github.com/missing-user">my GitHub page.</a> <br>
@@ -151,7 +168,7 @@ https://github.com/missing-user/missing-user.github.io
     <!-- ODEs -->
     <div class="row">
       <div class="one-half column">
-        <h4>Differential equations</h4>
+        <h4>Numerical Solutions</h4>
         <p>Here we go with another maths heavy project. I tried my best to explain how the numerical methods work and add
           code examples where sensible. There are also a few demos solving popular differential equations like the Lotka
           Volterra equations or harmonic Oscillators.
@@ -251,8 +268,8 @@ https://github.com/missing-user/missing-user.github.io
     <!-- unit conversions -->
     <div class="row">
       <div class="one-half column">
-        <h4>Stupid Units</h4>
-        <p>A simple website that converts weights, distances and energies into weird units, that are in the same order
+        <h4>Units</h4>
+        <p>A website that converts weights, distances and energies into weird units, that are in the same order
           of magnitude</p>
         <div class="row">
           <div class="one-half column">
@@ -323,7 +340,7 @@ https://github.com/missing-user/missing-user.github.io
     <!-- marching squares -->
     <div class="row">
       <div class="one-half column">
-        <h4>Marching squares</h4>
+        <h4>Marching Squares</h4>
         <p>Marching squares is an algorithm to create boundaries around a point cloud. I use it to create these merging
           blobs, by implementing the algorithm with some linear interpolation.
         </p>
@@ -358,7 +375,7 @@ https://github.com/missing-user/missing-user.github.io
     <!-- physics simulation -->
     <div class="row">
       <div class="one-half column">
-        <h4>Physics simulation</h4>
+        <h4>Spatial Hashing</h4>
         <p>My attempt at implementing a spatial hashing algorithm for 2D physics. The algorithms uses circles, points
           and axis aligned rectangles as primitives and detects overlaps efficiently. Currently only simple spring
           forces are
@@ -396,7 +413,7 @@ https://github.com/missing-user/missing-user.github.io
     <!-- electric fields -->
     <div class="row">
       <div class="one-half column">
-        <h4>Electric fields</h4>
+        <h4>Electric Fields</h4>
         <p>Inspired by the lecture we had, I made a small visualizer that shows how point charges interact with each
           other, move and most importantly shape the electric field. Click on the green canvas to add charges, modify
           the parameters, build parcours
@@ -433,7 +450,7 @@ https://github.com/missing-user/missing-user.github.io
     <!-- solar system -->
     <div class="row">
       <div class="one-half column">
-        <h4>Solar system orbits</h4>
+        <h4>Solar System</h4>
         <p>Here's an attempt at simulating planetary orbits in our solar system. Since stability is key for such a
           simulation, this uses a
           <a href="https://wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runge Kutta fourth order algorithm (RK4)</a>
@@ -539,7 +556,7 @@ https://github.com/missing-user/missing-user.github.io
     <!-- virus simulation -->
     <div class="row">
       <div class="one-half column">
-        <h4>Virus simulation</h4>
+        <h4>Virus Simulation</h4>
         <p>Simple virus simulation to show the effects of social distancing, improved hygiene and different attributes
           of the virus. Just play around with the parameters and see what happens! And of course there's a customizable
           <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2062848686">version for wallpaper engine</a>
@@ -574,7 +591,7 @@ https://github.com/missing-user/missing-user.github.io
     <!-- frust web -->
     <div class="row">
       <div class="one-half column">
-        <h4>Frustrated physicists</h4>
+        <h4>Frustrated Physicists</h4>
         <p>A website for our fellow physics student to share their frustration. Click the button and everyone online can
           see what you're struggling with! Live!
         </p>

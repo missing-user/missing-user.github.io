@@ -17,20 +17,21 @@
 <body>
   <h1>Lorenz Attractor</h1>
   <p>This is a <a href="https://en.wikipedia.org/wiki/Lorenz_system">Lorenz strange attractor</a>
-    <br>
-    I'll add an explanation sometime soon, it was developed to model atmospheric convection or something... It has cool,
-    chaotic behaviour, so have fun playing around with it. :D
-
-    <br>
-    <br>
-    Note to myself:
-    <br>
-    ADD AN ANIMATED MODE!!! THAT WOULD BE SO COOL!
+    It is notable for having chaotic solutions for certain initial conditions.
+  </p>
+  <object style="width: 100%; max-height: 10em;" data="images/lorenz.svg" type="image/svg+xml"></object>
+  <p>
+    The lorenz system was developed to
+    describe a two dimensional fluid layer that is being warmed from below and cooled from above. <b>x</b>
+    is proportional to the rate of convection, <b>y</b> to the horizontal temperature variation, and
+    <b>z</b> to the vertical temperature variation. This demo shows a xy projection of the result and all three
+    coordinates in the time plot below.
   </p>
 
   <div style="display: flex; justify-content: space-between;">
     <div class="sliderscont">
-      <input type="range" oninput="updateSim()" min="8" max="16" value="11" name="resolution slider" id="resSlid">
+      <input type="range" oninput="updateInitialValues()" min="9" max="14" value="12" name="resolution slider"
+        id="resSlid">
       <label for="resSlid">resolution</label>
       <input type="range" oninput="updateInitialValues()" value="8 / 3" min="0" max="3" step="any" name="amplitude"
         id="betaSlid">
@@ -57,24 +58,25 @@
   var delta = 10
   var beta = 8 / 3
   var radius = 28
-  var Lorenz = {
-    f: (t, y) => {
-      return [-delta * (y[0] - y[1]), radius * y[0] - y[1] - y[0] * y[2], -beta * y[2] + y[0] * y[1]]
-    },
-    parameters: [[0, 1, 0.5], 0, 40]
+  var cur_parameters
+  var iterPerFrame
+
+  var oderes = [], data = []
+
+  function recalcOde() {
+    f = (t, y) => { return [-delta * (y[0] - y[1]), radius * y[0] - y[1] - y[0] * y[2], -beta * y[2] + y[0] * y[1]] }
+    solver = new ODEsolver(f, ...cur_parameters)
+    return solver.rk4(~~iterPerFrame)
   }
 
   function updateInitialValues() {
+    cur_parameters = [[0, 1, 0.5], 0, 20]
     beta = parseFloat(document.getElementById("betaSlid").value)
-    Lorenz.parameters[0][0] = parseFloat(document.getElementById("gammaSlid").value)
+    cur_parameters[0][0] = parseFloat(document.getElementById("gammaSlid").value)
     delta = parseFloat(document.getElementById("deltaSlid").value)
-    updateSim()
-  }
-
-  setOde(Lorenz)
-
-  function updateSim() {
-    u.setData(calcOde(Math.pow(2, document.getElementById("resSlid").value)))
+    iterPerFrame = Math.pow(2, document.getElementById("resSlid").value)
+    oderes = recalcOde()
+    iterPerFrame /= 500
   }
 
   const opts = {
@@ -104,13 +106,13 @@
   var canvas = document.getElementById("canvas")
   var ctx = canvas.getContext("2d")
   const map = (value, x1, y1, x2, y2) => (value - x1) * (y2 - x2) / (y1 - x1) + x2;
-  function calcOde(resolution) {
-    const eres = solver.rk4(~~resolution)
+
+  function drawOde() {
     data = [
-      eres.ts,
-      eres.ys.map((t) => t[0]),
-      eres.ys.map((t) => t[1]),
-      eres.ys.map((t) => t[2]),
+      oderes.ts,
+      oderes.ys.map((t) => t[0]),
+      oderes.ys.map((t) => t[1]),
+      oderes.ys.map((t) => t[2]),
     ]
 
     xmin = Math.min(...data[1])
@@ -126,19 +128,38 @@
         map(data[2][i], ymin, ymax, 0, canvas.height))
     }
     ctx.stroke()
-    return data
   }
-
-
+  updateInitialValues()
   canvas.height = plotElem.clientWidth
   canvas.width = plotElem.clientWidth
-  var u = new uPlot(opts, calcOde(2 ** 11), plotElem)
+  var u = new uPlot(opts, data, plotElem)
   u.setSize({ width: plotElem.clientWidth, height: plotElem.clientWidth });
   window.addEventListener("resize", e => {
     u.setSize({ width: plotElem.clientWidth, height: plotElem.clientWidth });
     canvas.height = plotElem.clientWidth
     canvas.width = plotElem.clientWidth
   })
+  drawOde()
+
+  const tmax = 40
+  const tstep = 0.05
+  function step(timestamp) {
+    cur_parameters[0] = oderes.ys[oderes.ys.length - 1]
+    cur_parameters[1] = cur_parameters[2] //set the next frames t0
+    cur_parameters[2] += + tstep //set the next frames t1
+    var tmpres = recalcOde()
+    oderes.ts = oderes.ts.concat(tmpres.ts)
+    oderes.ys = oderes.ys.concat(tmpres.ys)
+    if (oderes.ts[oderes.ts.length - 1] - oderes.ts[0] > tmax) {
+      oderes.ts.splice(0, tmpres.ts.length)
+      oderes.ys.splice(0, tmpres.ts.length)
+    }
+    drawOde()
+    u.setData(data)
+    window.requestAnimationFrame(step)
+  }
+
+  window.requestAnimationFrame(step)
 </script>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
   data-cf-beacon='{"token": "f9f51233f11041a194c4d5f4511d8282"}'></script>
