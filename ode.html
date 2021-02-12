@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <title>Ode solver</title>
+  <title>Numerical Integration - Solving ODEs in JS</title>
   <meta name="description" content="Solve ODEs using JavaScript and the Runge Kutta Method">
   <meta property="og:image" content="https://jurasic-park.de/images/ode.png">
   <meta property="og:type" content="blog" />
@@ -131,9 +131,12 @@ for (let i = 0; i &lt; N; i++) {
   <object style="width: 100%; max-height: 3.2em;" data="images/firstorder.svg" type="image/svg+xml"></object>
   <p>
     This reqires some changes in the implementation, since <b>y</b> isn't a number anymore, but rather a list of values.
-    To see one possible implementation, either
-    just inspect the site or take a look at my <a href="https://github.com/missing-user/missing-user.github.io">GitHub
-      repository</a> for all the demos.
+    To see one possible implementation, either inspect the site or take a look at my
+    <a href="https://github.com/missing-user/missing-user.github.io">GitHub repository</a> for all the demos. There's a
+    bunch of other improvements that could be done, like moving from a fixed resolution to an adaptive step size, like I
+    did <a href="https://missing-user.github.io/solarsystem">here</a> or implementing a
+    <a href="https://en.wikipedia.org/wiki/Linear_multistep_method#Adams%E2%80%93Bashforth_methods">multistep
+      method</a>, that takes more than one previous point into consideration for the calculation.
   </p>
   <h2>...and beyond</h2>
   <p>Using these methods, you can now solve a variety of problems from physics, mathematics and even biology. Here's a
