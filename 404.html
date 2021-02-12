@@ -1,0 +1,44 @@
+<body style=margin:0>
+  <h1>404 something went wrong</h1>
+  <canvas id=a>
+    <script>
+      // initialize 2D canvas (c)
+      // initialize game state (s)
+      // initialize keys states (u,r,d,l for directions, k for all the keyboard)
+      c = a.getContext`2d`, k = [u = r = d = l = s = 0]
+
+      // (initialize your global variables here)
+
+      // update u,l,d,r globals when an arrow key/wasd/zqsd is pressed or released
+      // update k[keyCode] if any other key is pressed/released
+      onkeydown = onkeyup = e => k[e.which] = self['lld*rlurdu'[e.which % 32 % 17]] = e.type[5]
+
+      // start game loop (60fps)
+      // the canvas is cleared and adjusted to fullscreen at each frame
+      // draw each screen in the switch's cases
+      // in each screen, you can make key presses update the game state
+      // ex: "press enter to open the menu" => `if(k[13])s=1;`
+      setInterval(e => {
+        a.width = innerWidth, a.height = innerHeight;
+        switch (s) {
+          case 0: // ex: draw title screen
+          case 1: // ex: draw menu screen
+          case 2: // ex: draw game board
+          case 3: // ex: draw game over screen
+        }
+      }, 16)
+
+      // handle click/touch events
+      // globals x and y contain the pointer's coordinates
+      // in each screen, you can make a click update the game state
+      // ex: "game over if we click on the bottom half of the screen" => `if(y>h/2)s=3;`
+      onclick = e => {
+        x = e.pageX; y = e.pageY;
+        switch (s) {
+          case 0: // react to clicks on screen 0
+          case 1: // react to clicks on screen 1
+          case 2: // react to clicks on screen 2
+          case 3: // react to clicks on screen 3
+        }
+      }
+    </script>
