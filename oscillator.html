@@ -55,21 +55,26 @@
 <script src="scripts/uplot.min.js"></script>
 <script src="scripts/ode.js"></script>
 <script>
-  let dampening = 0.1
-  let resonance = 5
-  var Oscillator = {
-    f: (t, y) => [y[1], -resonance * y[0] - y[1] * dampening],
-    parameters: [[2, 0], 0, 20]
+  var plotElem = document.getElementById("plot")
+  var dampening = 0.1
+  var resonance = 5
+
+
+  function getSliderValue(id) {
+    return parseFloat(document.getElementById(id).value)
   }
+
+  var Oscillator = (t, y) => {
+    dampening = getSliderValue("gammaSlid")
+    resonance = getSliderValue("deltaSlid")
+    return [y[1], -resonance * y[0] - y[1] * dampening]
+  }
+  var solver = new ODEsolver(Oscillator, [2, 0], 0, 20)
 
   function updateInitialValues() {
-    Oscillator.parameters[0][0] = parseFloat(document.getElementById("betaSlid").value)
-    dampening = parseFloat(document.getElementById("gammaSlid").value)
-    resonance = parseFloat(document.getElementById("deltaSlid").value)
+    solver.y0[0] = getSliderValue("betaSlid")
     updateSim()
   }
-
-  setOde(Oscillator)
 
   function updateSim() {
     u.setData(calcOde(Math.pow(2, document.getElementById("alphaSlid").value)))
@@ -112,9 +117,9 @@
   }
 
   var u = new uPlot(opts, calcOde(2 ** 8), plotElem)
-  u.setSize({ width: plotElem.clientWidth, height: plotElem.clientWidth });
+  u.setSize({ width: plotElem.clientWidth, height: plotElem.clientWidth })
   window.addEventListener("resize", e => {
-    u.setSize({ width: plotElem.clientWidth, height: plotElem.clientWidth });
+    u.setSize({ width: plotElem.clientWidth, height: plotElem.clientWidth })
   })
 </script>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js'

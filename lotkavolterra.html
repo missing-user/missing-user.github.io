@@ -16,14 +16,14 @@
 
 <body>
   <h1>Lotka Volterra</h1>
-<p>
-  The Lotka Volterra equations are a pair of first order differential equations that model predator prey populations.
-</p>
-<object style="width: 100%; max-height: 6.7em;" data="images/lotkavolt.svg" type="image/svg+xml"></object>
-<p>
-  The parameters describe natural birth and deathrates of both species. If you want to learn more, here's the
-  <a href="https://en.wikipedia.org/wiki/Lotka%E2%80%93Volterra_equations">wikipedia article</a>.
-</p>
+  <p>
+    The Lotka Volterra equations are a pair of first order differential equations that model predator prey populations.
+  </p>
+  <object style="width: 100%; max-height: 6.7em;" data="images/lotkavolt.svg" type="image/svg+xml"></object>
+  <p>
+    The parameters describe natural birth and deathrates of both species. If you want to learn more, here's the
+    <a href="https://en.wikipedia.org/wiki/Lotka%E2%80%93Volterra_equations">wikipedia article</a>.
+  </p>
 
   <div style="display: flex; justify-content: space-between;">
     <div class="sliderscont">
@@ -51,18 +51,21 @@
 <script src="scripts/uplot.min.js"></script>
 <script src="scripts/ode.js"></script>
 <script>
-  var LotkaVolterraVAR = {
-    f: (t, y) => {
-      var alpha = document.getElementById("alphaSlid").value
-      var beta = document.getElementById("betaSlid").value
-      var delta = document.getElementById("deltaSlid").value
-      var gamma = document.getElementById("gammaSlid").value
-      return [alpha * y[0] - beta * y[0] * y[1], delta * y[0] * y[1] - gamma * y[1]]
-    },
-    parameters: [[1, 2], 0, 20]
+  var plotElem = document.getElementById("plot")
+
+  function getSliderValue(id) {
+    return parseFloat(document.getElementById(id).value)
   }
 
-  setOde(LotkaVolterraVAR)
+  var LotkaVolterraVAR = (t, y) => {
+    var alpha = getSliderValue("alphaSlid")
+    var beta = getSliderValue("betaSlid")
+    var delta = getSliderValue("deltaSlid")
+    var gamma = getSliderValue("gammaSlid")
+    return [alpha * y[0] - beta * y[0] * y[1], delta * y[0] * y[1] - gamma * y[1]]
+  }
+
+  var solver = new ODEsolver(LotkaVolterraVAR, [1, 2], 0, 20)
   function calcOde(resolution) {
     const eres = solver.rk4(~~resolution)
     data = [
@@ -97,7 +100,7 @@
     ],
   }
 
-  var u = new uPlot(opts, calcOde(500), plotElem)
+  var u = new uPlot(opts, calcOde(100), plotElem)
   u.setData(calcOde(1000))
   u.setSize({ width: plotElem.clientWidth, height: plotElem.clientWidth });
   window.addEventListener("resize", e => {

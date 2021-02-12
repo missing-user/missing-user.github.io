@@ -30,7 +30,7 @@
 
   <div style="display: flex; justify-content: space-between;">
     <div class="sliderscont">
-      <input type="range" oninput="updateInitialValues()" min="9" max="14" value="12" name="resolution slider"
+      <input type="range" oninput="updateInitialValues()" min="1" max="5" value="4" step="0.1" name="resolution slider"
         id="resSlid">
       <label for="resSlid">resolution</label>
       <input type="range" oninput="updateInitialValues()" value="8 / 3" min="0" max="3" step="any" name="amplitude"
@@ -42,7 +42,7 @@
       <input type="range" oninput="updateInitialValues()" value="5" min="0.1" max="10" step="any"
         name="resonance slider" id="deltaSlid">
       <label for="deltaSlid">delta</label>
-      <input type="range" oninput="updateInitialValues()" value="10" min="-20" max="20" step="any"
+      <input type="range" oninput="updateInitialValues()" value="1" min="-20" max="20" step="any"
         name="dampening slider" id="gammaSlid">
       <label for="gammaSlid">initial position</label>
     </div>
@@ -55,28 +55,31 @@
 <script src="scripts/uplot.min.js"></script>
 <script src="scripts/ode.js"></script>
 <script>
+  var plotElem = document.getElementById("plot")
   var delta = 10
   var beta = 8 / 3
   var radius = 28
-  var cur_parameters
-  var iterPerFrame
+  var iterPerFrame = 4
 
-  var oderes = [], data = []
+  var oderes = []
+  function LorenzODE(t, y) {
+    return [-delta * (y[0] - y[1]), radius * y[0] - y[1] - y[0] * y[2], -beta * y[2] + y[0] * y[1]]
+  }
+  solver = new ODEsolver(LorenzODE, [0, 1, 0.5], 0, 20)
 
-  function recalcOde() {
-    f = (t, y) => { return [-delta * (y[0] - y[1]), radius * y[0] - y[1] - y[0] * y[2], -beta * y[2] + y[0] * y[1]] }
-    solver = new ODEsolver(f, ...cur_parameters)
-    return solver.rk4(~~iterPerFrame)
+  function getSliderValue(id) {
+    return parseFloat(document.getElementById(id).value)
   }
 
   function updateInitialValues() {
-    cur_parameters = [[0, 1, 0.5], 0, 20]
-    beta = parseFloat(document.getElementById("betaSlid").value)
-    cur_parameters[0][0] = parseFloat(document.getElementById("gammaSlid").value)
-    delta = parseFloat(document.getElementById("deltaSlid").value)
-    iterPerFrame = Math.pow(2, document.getElementById("resSlid").value)
-    oderes = recalcOde()
-    iterPerFrame /= 500
+    solver.y0 = [getSliderValue("gammaSlid"), 1, 0.5]
+    beta = getSliderValue("betaSlid")
+    delta = getSliderValue("deltaSlid")
+    solver.f = (t, y) => [-delta * (y[0] - y[1]), radius * y[0] - y[1] - y[0] * y[2], -beta * y[2] + y[0] * y[1]]
+    iterPerFrame = Math.pow(2, getSliderValue("resSlid"))
+    solver.t0 = 0
+    solver.t1 = 20
+    oderes = solver.rk4(~~iterPerFrame * 120) //calculate a 20s preview at high res 
   }
 
   const opts = {
@@ -107,6 +110,7 @@
   var ctx = canvas.getContext("2d")
   const map = (value, x1, y1, x2, y2) => (value - x1) * (y2 - x2) / (y1 - x1) + x2;
 
+  var data = []
   function drawOde() {
     data = [
       oderes.ts,
@@ -135,21 +139,25 @@
   var u = new uPlot(opts, data, plotElem)
   u.setSize({ width: plotElem.clientWidth, height: plotElem.clientWidth });
   window.addEventListener("resize", e => {
+    var ptr = window.devicePixelRatio | 1
     u.setSize({ width: plotElem.clientWidth, height: plotElem.clientWidth });
-    canvas.height = plotElem.clientWidth
-    canvas.width = plotElem.clientWidth
+    canvas.height = plotElem.clientWidth * ptr
+    canvas.width = plotElem.clientWidth * ptr
   })
   drawOde()
 
   const tmax = 40
   const tstep = 0.05
   function step(timestamp) {
-    cur_parameters[0] = oderes.ys[oderes.ys.length - 1]
-    cur_parameters[1] = cur_parameters[2] //set the next frames t0
-    cur_parameters[2] += + tstep //set the next frames t1
-    var tmpres = recalcOde()
+    solver.y0 = oderes.ys[oderes.ys.length - 1]
+    solver.t0 = solver.t1
+    solver.t1 += tstep
+    // append the results to the current results 
+    var tmpres = solver.rk4(~~iterPerFrame)
     oderes.ts = oderes.ts.concat(tmpres.ts)
     oderes.ys = oderes.ys.concat(tmpres.ys)
+
+    //remove the first few elements if the array is too long
     if (oderes.ts[oderes.ts.length - 1] - oderes.ts[0] > tmax) {
       oderes.ts.splice(0, tmpres.ts.length)
       oderes.ys.splice(0, tmpres.ts.length)

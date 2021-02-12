@@ -67,16 +67,3 @@ class ODEsolver {
         }
     }
 }
-
-var solver
-function setOde(ode) {
-    solver = new ODEsolver(ode.f, ...ode.parameters)
-}
-
-var plotElem = document.getElementById("plot")
-
-//All kinds of different ODEs
-const Duffing = {
-    f: (t, y) => [y[1], 0.5 * Math.cos(t) - y[0] * y[0] * y[0] - 10 * y[0] - 0.01 * y[1]],
-    parameters: [[0, 1], -50, 150]
-}

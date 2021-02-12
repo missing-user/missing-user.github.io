@@ -16,28 +16,31 @@
 
 <body>
   <h1>Airy function</h1>
-<p>
-  The <a href="https://en.wikipedia.org/wiki/Airy_function">Airy</a> functions are solutions to the linear differential
-  equation
-</p>
-<object style="width: 100%; max-height: 1.8em;" data="images/airy.svg" type="image/svg+xml"></object>
-<p>
-  The airy functions are among other things solutions to the time independent Schrödinger equation for a particle inside a
-  linear and triangular potential well. The Airy functions can't easily be described in terms of standard mathematical
-  functions, which makes numerical solutions especially interesting. The two parameters describe the initial conditions of
-  the system.
-</p>
+  <p>
+    The <a href="https://en.wikipedia.org/wiki/Airy_function">Airy</a> functions are solutions to the linear
+    differential
+    equation
+  </p>
+  <object style="width: 100%; max-height: 1.8em;" data="images/airy.svg" type="image/svg+xml"></object>
+  <p>
+    The airy functions are among other things solutions to the time independent Schrödinger equation for a particle
+    inside a
+    linear and triangular potential well. The Airy functions can't easily be described in terms of standard mathematical
+    functions, which makes numerical solutions especially interesting. The two parameters describe the initial
+    conditions of
+    the system.
+  </p>
 
-<div class="sliderscont">
-  <input type="range" oninput="updateSim()" min="6" max="16" value="11" name="resolution slider" id="alphaSlid">
-  <label for="alphaSlid">resolution</label>
-  <input type="range" oninput="updateInitialValues()" value="0.7" min="0" max="1" step="any"
-    name="param one" id="betaSlid">
-  <label for="betaSlid">initial value</label>
-  <input type="range" oninput="updateInitialValues()" value="0.701923076923" min="0" max="1" step="any"
-    name="param one" id="gammaSlid">
-  <label for="gammaSlid">initial derivative</label>
-</div>
+  <div class="sliderscont">
+    <input type="range" oninput="updateSim()" min="6" max="16" value="11" name="resolution slider" id="alphaSlid">
+    <label for="alphaSlid">resolution</label>
+    <input type="range" oninput="updateInitialValues()" value="0.7" min="0" max="1" step="any" name="param one"
+      id="betaSlid">
+    <label for="betaSlid">initial value</label>
+    <input type="range" oninput="updateInitialValues()" value="0.701923076923" min="0" max="1" step="any"
+      name="param one" id="gammaSlid">
+    <label for="gammaSlid">initial derivative</label>
+  </div>
 
   <div id="plot"></div>
 </body>
@@ -45,21 +48,22 @@
 <script src="scripts/uplot.min.js"></script>
 <script src="scripts/ode.js"></script>
 <script>
-  var Airy = {
-    f: (t, y) => [y[1], t * y[0]],
-    parameters: [[0.7, 0.701923076923077], -15, 6]
+  var plotElem = document.getElementById("plot")
+  var Airy = (t, y) => [y[1], t * y[0]]
+  var solver = new ODEsolver(Airy, [0.7, 0.701923076923077], -15, 6)
+
+  function getSliderValue(id) {
+    return parseFloat(document.getElementById(id).value)
   }
 
-function updateInitialValues() {
-  Airy.parameters[0][0]=  parseFloat(document.getElementById("betaSlid").value)
-  Airy.parameters[0][1]=  parseFloat(document.getElementById("gammaSlid").value)
-  updateSim()
-}
-
-  setOde(Airy)
+  function updateInitialValues() {
+    solver.y0[0] = getSliderValue("betaSlid")
+    solver.y0[1] = getSliderValue("gammaSlid")
+    updateSim()
+  }
 
   function updateSim() {
-    u.setData(calcOde(Math.pow(2,document.getElementById("alphaSlid").value)))
+    u.setData(calcOde(Math.pow(2, document.getElementById("alphaSlid").value)))
   }
 
   const opts = {
@@ -68,13 +72,13 @@ function updateInitialValues() {
     title: "Airy function",
     scales: {
       x: { time: false },
-					y: {
-						auto: false,
-						range: [-5, 5],
-					},
+      y: {
+        auto: false,
+        range: [-5, 5],
+      },
     },
     series: [
-    { label: "t" },
+      { label: "t" },
       {
         label: "Euler",
         stroke: "#D32F2F",
@@ -101,10 +105,10 @@ function updateInitialValues() {
     return data
   }
 
-  var u = new uPlot(opts, calcOde(2**11), plotElem)
-  u.setSize({ width: plotElem.clientWidth, height: plotElem.clientWidth });
+  var u = new uPlot(opts, calcOde(2 ** 11), plotElem)
+  u.setSize({ width: plotElem.clientWidth, height: plotElem.clientWidth })
   window.addEventListener("resize", e => {
-    u.setSize({ width: plotElem.clientWidth, height: plotElem.clientWidth });
+    u.setSize({ width: plotElem.clientWidth, height: plotElem.clientWidth })
   })
 </script>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js'

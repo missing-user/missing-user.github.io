@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,9 +20,12 @@
   <h1>Numerical solutions to Ordinary differential equations</h1>
   <h2>Basics</h2>
   <p>
-    Ordinary differential equations, are equations that involve ordinary derivatives of a function and the function itself.
-    The order of the differential equation is characterized by the highest order derivative it contains. ODEs are used to
-    model a variety of systems like the stock market, orbiting planets or predator prey systems. In this article, we will
+    Ordinary differential equations, are equations that involve ordinary derivatives of a function and the function
+    itself.
+    The order of the differential equation is characterized by the highest order derivative it contains. ODEs are used
+    to
+    model a variety of systems like the stock market, orbiting planets or predator prey systems. In this article, we
+    will
     explore a few numerical methods for solving the following first order equation in JavaScript.
   </p>
   <object style="width: 100%; max-height: 3.2em;" data="images/ode.svg" type="image/svg+xml"></object>
@@ -29,7 +33,7 @@
   <p>
     Since many differential equations are hard to solve mathematically, numerical methods have been developed to compute
     aproximate solutions.
-    </p>
+  </p>
   <h3>Euler integration</h3>
   <p>
     The simplest method for numerical integration. At each timestep we calculate the current derivative, multiply it by
@@ -43,10 +47,10 @@
     values, we create an empty array <b>ys</b> and initialize the first entry to the initial ODE contition <b>y_0</b>.
   </p>
   <pre><code  class="language-javascript"  contenteditable spellcheck="false">const N = 100, t_0 = 0, t_1 = 1, y_0 = 2
-  const h = (t_1 - t_0) / (N)  //step size
-  var ts = Array.from(Array(N+1), (_, k) => k * h + t_0)
-  var ys = Array(N+1).fill(0)  //results
-  ys[0] = y_0  //initial conditions
+const h = (t_1 - t_0) / (N)  //step size
+var ts = Array.from(Array(N+1), (_, k) => k * h + t_0)
+var ys = Array(N+1).fill(0)  //results
+ys[0] = y_0  //initial conditions
 
 for (let i = 0; i &lt; N; i++) {
   ys[i + 1] =  ys[i] + f(ts[i], ys[i]) * h
@@ -58,15 +62,19 @@ for (let i = 0; i &lt; N; i++) {
   <h3>Midpoint method</h3>
   <p>
     The <a href="https://en.wikipedia.org/wiki/Midpoint_method">midpoint method</a> improves uppon the Euler method, by
-    taking the "average slope" between the current location and the next one, instead of the slope at the current location.
+    taking the "average slope" between the current location and the next one, instead of the slope at the current
+    location.
     As the name suggests, it determines the derivative at the midpoint between two steps. To do this, a regular euler
-    iteration with half step size is performed, and used to evaluate the slope. The next y value is once again calculated by
+    iteration with half step size is performed, and used to evaluate the slope. The next y value is once again
+    calculated by
     moving along the slope by one step.
   </p>
   <object style="width: 100%; max-height: 6em;" data="images/midpointStep.svg" type="image/svg+xml"></object>
   <p>Using this, the Order of the error decreases to O(h&sup3;) per step and O(h&sup2;)
-    for the total solution. The midpoint method increases stability significantly, while only requiring two evaluations of
-    the ODE per step. In realtime applications, this is often a good balance between accuracy and performance. Here's how
+    for the total solution. The midpoint method increases stability significantly, while only requiring two evaluations
+    of
+    the ODE per step. In realtime applications, this is often a good balance between accuracy and performance. Here's
+    how
     it looks when implemented:
   </p>
   <pre><code class="language-javascript" contenteditable spellcheck="false">for (let i = 0; i &lt; resolution; i++) {
@@ -106,24 +114,28 @@ for (let i = 0; i &lt; N; i++) {
   <input type="range" oninput="u.setData(calcOde(Math.pow(2,this.value)))" min="2" max="16" name="resolution slider"
     id="resolution_rng">
   <div id="plot"></div>
-  
+
   <h2>Moving into higher orders</h2>
   <p>Until now, we have only looked at solving first order differential equations. To solve higher order ODEs like
     the <a href="https://en.wikipedia.org/wiki/Electromagnetic_wave_equation">wave equation</a> we first have to turn
-    it into a system of first order ODEs. As an example, let's look at harmonic oscillators. 
+    it into a system of first order ODEs. As an example, let's look at harmonic oscillators.
   </p>
   <object style="width: 100%; max-height: 1.8em;" data="images/oszi.svg" type="image/svg+xml"></object>
   <p>
-    To turn this into a system of first order ODEs, let's write the second order derivative <b>y''</b> as a derivative 
+    To turn this into a system of first order ODEs, let's write the second order derivative <b>y''</b> as a derivative
     of <b>y'</b>. Now we can represent <b>y</b> as a vector consisting of the value and it's first derivative like so
   </p>
   <object style="width: 100%; max-height: 3.2em;" data="images/firstorder.svg" type="image/svg+xml"></object>
   <p>
-    This reqires some changes in the implementation, since <b>y</b> isn't a number anymore, but rather a list of values. To see one possible implementation, either
-    just inspect the site or take a look at my <a href="https://github.com/missing-user/missing-user.github.io">GitHub repository</a> for all the demos.
+    This reqires some changes in the implementation, since <b>y</b> isn't a number anymore, but rather a list of values.
+    To see one possible implementation, either
+    just inspect the site or take a look at my <a href="https://github.com/missing-user/missing-user.github.io">GitHub
+      repository</a> for all the demos.
   </p>
   <h2>...and beyond</h2>
-  <p>Using these methods, you can now solve a variety of problems from physics, mathematics and even biology. Here's a list of problems I find particularly interesting and an interactive implementation to go along with each one. Hope you like them! </p>
+  <p>Using these methods, you can now solve a variety of problems from physics, mathematics and even biology. Here's a
+    list of problems I find particularly interesting and an interactive implementation to go along with each one. Hope
+    you like them! </p>
   <ul>
     <li><a href="oscillator">Harmonic oscillators</a></li>
     <li><a href="airy">Airy functions</a></li>
@@ -137,12 +149,12 @@ for (let i = 0; i &lt; N; i++) {
 <script src="scripts/uplot.min.js"></script>
 <script src="scripts/ode.js"></script>
 <script>
+  var plotElem = document.getElementById("plot")
   const DefaultODE = {
     f: (t, y) => [2 * Math.sin(3 * t) + y[0] / 4],
     parameters: [[0.2], 0, 8]
-}
-
-  setOde(DefaultODE)
+  }
+  var solver = new ODEsolver(DefaultODE.f, ...DefaultODE.parameters)
 
   const opts = {
     width: 900,
@@ -150,7 +162,7 @@ for (let i = 0; i &lt; N; i++) {
     title: "Numerical ODE Solution",
     scales: {
       x: { time: false },
-      y: {range: [0,7]}
+      y: { range: [0, 7] }
     },
     series: [
       { label: "t" },
