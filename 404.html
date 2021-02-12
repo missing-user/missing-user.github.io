@@ -1,32 +1,115 @@
 <body style=margin:0>
-  <h1>404 something went wrong</h1>
   <canvas id=a>
     <script>
       // initialize 2D canvas (c)
       // initialize game state (s)
       // initialize keys states (u,r,d,l for directions, k for all the keyboard)
       c = a.getContext`2d`, k = [u = r = d = l = s = 0]
-
       // (initialize your global variables here)
-
+      tt = 0//current time
+      BLOCK_SIZE = 32
+      COLORS = ["#611C35", "#2E5077", "#4DA1A9", "#D7E8BA", "#FFA630"]
+      p = { vx: 0, vy: 0, x: 8 * BLOCK_SIZE, y: 1900, w: BLOCK_SIZE, h: BLOCK_SIZE, recentCollision: 0 } //the player
+      gamemap = [{
+        //floor
+        x: 0,
+        y: 0,
+        w: 300,
+        h: 1
+      }, {
+        x: 2,
+        y: 5,
+        w: 5,
+        h: 1
+      }, {
+        x: 6,
+        y: 8,
+        w: 5,
+        h: 1
+      }, {
+        x: 4,
+        y: 12,
+        w: 5,
+        h: 1
+      }, {
+        x: 12,
+        y: 8,
+        w: 5,
+        h: 1
+      }, {
+        x: 25,
+        y: 3,
+        w: 5,
+        h: 5
+      }, {
+        x: 15,
+        y: 0,
+        w: 2,
+        h: 2,
+        bad: true
+      }]
       // update u,l,d,r globals when an arrow key/wasd/zqsd is pressed or released
       // update k[keyCode] if any other key is pressed/released
       onkeydown = onkeyup = e => k[e.which] = self['lld*rlurdu'[e.which % 32 % 17]] = e.type[5]
+      lim = (x, min, max) => x < min ? min : x > max ? max : x; //limits the number to the range [min, max]
+      collision = (r1, r2) => r1.x + r1.w > r2.x && r1.x < r2.x + r2.w && r2.y + r2.h > r1.y && r2.y < r1.y + r1.h
+      setC = (index) => c.fillStyle = COLORS[index]
 
+      for (const b of gamemap) {
+        b.x *= BLOCK_SIZE
+        b.y *= BLOCK_SIZE
+        b.w *= BLOCK_SIZE
+        b.h *= BLOCK_SIZE
+      }
       // start game loop (60fps)
       // the canvas is cleared and adjusted to fullscreen at each frame
       // draw each screen in the switch's cases
       // in each screen, you can make key presses update the game state
       // ex: "press enter to open the menu" => `if(k[13])s=1;`
       setInterval(e => {
-        a.width = innerWidth, a.height = innerHeight;
+        w = innerWidth, h = innerHeight
+
+        draw = (x, y, w, he) => c.fillRect(x, h - y - he, w, he)
+        a.width = w, a.height = h;
+
+        setC(1); c.fillRect(0, 0, w, h); c.font = "100px Impact";
         switch (s) {
-          case 0: // ex: draw title screen
-          case 1: // ex: draw menu screen
-          case 2: // ex: draw game board
-          case 3: // ex: draw game over screen
+
+          case 1: // main game
+          case 0: setC(2); c.fillText("404 Page not found", 20, h / 2 - tt * h / 300); if (tt > 90) s = 1; else tt++;// ex: draw title screen
+
+            p.recentCollision--; p.x += p.vx; p.y += p.vy; p.vx = lim(p.vx + (!r && !l ? -p.vx / 8 : (!l - !r) / 4), -5, 5); p.vy = lim(p.vy - 0.25 + (!!u && p.recentCollision > 0 ? 10 : 0) /* if jump button is pressed and we recently hit the ground, accel upward*/, -10, 10);  //player movement and gravity (limit max speed)
+
+            for (const b of gamemap) {
+              if (collision(p, b)) {
+                p.x -= p.vx //check if the overlap occured on the x axis
+                if (!collision(p, b)) { //it it has, determine the distance, so we don't overlap
+                  p.x = p.vx > 0 ? b.x - p.w : b.w + b.x; p.vx = 0;
+                } else {
+                  p.x += p.vx //reset the y location
+
+                  p.y -= p.vy //check if the overlap occured on the y axis
+                  if (!collision(p, b)) { //it it has, determine the distance, so we don't overlap
+                    p.y = p.vy > 0 ? b.y - p.h : b.h + b.y; p.vy = 0;
+                    p.recentCollision = b.y + b.h - p.y <= 0 ? 4 : -1
+                  } else
+                    p.y += p.vy //reset the y location
+                }
+                if ('bad' in b) p.y = p.x = 12 * BLOCK_SIZE
+              } if ('bad' in b) {
+                setC(0)
+                draw(b.x, b.y, b.w, b.h)
+              } else {
+                setC(3)
+                draw(b.x, b.y, b.w, b.h)
+                setC(2)
+                c.fillRect(b.x, h - b.y - b.h, b.w, BLOCK_SIZE / 3)
+              }
+            }
+            setC(4); draw(p.x, p.y, BLOCK_SIZE, BLOCK_SIZE); p.x = (p.x + w) % w;
+            break
         }
-      }, 16)
+      }, 7)
 
       // handle click/touch events
       // globals x and y contain the pointer's coordinates
