@@ -1,0 +1,19 @@
+<body>
+  <h1 id="text">Your devmode is being activated...</h1>
+  <script type="text/javascript">
+    if (window.localStorage) {
+      console.log(window.localStorage.getItem("devmode"));
+      if (!!window.localStorage.getItem("devmode")) {
+        document.getElementById('text').textContent = 'devmode was already active'
+      } else {
+        window.localStorage.setItem("devmode", true)
+        document.getElementById('text').textContent = 'devmode has now been activated'
+      }
+    } else {
+      document.getElementById('text').textContent = "couldn't activate devmode, localStorage missing"
+    }
+    setTimeout(function () {
+      window.location.href = '/';
+    }, 1500);
+  </script>
+</body>
