@@ -30,7 +30,7 @@
 
   <div style="display: flex; justify-content: space-between;">
     <div class="sliderscont">
-      <input type="range" oninput="updateInitialValues()" min="1" max="5" value="4" step="0.1" name="resolution slider"
+      <input type="range" oninput="updateInitialValues()" min="1" max="4" value="3" step="0.1" name="resolution slider"
         id="resSlid">
       <label for="resSlid">resolution</label>
       <input type="range" oninput="updateInitialValues()" value="8 / 3" min="0" max="3" step="any" name="amplitude"
@@ -147,7 +147,7 @@
   drawOde()
 
   const tmax = 40
-  const tstep = 0.05
+  const tstep = 0.1
   function step(timestamp) {
     solver.y0 = oderes.ys[oderes.ys.length - 1]
     solver.t0 = solver.t1

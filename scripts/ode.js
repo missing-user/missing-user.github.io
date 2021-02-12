@@ -1,5 +1,3 @@
-var canvas = document.getElementById("canvas")
-
 class ODEsolver {
     constructor(ode, y0, t0, t1) {
         this.ode = ode
