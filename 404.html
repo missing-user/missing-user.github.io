@@ -9,7 +9,7 @@
       tt = 0//current time
       BLOCK_SIZE = 32
       COLORS = ["#611C35", "#2E5077", "#4DA1A9", "#D7E8BA", "#FFA630"]
-      p = { vx: 0, vy: 0, x: 8 * BLOCK_SIZE, y: 1900, w: BLOCK_SIZE, h: BLOCK_SIZE, recentCollision: 0 } //the player
+      p = { vx: 0, vy: 0, x: 8 * BLOCK_SIZE, y: 1900, w: BLOCK_SIZE - 1, h: BLOCK_SIZE, recentCollision: 0 } //the player
       gamemap = [{
         //floor
         x: 0,
@@ -58,19 +58,19 @@
       collision = (r1, r2) => r1.x + r1.w > r2.x && r1.x < r2.x + r2.w && r2.y + r2.h > r1.y && r2.y < r1.y + r1.h
       setC = (index) => c.fillStyle = COLORS[index]
       rnd = (min, max) => ~~(Math.random() * (max - min) + min)
-      /* RANDOM GENERATION**/
+      /* RANDOM GENERATION
       for (index = 10; index--;) {
         gamemap.push({ x: rnd(0, 40), y: rnd(2, 20), w: rnd(4, 10), h: rnd(0, 4) < 3 ? 1 : rnd(1, 6) })
-      }
-      /* TILED MAP READER
+      }**/
+      /* TILED MAP READER*/
       tiledData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 2, 2, 2, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 2, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 2, 0, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 2, 0, 2, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 0, 0, 0, 2, 2, 2, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 2, 0, 2, 2, 2, 2, 0, 2, 0, 2, 2, 2, 2, 2, 0, 0, 2, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 2, 0, 2, 2, 2, 2, 0, 2, 0, 2, 2, 2, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 2, 0, 2, 2, 2, 2, 0, 2, 2, 2, 0, 2, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
       TILED_WIDTH = 40
       TILED_HEIGHT = 30
-      for (i=tiledData.length;i--;) {
+      for (i = tiledData.length; i--;) {
         const element = tiledData[i];
         if (element > 0)
           gamemap.push({ x: i % TILED_WIDTH, y: TILED_HEIGHT - ~~(i / TILED_WIDTH), w: 1, h: 1 })
-      }*/
+      }
 
       for (const b of gamemap) {
         b.x *= BLOCK_SIZE
@@ -95,25 +95,32 @@
           case 1: // main game
           case 0: setC(2); c.fillText("404 Page not found", 20, h / 2 - tt * h / 300);
             if (tt > 90) s = 1; else tt++;// ex: draw title screen
-            p.recentCollision--; p.x += p.vx; p.y += p.vy;
+            p.recentCollision--;
+
+            //TODO: These two loops could be made into one / function call?
+            //do collision checking in y direction
+            p.y += p.vy;
+            for (const b of gamemap)
+              if (collision(p, b)) //the overlap occured on the y axis
+              //determine the distance, so we don't overlap, and move back by that amount
+              {
+                if (p.vy < 0) p.recentCollision = 4;
+                p.y = p.vy > 0 ? b.y - p.h : b.h + b.y; p.vy = 0;
+                if ('bad' in b) p.y = p.x = 12 * BLOCK_SIZE //GAME OVER
+              }
+            //do collision checking in x direction
+            p.x += p.vx;
+            for (const b of gamemap)
+              if (collision(p, b)) //the overlap occured on the x axis
+              //determine the distance, so we don't overlap, and move back by that amount
+              {
+                p.x = p.vx > 0 ? b.x - p.w : b.w + b.x; p.vx = 0;
+                if ('bad' in b) p.y = p.x = 12 * BLOCK_SIZE //GAME OVER
+              }
 
             for (const b of gamemap) {
-              if (collision(p, b)) {
-                p.x -= p.vx //check if the overlap occured on the x axis
-                if (!collision(p, b)) { //it it has, determine the distance, so we don't overlap
-                  p.x = p.vx > 0 ? b.x - p.w : b.w + b.x; p.vx = 0;
-                } else {
-                  p.x += p.vx //reset the y location
-
-                  p.y -= p.vy //check if the overlap occured on the y axis
-                  if (!collision(p, b)) { //it it has, determine the distance, so we don't overlap
-                    p.y = p.vy > 0 ? b.y - p.h : b.h + b.y; p.vy = 0;
-                    p.recentCollision = b.y + b.h - p.y <= 0 ? 10 : -1
-                  } else
-                    p.y += p.vy //reset the y location
-                }
-                if ('bad' in b) p.y = p.x = 12 * BLOCK_SIZE //GAME OVER
-              } if ('bad' in b) {
+              // RENDERING
+              if ('bad' in b) {
                 setC(0)
                 draw(b.x, b.y, b.w, b.h)
               } else {
