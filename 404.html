@@ -1,4 +1,4 @@
-<body style=margin:0>
+<body style="margin:0;background:#2E5077">
   <canvas id=a>
     <script>
       // initialize 2D canvas (c)
@@ -8,8 +8,8 @@
       // (initialize your global variables here)
       tt = 0//current time
       BLOCK_SIZE = 32
-      COLORS = ["#611C35", "#2E5077", "#4DA1A9", "#D7E8BA", "#FFA630"]
-      p = { vx: 0, vy: 0, x: 8 * BLOCK_SIZE, y: 1900, w: BLOCK_SIZE - .5, h: BLOCK_SIZE, recentCollision: 0 } //the player
+      COLORS = ["#611C35", "#4DA1A9", "#D7E8BA", "#FFA630"]
+      p = { vx: 0, vy: 0, x: 8 * BLOCK_SIZE, y: 600, w: BLOCK_SIZE - .5, h: BLOCK_SIZE, recentCollision: 0 } //the player
       gamemap = [{
         //floor
         x: 0,
@@ -52,7 +52,7 @@
       // update u,l,d,r globals when an arrow key/wasd/zqsd is pressed or released
       // update k[keyCode] if any other key is pressed/released
       ontouchstart = ontouchmove = e => { l = e.touches[0].clientX < w / 2; r = !l }
-      ontouchend = e => u = l = r = e.touches.length //reset movement on touch end
+      ontouchend = e => { u = l = r = e.touches.length } //reset movement on touch end
       onkeydown = onkeyup = e => k[e.which] = self['lld*rlurdu'[e.which % 32 % 17]] = e.type[5]
       lim = (x, min, max) => x < min ? min : x > max ? max : x; //limits the number to the range [min, max]
       collision = (r1, r2) => r1.x + r1.w > r2.x && r1.x < r2.x + r2.w && r2.y + r2.h > r1.y && r2.y < r1.y + r1.h
@@ -89,12 +89,11 @@
         draw = (x, y, w, he) => c.fillRect(x, h - y - he, w, he)
         a.width = w, a.height = h;
 
-        setC(1); c.fillRect(0, 0, w, h); c.font = "100px Impact";
+        c.font = "100px Impact";
+        c.fillText(`u:${u}  l:${l} r:${r}`, 20, h / 2);
         switch (s) {
 
           case 1: // main game
-          case 0: setC(2); c.fillText("404 Page not found", 20, h / 2 - tt * h / 300);
-            if (tt > 90) s = 1; else tt++;// ex: draw title screen
             p.recentCollision--;
 
             //TODO: These two loops could be made into one / function call?
@@ -118,21 +117,26 @@
                 if ('bad' in b) p.y = p.x = 12 * BLOCK_SIZE //GAME OVER
               }
 
+            p.vx = lim(p.vx + (!r && !l ? -p.vx / 8 : (!l - !r) / 4), -5, 5);
+            p.vy = lim(p.vy - 0.25 + (!!u && p.recentCollision > 0 ? 10 : 0) /* if jump button is pressed and we recently hit the ground, accel upward*/, -10, 10);  //player movement and gravity (limit max speed)
+            p.x = (p.x + w) % w;
+
+          case 0: setC(1); c.fillText("404 Page not found", 20, h / 2 - tt * h / 300);
+            if (tt > 90) s = 1; else tt++; // ex: draw title screen
+
             for (const b of gamemap) {
               // RENDERING
               if ('bad' in b) {
                 setC(0)
                 draw(b.x, b.y, b.w, b.h)
               } else {
-                setC(3)
-                draw(b.x, b.y, b.w, b.h)
                 setC(2)
+                draw(b.x, b.y, b.w, b.h)
+                setC(1)
                 c.fillRect(b.x, h - b.y - b.h, b.w, BLOCK_SIZE / 3)
               }
             }
-            p.vx = lim(p.vx + (!r && !l ? -p.vx / 8 : (!l - !r) / 4), -5, 5);
-            p.vy = lim(p.vy - 0.25 + (!!u && p.recentCollision > 0 ? 10 : 0) /* if jump button is pressed and we recently hit the ground, accel upward*/, -10, 10);  //player movement and gravity (limit max speed)
-            setC(4); draw(p.x, p.y, BLOCK_SIZE, BLOCK_SIZE); p.x = (p.x + w) % w;
+            setC(3); draw(p.x, p.y, BLOCK_SIZE, BLOCK_SIZE);
             break
         }
       }, 7)
@@ -140,7 +144,7 @@
       // handle click/touch events
       // globals x and y contain the pointer's coordinates
       // in each screen, you can make a click update the game state
-      // ex: "game over if we click on the bottom half of the screen" => `if(y>h/2)s=3;`
+      // ex: "game over if we click on the bottom half of the screen" => `if (y > h / 2) s = 3;`
       onclick = e => {
         x = e.pageX; y = e.pageY;
         switch (s) {
