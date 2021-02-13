@@ -16,7 +16,7 @@
         y: 0,
         w: 300,
         h: 1
-      }, {
+      }, /*{
         x: 2,
         y: 5,
         w: 5,
@@ -47,13 +47,30 @@
         w: 2,
         h: 2,
         bad: true
-      }]
+      }*/]
+
       // update u,l,d,r globals when an arrow key/wasd/zqsd is pressed or released
       // update k[keyCode] if any other key is pressed/released
+      ontouchstart = ontouchmove = e => { if (e.touches.length > 1) u = 1; l = e.touches[0].clientX < w / 2; r = !l }
+      ontouchend = e => { if (e.touches.length == 0) l = r = 0 }
       onkeydown = onkeyup = e => k[e.which] = self['lld*rlurdu'[e.which % 32 % 17]] = e.type[5]
       lim = (x, min, max) => x < min ? min : x > max ? max : x; //limits the number to the range [min, max]
       collision = (r1, r2) => r1.x + r1.w > r2.x && r1.x < r2.x + r2.w && r2.y + r2.h > r1.y && r2.y < r1.y + r1.h
       setC = (index) => c.fillStyle = COLORS[index]
+      rnd = (min, max) => ~~(Math.random() * (max - min) + min)
+      /* RANDOM GENERATION**/
+      for (index = 10; index--;) {
+        gamemap.push({ x: rnd(0, 40), y: rnd(2, 20), w: rnd(4, 10), h: rnd(0, 4) < 3 ? 1 : rnd(1, 6) })
+      }
+      /* TILED MAP READER
+      tiledData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 2, 2, 2, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 2, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 2, 0, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 2, 0, 2, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 0, 0, 0, 2, 2, 2, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 2, 0, 2, 2, 2, 2, 0, 2, 0, 2, 2, 2, 2, 2, 0, 0, 2, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 2, 0, 2, 2, 2, 2, 0, 2, 0, 2, 2, 2, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 2, 0, 2, 2, 2, 2, 0, 2, 2, 2, 0, 2, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+      TILED_WIDTH = 40
+      TILED_HEIGHT = 30
+      for (i=tiledData.length;i--;) {
+        const element = tiledData[i];
+        if (element > 0)
+          gamemap.push({ x: i % TILED_WIDTH, y: TILED_HEIGHT - ~~(i / TILED_WIDTH), w: 1, h: 1 })
+      }*/
 
       for (const b of gamemap) {
         b.x *= BLOCK_SIZE
@@ -76,9 +93,9 @@
         switch (s) {
 
           case 1: // main game
-          case 0: setC(2); c.fillText("404 Page not found", 20, h / 2 - tt * h / 300); if (tt > 90) s = 1; else tt++;// ex: draw title screen
-
-            p.recentCollision--; p.x += p.vx; p.y += p.vy; p.vx = lim(p.vx + (!r && !l ? -p.vx / 8 : (!l - !r) / 4), -5, 5); p.vy = lim(p.vy - 0.25 + (!!u && p.recentCollision > 0 ? 10 : 0) /* if jump button is pressed and we recently hit the ground, accel upward*/, -10, 10);  //player movement and gravity (limit max speed)
+          case 0: setC(2); c.fillText("404 Page not found", 20, h / 2 - tt * h / 300);
+            if (tt > 90) s = 1; else tt++;// ex: draw title screen
+            p.recentCollision--; p.x += p.vx; p.y += p.vy;
 
             for (const b of gamemap) {
               if (collision(p, b)) {
@@ -91,11 +108,11 @@
                   p.y -= p.vy //check if the overlap occured on the y axis
                   if (!collision(p, b)) { //it it has, determine the distance, so we don't overlap
                     p.y = p.vy > 0 ? b.y - p.h : b.h + b.y; p.vy = 0;
-                    p.recentCollision = b.y + b.h - p.y <= 0 ? 4 : -1
+                    p.recentCollision = b.y + b.h - p.y <= 0 ? 10 : -1
                   } else
                     p.y += p.vy //reset the y location
                 }
-                if ('bad' in b) p.y = p.x = 12 * BLOCK_SIZE
+                if ('bad' in b) p.y = p.x = 12 * BLOCK_SIZE //GAME OVER
               } if ('bad' in b) {
                 setC(0)
                 draw(b.x, b.y, b.w, b.h)
@@ -106,6 +123,8 @@
                 c.fillRect(b.x, h - b.y - b.h, b.w, BLOCK_SIZE / 3)
               }
             }
+            p.vx = lim(p.vx + (!r && !l ? -p.vx / 8 : (!l - !r) / 4), -5, 5);
+            p.vy = lim(p.vy - 0.25 + (!!u && p.recentCollision > 0 ? 10 : 0) /* if jump button is pressed and we recently hit the ground, accel upward*/, -10, 10);  //player movement and gravity (limit max speed)
             setC(4); draw(p.x, p.y, BLOCK_SIZE, BLOCK_SIZE); p.x = (p.x + w) % w;
             break
         }
