@@ -24,12 +24,9 @@
   <h2>Basics</h2>
   <p>
     Ordinary differential equations, are equations that involve ordinary derivatives of a function and the function
-    itself.
-    The order of the differential equation is characterized by the highest order derivative it contains. ODEs are used
-    to
-    model a variety of systems like the stock market, orbiting planets or predator prey systems. In this article, we
-    will
-    explore a few numerical methods for solving the following first order equation in JavaScript.
+    itself. The order of the differential equation is characterized by the highest order derivative it contains. ODEs
+    are used to model a variety of systems like the stock market, orbiting planets or predator prey systems. In this
+    article, we will explore a few numerical methods for solving the following first order equation in JavaScript.
   </p>
   <object style="width: 100%; max-height: 3.2em;" data="images/ode.svg" type="image/svg+xml"></object>
   <h2>Numerical methods</h2>
@@ -66,11 +63,9 @@ for (let i = 0; i &lt; N; i++) {
   <p>
     The <a href="https://en.wikipedia.org/wiki/Midpoint_method">midpoint method</a> improves uppon the Euler method, by
     taking the "average slope" between the current location and the next one, instead of the slope at the current
-    location.
-    As the name suggests, it determines the derivative at the midpoint between two steps. To do this, a regular euler
-    iteration with half step size is performed, and used to evaluate the slope. The next y value is once again
-    calculated by
-    moving along the slope by one step.
+    location. As the name suggests, it determines the derivative at the midpoint between two steps. To do this, a
+    regular euler iteration with half step size is performed, and used to evaluate the slope. The next y value is once
+    again calculated by moving along the slope by one step.
   </p>
   <object style="width: 100%; max-height: 6em;" data="images/midpointStep.svg" type="image/svg+xml"></object>
   <p>Using this, the Order of the error decreases to O(h&sup3;) per step and O(h&sup2;)
@@ -140,8 +135,8 @@ for (let i = 0; i &lt; N; i++) {
   </p>
   <h2>...and beyond</h2>
   <p>Using these methods, you can now solve a variety of problems from physics, mathematics and even biology. Here's a
-    list of problems I find particularly interesting and an interactive implementation to go along with each one. Hope
-    you like them! </p>
+    list of problems I find particularly interesting and an interactive implementation to go along with each one. If you
+    enjoy these kinds of projects, why don't you check out <a href="https://jurasic-park.de/">my website</a></p>
   <ul>
     <li><a href="oscillator">Harmonic oscillators</a></li>
     <li><a href="airy">Airy functions</a></li>
