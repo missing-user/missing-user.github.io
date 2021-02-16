@@ -94,6 +94,8 @@
             if (key != 'type')
               b[key] *= BLOCK_SIZE
         mapIndex++
+        p.y = p.x = BLOCK_SIZE
+        p.vx = p.vy = 0
       }
       nextMap()
 
@@ -104,7 +106,6 @@
       // ex: "press enter to open the menu" => `if(k[13])s=1;`
       setInterval(e => {
         w = innerWidth, h = innerHeight
-
 
         draw = (x, y, w, he) => c.fillRect(x, h - y - he, w, he)
         a.width = w, a.height = h;
