@@ -46,7 +46,7 @@
 
       // update u,l,d,r globals when an arrow key/wasd/zqsd is pressed or released
       // update k[keyCode] if any other key is pressed/released
-      ontouchstart = ontouchmove = e => { x = e.touches[0].clientX; u = x > w / 1.5; if (x < w / 2) { l = x < w / 4; r = !l; } }
+      ontouchstart = ontouchmove = e => { for (touch of e.touches) { x = touch.clientX; u = x > w / 1.5; if (x < w / 2) { l = x < w / 4; r = !l; } } }
       ontouchend = e => { u = 0; l = r = e.touches.length } //reset movement on touch end
       onkeydown = onkeyup = e => k[e.which] = self['lld*rlurdu'[e.which % 32 % 17]] = e.type[5]
 
@@ -75,12 +75,13 @@
       mapIndex = 0
       function nextMap() {
         gamemap = []
-        if (mapIndex < tiledData.length)
+        if (mapIndex < tiledData.length) {
           for (i = tiledData[mapIndex].length; i--;)
             if (tiledData[mapIndex][i] > 0)
               gamemap.push({ x: i % TILED_WIDTH, y: TILED_HEIGHT - ~~(i / TILED_WIDTH), w: 1, h: 1, type: tiledData[mapIndex][i] })
-            else
-              txt = "page found!"
+        }
+        else
+          txt = "page found!"
         gamemap.push({
           //floor
           x: 0,
@@ -104,10 +105,15 @@
       setInterval(e => {
         w = innerWidth, h = innerHeight
 
+
         draw = (x, y, w, he) => c.fillRect(x, h - y - he, w, he)
         a.width = w, a.height = h;
 
         c.font = "100px Impact";
+        setC(1); c.fillText(txt, 20, h / 2 - tt * h / 300);
+        if (tt > 90) s = 1; else tt++; // ex: draw title screen
+        c.setTransform(1, 0, 0, 1, 0, h > w ? -h / 4 : 0);
+
         switch (s) {
           case 1: // main game
             colType = (b) => {
@@ -150,9 +156,7 @@
             p.vy = lim(p.vy - 0.3 + (!!u && p.recentCollision > 0 ? 10 : 0) /* if jump button is pressed and we recently hit the ground, accel upward*/, -10, 8);  //player movement and gravity (limit max speed)
             p.x = (p.x + w) % w;
 
-          case 0: setC(1); c.fillText(txt, 20, h / 2 - tt * h / 300);
-            if (tt > 90) s = 1; else tt++; // ex: draw title screen
-
+          case 0:
             for (b of gamemap) {
               // RENDERING
               if ('type' in b) {
