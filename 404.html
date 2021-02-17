@@ -3,12 +3,12 @@
     <script>
       // initialize keys states (u,r,d,l for directions, k for all the keyboard)
       c = a.getContext`2d`, k = [u = r = d = l = s = 0]
-      tt = 0//current time
+      tt = 0//current time for title animation
       BLOCK_SIZE = 32
       COLORS = ["#de3c4b", "#fbf5f3", "#6699CC", "#e28413"]
       p = {
         vx: 0, vy: 0,
-        recentCollision: -1
+        rc: -1 //set to >0 on collision, so the player can jump
       }
       p.w = p.h = p.x = p.y = BLOCK_SIZE //the player
 
@@ -74,19 +74,19 @@
 
 
       particles = []
-      TILED_WIDTH = 40
-      TILED_HEIGHT = 27
+      MAP_W = 40
+      MAP_H = 27
       start = new Date()
 
-      mapIndex = 0
+      mi = 0  //level index 
 
       //loads the next map and sets all 
       function nextMap() {
-        gamemap = []
-        if (mapIndex < md.length) {
-          for (i = md[mapIndex].length; i--;)
-            if (md[mapIndex][i] > 0)
-              gamemap.push({ x: i % TILED_WIDTH, y: TILED_HEIGHT - ~~(i / TILED_WIDTH), w: 1, h: 1, type: md[mapIndex][i] })
+        gamemap = [] //game map
+        if (mi < md.length) {
+          for (i = md[mi].length; i--;)
+            if (md[mi][i] > 0)
+              gamemap.push({ x: i % MAP_W, y: MAP_H - ~~(i / MAP_W), w: 1, h: 1, type: md[mi][i] })
         }
         else { txt = `Page found in ${~~((new Date() - start) / 100) / 10} seconds` } //Game over, you won
         gamemap.push({
@@ -100,7 +100,7 @@
           for (key in b)
             if (key != 'type')
               b[key] *= BLOCK_SIZE
-        mapIndex++
+        mi++
         p.y = p.x = BLOCK_SIZE
         p.vx = p.vy = 0
       }
@@ -114,7 +114,7 @@
         //w = innerWidth, h = innerHeight
         t = (nt - ot) / 7 //calculate delta time and store as t
         ot = nt
-        a.width = w = TILED_WIDTH * BLOCK_SIZE, a.height = h = (TILED_HEIGHT + 8) * BLOCK_SIZE
+        a.width = w = MAP_W * BLOCK_SIZE, a.height = h = (MAP_H + 8) * BLOCK_SIZE
         draw = (x, y, w, he) => c.fillRect(x, h - y - he, w, he)
         spawnParticles = (x, y) => {
           for (index = 30; index--;) {
@@ -141,7 +141,7 @@
             }
           }
         } //GAME OVER
-        p.recentCollision -= t;
+        p.rc -= t;
 
         //TODO: These two loops could be made into one / function call?
         //do collision checking in y direction
@@ -151,7 +151,7 @@
           //determine the distance, so we don't overlap, and move back by that amount
           {
             //if (p.vy < 0) 
-            p.recentCollision = 6;
+            p.rc = 6;
             p.y = p.vy > 0 ? b.y - p.h : b.h + b.y; p.vy = 0;
             colType(b)
           }
@@ -166,7 +166,7 @@
           }
 
         p.vx = lim(p.vx + (!r && !l ? -p.vx / 4 : (!l - !r) / 4) * t, -5, 5)
-        p.vy = lim(p.vy - 0.3 * t + (!!u && p.recentCollision > 0 ? 10 : 0) /* if jump button is pressed and we recently hit the ground, accel upward*/, -10, 8);  //player movement and gravity (limit max speed)
+        p.vy = lim(p.vy - 0.3 * t + (!!u && p.rc > 0 ? 10 : 0) /* if jump button is pressed and we recently hit the ground, accel upward*/, -10, 8);  //player movement and gravity (limit max speed)
         p.x = (p.x + w) % w;
 
         for (b of gamemap)
