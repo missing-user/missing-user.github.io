@@ -194,7 +194,8 @@ https://github.com/missing-user/missing-user.github.io
     <div class="one-half column img_cont">
       <a href="https://jurasic-park.de/404">
         <picture>
-          <img loading="lazy" class="u-full-width img-hover-zoom" src="images/404.svg" alt="404 page screenshot">
+          <source type="image/svg+xml" srcset="images/404.svg"/>
+          <img loading="lazy" class="u-full-width img-hover-zoom" src="images/404.png" alt="404 page screenshot"/>
         </picture>
       </a>
     </div>
@@ -228,8 +229,8 @@ https://github.com/missing-user/missing-user.github.io
       <div class="one-half column img_cont">
         <a href="https://jurasic-park.de/ode/">
           <picture>
-            <source type="image/webp" srcset="images/ode.webp" />
-            <source type="image/png" srcset="images/ode.png" />
+            <source type="image/svg+xml" srcset="images/ode.svg"  media="(prefers-color-scheme: dark)"/>
+            <source type="image/svg+xml" srcset="images/ode_light.svg" />
             <img loading="lazy" class="u-full-width img-hover-zoom" src="images/ode.png" alt="Numerical ODE solver" />
           </picture>
         </a>
@@ -295,10 +296,8 @@ https://github.com/missing-user/missing-user.github.io
       <div class="one-half column img_cont">
         <a href="https://jurasic-park.de/optics/">
           <picture>
-            <source type="image/webp" srcset="images/optics.webp" media="(prefers-color-scheme: dark)" />
-            <source type="image/png" srcset="images/optics.png" media="(prefers-color-scheme: dark)" />
-            <source type="image/webp" srcset="images/optics_light.webp" />
-            <source type="image/png" srcset="images/optics_light.png" />
+            <source type="image/svg+xml"  srcset="images/optics.svg" media="(prefers-color-scheme: dark)" />
+            <source type="image/svg+xml"  srcset="images/optics_light.svg"/>
             <img loading="lazy" class="u-full-width img-hover-zoom" src="images/optics_light.png"
               alt="optics simulator preview" />
           </picture>
