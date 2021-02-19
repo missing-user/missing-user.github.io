@@ -12,11 +12,6 @@
   image-rendering: -moz-crisp-edges;
 }
 
-picture {
-  display: block;
-  line-height: 0;
-}
-
 .img_cont {
   border-radius: .5rem;
   overflow: hidden;
@@ -29,31 +24,4 @@ picture {
 /* The Transformation */
 .img-hover-zoom:hover {
   transform: scale(1.5);
-}
-
-.lightText {
-  color: #FFF;
-}
-
-hr {
-  visibility: hidden;
-  padding-top: 2rem;
-  padding-bottom: 6rem;
-}
-
-p{
-  text-align: justify;
-}
-
-@media (min-width: 550px) {
-  hr {
-    visibility: visible;
-    padding-top: 3rem;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .lightText {
-    color: #eeeeec;
-  }
 }
