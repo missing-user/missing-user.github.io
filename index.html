@@ -34,7 +34,7 @@ https://github.com/missing-user/missing-user.github.io
       <div class="row">
         <div class="two-thirds column">
           <h1 class="lightText">Philipp Jurašić</h1>
-          <h3 id="thoughts" class="lightText">&#8203;</h3>
+          <h3 id="thoughts" class="lightText" style="height:9rem">&#8203;</h3>
           <form action="https://github.com/missing-user" target="_blank">
             <button class="lightText" type="submit">follow me on GitHub</button>
           </form>
@@ -51,10 +51,10 @@ https://github.com/missing-user/missing-user.github.io
   </div>
 
   <script>
-    var i = 0;
+    var letterIndex = 0;
     var thoughtIndex = 0
     var txt = ["3/10 can't recommend",
-      //"Robert'); DROP TABLE Students;--", //XKCD
+      "Robert'); DROP TABLE Students;--",
       "There's an XKCD for that",
       'Physics is harder than I thought',
       "Wait, the exam is next week?",
@@ -81,18 +81,31 @@ https://github.com/missing-user/missing-user.github.io
       'Sleep is cool, but have you tried coffee?',
       "Nobody expects the spanish inquisition!",
       "My name is Inigo Montoya, prepare to die",
+	  "It's actually pronounced GIF",
       "404, Status not found",
       "sin(x) = tan(x) = x",
       "You gotta watch that movie!",
       "Congratulations, you won!",
       "There are multiple words for redundant",
 	  "π² = g ",
+	  "Sell Me This Pen",
+	  "Those are rookie numbers!",
+	  "Models are just opinions disguised as mathematics",
+	  "Negligible since set is of lebesgue measure zero",
+	  "java.lang.Error: JVM doesn't like you",
+	  "It works on my machine",
+	  "Is that a 0-th order taylor expansion?",
+	  "The joke is left as an exercise to the reader",
+	  "The proof is trivial",
 	  "Wake up, Neo",
-	  "Here’s Johnny!",
+	  "Here's Johnny!",
 	  "You're tearing me apart, Lisa!",
 	  "Anyway, how's your sex life?",
 	  "Was nothing real?",
 	  "Oh behave!",
+	  "Proficient in HQ9+",
+	  '"I am justice!" - L',
+	  "Must be a compiler bug, my code is perfect",
 	  "Revive me Jett",
 	  "Don't worry, I got this", 
 	  "1.21 Gigawatts!?!",
@@ -104,9 +117,8 @@ https://github.com/missing-user/missing-user.github.io
     ];
 
     function typeWriter() {
-      if (i < txt[thoughtIndex].length) {
-        document.getElementById("thoughts").textContent += txt[thoughtIndex].charAt(i);
-        i++;
+      if (letterIndex < txt[thoughtIndex].length) {
+        document.getElementById("thoughts").textContent += txt[thoughtIndex].charAt(letterIndex++)
         setTimeout(typeWriter, 50);
       } else {
         setTimeout(resetThoughts, 1200);
@@ -121,13 +133,12 @@ https://github.com/missing-user/missing-user.github.io
     }
 
     function resetThoughts() {
-      if (i > 1) {
+      if (letterIndex > 1) {
         document.getElementById("thoughts").textContent = document.getElementById("thoughts").textContent.slice(0, -1)
-        i--;
+        letterIndex--;
         setTimeout(resetThoughts, 10);
       } else {
-        thoughtIndex++
-        thoughtIndex = thoughtIndex % txt.length
+        thoughtIndex = (thoughtIndex+1) % txt.length
         document.getElementById("thoughts").textContent = txt[thoughtIndex].charAt(0)
         typeWriter()
       }
@@ -411,10 +422,8 @@ https://github.com/missing-user/missing-user.github.io
       <div class="one-half column img_cont">
         <a href="https://jurasic-park.de/marching_squares/">
           <picture>
-            <source type="image/webp" srcset="images/marching_squares_dark.webp" media="(prefers-color-scheme: dark)" />
-            <source type="image/png" srcset="images/marching_squares_dark.png" media="(prefers-color-scheme: dark)" />
-            <source type="image/webp" srcset="images/marching_squares_light.webp" />
-            <source type="image/png" srcset="images/marching_squares_light.png" />
+            <source type="image/svg+xml" srcset="images/marching_squares_dark.svg"  media="(prefers-color-scheme: dark)"/>
+            <source type="image/svg+xml" srcset="images/marching_squares_light.svg"/>
             <img loading="lazy" class="u-full-width img-hover-zoom" src="images/marching_squares_light.png"
               alt="marching squares preview" />
           </picture>
