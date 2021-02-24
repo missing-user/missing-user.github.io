@@ -36,6 +36,7 @@
     "Congratulations, you won!",
     "There are multiple words for redundant",
     "π² = g ",
+    "Great investment u/DeepFuckingValue",
     "Sell me this pen",
     "Those are rookie numbers!",
     "Models are just opinions disguised as mathematics",
