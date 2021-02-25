@@ -1,6 +1,5 @@
 (function () {
-  let letterIndex = 0;
-  let thoughtIndex = 0
+  let letterIndex=0, thoughtIndex = 0;
   let txt = ["3/10 can't recommend",
     "Robert'); DROP TABLE Students;--",
     "There's an XKCD for that",
