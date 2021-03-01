@@ -26,6 +26,7 @@
     'r/notLikeOtherWebsites',
     "Shouldn't you be working?",
     'Sleep is cool, but have you tried coffee?',
+    'No tracking 🍪 in sight',
     "Nobody expects the spanish inquisition!",
     "My name is Inigo Montoya, prepare to die",
     "It's actually pronounced GIF",
