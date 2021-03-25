@@ -20,4 +20,4 @@ Hi, I'm Philipp Jurašić, a physics student from Germany. I love building elect
       
 
 <hr style="margin: 5rem 0;">
-<em>If you'd like me to make something for you, hit me up at  <script>user = 'jurasic.developer';site = 'gmail.com';document.write('<a href=\"mailto:'+user+'@'+site+'\">');document.write(user + '@' + site + '</a>');</script> or on social media!</em>
+If you'd like me to make something for you, hit me up at [jurasic.developer@gmail.com](mailto:jurasic.developer@gmail.com) or on social media!

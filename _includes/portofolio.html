@@ -1,13 +1,18 @@
 ---
-layout: page
+layout: default
 ---
+
+{{ content }}
+
+<h2>Overview</h2>
+{% for entry in site.portfolio %}
 <!-- {{ entry.title }} -->
 <div class="row">
   <h3>{{ entry.title }}</h3>
 </div>
 <div class="row">
   <div class="one-half column">
-    <p>{{ content }}
+    <p>{{ entry.content }}
     </p>
     <div class="row">
       <div class="one-half column">
@@ -28,7 +33,9 @@ layout: page
   <div class="one-half column img_cont">
     <a href="https://jurasic-park.de{{ entry.url }}">
       <picture>
+        {% if entry.svg %}
         <source type="image/svg+xml" srcset="{{ entry.svg }}" />
+        {% endif %}
         <img loading="lazy" class="u-full-width img-hover-zoom" src="{{ entry.image }}"
           alt="{{ entry.title }} page screenshot" />
       </picture>
@@ -36,3 +43,4 @@ layout: page
   </div>
 </div>
 <hr>
+{% endfor %}

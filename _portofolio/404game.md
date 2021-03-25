@@ -1,5 +1,6 @@
 ---
 image: /images/404.png
+svg: /images/404.svg
 title: 404 Game
 url: /404
 repository: /missing-user.github.io
