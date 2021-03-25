@@ -36,6 +36,9 @@ layout: default
     <div class="one-half column img_cont">
       <a href="{{ entry.link }}">
         <picture>
+          {% if entry.svg_dark %}
+          <source type="image/svg+xml" srcset="images{{ entry.svg_dark }}" media="(prefers-color-scheme: dark)" />
+          {% endif %}
           {% if entry.svg %}
           <source type="image/svg+xml" srcset="images{{ entry.svg }}" />
           {% endif %}

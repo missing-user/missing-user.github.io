@@ -3,6 +3,7 @@ title: Optics
 date: 2021-01-27
 image: /optics_light.png
 image_dark: /optics.png
+svg_dark: /optics.svg
 svg: /optics_light.svg
 link: https://jurasic-park.de/optics/
 repository: https://github.com/missing-user/optics/

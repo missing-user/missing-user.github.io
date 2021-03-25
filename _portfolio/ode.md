@@ -1,7 +1,9 @@
 ---
-image: /ode.png
-date: 2021-02-25
 title: Numerical Solvers for ODEs
+date: 2021-02-25
+image: /ode.png
+svg_dark: /ode.svg
+svg: /ode_light.svg
 link: https://jurasic-park.de/ode/
 repository: https://github.com/missing-user/ode
 ---
