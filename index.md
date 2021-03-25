@@ -1,0 +1,41 @@
+---
+layout: default
+title: About
+---
+{% for entry in site.portfolio %}
+<!-- {{ entry.title }} -->
+<div class="row">
+  <h3>{{ entry.title }}</h3>
+</div>
+<div class="row">
+  <div class="one-half column">
+    <p>{{ content }}
+    </p>
+    <div class="row">
+      <div class="one-half column">
+        <form action="https://jurasic-park.de{{ entry.url }}" target="_blank" style="margin-bottom: 0rem;">
+          <button type="submit" class="u-full-width">go to website</button>
+        </form>
+      </div>
+      {% if entry.repository %}
+      <div class="one-half column">
+        <form action="https://github.com/missing-user{{ entry.repository }}" target="_blank">
+          <button type="submit" class="u-full-width">view on GitHub</button>
+        </form>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="one-half column img_cont">
+    <a href="https://jurasic-park.de{{ entry.url }}">
+      <picture>
+        <source type="image/svg+xml" srcset="{{ entry.svg }}" />
+        <img loading="lazy" class="u-full-width img-hover-zoom" src="{{ entry.image }}"
+          alt="{{ entry.title }} page screenshot" />
+      </picture>
+    </a>
+  </div>
+</div>
+<hr>
+{% endfor %}
