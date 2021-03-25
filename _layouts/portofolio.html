@@ -5,42 +5,44 @@ layout: default
 {{ content }}
 
 <h2>Overview</h2>
-{% for entry in site.portfolio %}
-<!-- {{ entry.title }} -->
-<div class="row">
-  <h3>{{ entry.title }}</h3>
 </div>
-<div class="row">
-  <div class="one-half column">
-    <p>{{ entry.content }}
-    </p>
-    <div class="row">
-      <div class="one-half column">
-        <form action="https://jurasic-park.de{{ entry.url }}" target="_blank" style="margin-bottom: 0rem;">
-          <button type="submit" class="u-full-width">go to website</button>
-        </form>
+<div class="row" style="margin-top: 5rem;">
+  {% for entry in site.portofolio %}
+  <!-- {{ entry.title }} -->
+  <div class="row">
+    <h3>{{ entry.title }}</h3>
+  </div>
+  <div class="row">
+    <div class="one-half column">
+      <p>{{ entry.content }}
+      </p>
+      <div class="row">
+        <div class="one-half column">
+          <form action="https://jurasic-park.de{{ entry.url }}" target="_blank" style="margin-bottom: 0rem;">
+            <button type="submit" class="u-full-width">go to website</button>
+          </form>
+        </div>
+        {% if entry.repository %}
+        <div class="one-half column">
+          <form action="https://github.com/missing-user{{ entry.repository }}" target="_blank">
+            <button type="submit" class="u-full-width">view on GitHub</button>
+          </form>
+        </div>
+        {% endif %}
       </div>
-      {% if entry.repository %}
-      <div class="one-half column">
-        <form action="https://github.com/missing-user{{ entry.repository }}" target="_blank">
-          <button type="submit" class="u-full-width">view on GitHub</button>
-        </form>
-      </div>
-      {% endif %}
+    </div>
+
+    <div class="one-half column img_cont">
+      <a href="https://jurasic-park.de{{ entry.url }}">
+        <picture>
+          {% if entry.svg %}
+          <source type="image/svg+xml" srcset="{{ entry.svg }}" />
+          {% endif %}
+          <img loading="lazy" class="u-full-width img-hover-zoom" src="{{ entry.image }}"
+            alt="{{ entry.title }} page screenshot" />
+        </picture>
+      </a>
     </div>
   </div>
-
-  <div class="one-half column img_cont">
-    <a href="https://jurasic-park.de{{ entry.url }}">
-      <picture>
-        {% if entry.svg %}
-        <source type="image/svg+xml" srcset="{{ entry.svg }}" />
-        {% endif %}
-        <img loading="lazy" class="u-full-width img-hover-zoom" src="{{ entry.image }}"
-          alt="{{ entry.title }} page screenshot" />
-      </picture>
-    </a>
-  </div>
-</div>
-<hr>
-{% endfor %}
+  <hr>
+  {% endfor %}
