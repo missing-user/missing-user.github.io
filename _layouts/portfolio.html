@@ -4,10 +4,10 @@ layout: default
 
 {{ content }}
 
-<h2>Overview</h2>
 </div>
 <div class="row" style="margin-top: 5rem;">
-  {% for entry in site.portofolio %}
+  <h2>Overview</h2>
+  {% for entry in site.portfolio %}
   <!-- {{ entry.title }} -->
   <div class="row">
     <h3>{{ entry.title }}</h3>
@@ -18,13 +18,13 @@ layout: default
       </p>
       <div class="row">
         <div class="one-half column">
-          <form action="https://jurasic-park.de{{ entry.url }}" target="_blank" style="margin-bottom: 0rem;">
+          <form action="{{ entry.url }}" target="_blank" style="margin-bottom: 0rem;">
             <button type="submit" class="u-full-width">go to website</button>
           </form>
         </div>
         {% if entry.repository %}
         <div class="one-half column">
-          <form action="https://github.com/missing-user{{ entry.repository }}" target="_blank">
+          <form action="{{ entry.repository }}" target="_blank">
             <button type="submit" class="u-full-width">view on GitHub</button>
           </form>
         </div>
@@ -33,13 +33,17 @@ layout: default
     </div>
 
     <div class="one-half column img_cont">
-      <a href="https://jurasic-park.de{{ entry.url }}">
+      <a href="{{ entry.url }}">
         <picture>
           {% if entry.svg %}
-          <source type="image/svg+xml" srcset="{{ entry.svg }}" />
+          <source type="image/svg+xml" srcset="images{{ entry.svg }}" />
           {% endif %}
-          <img loading="lazy" class="u-full-width img-hover-zoom" src="{{ entry.image }}"
-            alt="{{ entry.title }} page screenshot" />
+          {% if entry.image_dark %}
+          <source type="image/png" srcset="images{{ entry.image_dark }}" media="(prefers-color-scheme: dark)" />
+          {% endif %}
+          <source type="image/png" srcset="images{{ entry.image }}" />
+          <img loading="lazy" class="u-full-width img-hover-zoom" src="images{{ entry.image }}"
+            alt="{{ entry.title }} page preview" />
         </picture>
       </a>
     </div>

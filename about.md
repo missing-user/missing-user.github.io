@@ -1,6 +1,7 @@
 ---
 layout: default
 title: About
+description: Philipp Jurasic is a physics student and programmer from Germany. Find out more about his projects and him here!
 ---
 ## About Me
 Hi, I'm Philipp Jurašić, a physics student from Germany. I love building electronics, simulations and all kinds of software projects - especially anything visual and interactive. You can find my recent work on my [homepage](https://jurasic-park.de/)
