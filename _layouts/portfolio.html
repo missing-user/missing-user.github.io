@@ -18,7 +18,7 @@ layout: default
       </p>
       <div class="row">
         <div class="one-half column">
-          <form action="{{ entry.url }}" target="_blank" style="margin-bottom: 0rem;">
+          <form action="{{ entry.link }}" target="_blank" style="margin-bottom: 0rem;">
             <button type="submit" class="u-full-width">go to website</button>
           </form>
         </div>
@@ -33,7 +33,7 @@ layout: default
     </div>
 
     <div class="one-half column img_cont">
-      <a href="{{ entry.url }}">
+      <a href="{{ entry.link }}">
         <picture>
           {% if entry.svg %}
           <source type="image/svg+xml" srcset="images{{ entry.svg }}" />

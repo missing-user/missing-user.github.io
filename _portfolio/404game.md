@@ -1,8 +1,9 @@
 ---
 title: 404 Game
+date: 2021-02-13
 image: /404.png
 svg: /404.svg
-url: https://jurasic-park.de/404
+link: https://jurasic-park.de/404
 repository: https://github.com/missing-user/missing-user.github.io
 ---
 I recently found out about the [JS13k](https://js13kgames.com/) coding competition, where the goal is to create a web demo in under 13kb of JS code.
