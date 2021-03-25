@@ -7,7 +7,8 @@ layout: default
 </div>
 <div class="row" style="margin-top: 5rem;">
   <h2>Overview</h2>
-  {% for entry in site.portfolio %}
+  {% assign sorted = site.portfolio | reverse %}
+  {% for entry in sorted %}
   <!-- {{ entry.title }} -->
   <div class="row">
     <h3>{{ entry.title }}</h3>
