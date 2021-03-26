@@ -7,10 +7,16 @@ layout: default
 </div>
 <div class="row" style="margin-top: 5rem;">
   <h2>Overview</h2>
+  <!-- Portfolio site specific styling -->
+  <style>
+    h3 {
+      margin-bottom: 0;
+    }
+  </style>
   {% assign sorted = site.portfolio | reverse %}
   {% for entry in sorted %}
   <!-- {{ entry.title }} -->
-  <div class="row">
+  <div class="row" style="padding-bottom: 2rem;">
     <h3>{{ entry.title }}</h3>
     <em>{{ entry.date | date_to_string }}</em>
   </div>
@@ -36,14 +42,14 @@ layout: default
     <div class="one-half column img_cont">
       <a href="{{ entry.link }}">
         <picture>
-        {% for image in entry.images %}
+          {% for image in entry.images | reverse %}
           {% assign ext = image | split: "." | last %}
           {% if ext == "svg" %}
             {% assign ext = "svg+xml" %}
           {% endif %}
           <source type="image/{{ ext }}" srcset="{{ image }}" 
           {% if image contains "dark" %} media="(prefers-color-scheme: dark)" {% endif %} />
-        {% endfor %}
+          {% endfor %}
           <img loading="lazy" class="u-full-width img-hover-zoom" src="{{ entry.images[0] }}"
             alt="{{ entry.title }} page preview" />
         </picture>
