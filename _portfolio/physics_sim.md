@@ -6,8 +6,8 @@ image_dark: "/physicssim.png"
 link: https://jurasic-park.de/physicsSim/
 repository: https://github.com/missing-user/physicsSim/
 images:
-- "/images/physicssim-light.png"
-- "/images/physicssim-light.webp"
+- "/images/physicssim_dark.webp"
+- "/images/physicssim_dark.png"
 - "/images/physicssim.png"
 - "/images/physicssim.webp"
 
