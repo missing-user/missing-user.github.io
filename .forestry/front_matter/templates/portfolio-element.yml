@@ -33,6 +33,7 @@ fields:
     required: false
 pages:
 - _portfolio/expdesign.md
+- _portfolio/frust.md
 - _portfolio/marching_squares.md
 - _portfolio/ode.md
 - _portfolio/optics.md
