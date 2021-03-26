@@ -2,7 +2,7 @@ backend:
   name: github
   repo: missing-user/missing-user.github.io
   branch: master
-  site_domain: jurasic-park.de
+  site_domain: admiring-carson-78d5f2
   
 publish_mode: editorial_workflow
 
