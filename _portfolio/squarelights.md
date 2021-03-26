@@ -1,6 +1,6 @@
 ---
 title: Square Lights
-date: 2020-05-05 22:00:00 +0000
+date: 2020-05-04
 image: "/coolGradient.jpg"
 link: https://square-lights.com/?utm_source=jurasicpark
 images:

@@ -33,6 +33,8 @@ fields:
     required: false
 pages:
 - _portfolio/expdesign.md
+- _portfolio/physics_sim.md
+- _portfolio/solar.md
 - _portfolio/squarelights.md
 - _portfolio/units.md
 - _portfolio/virus_simulation.md
