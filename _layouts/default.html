@@ -40,8 +40,10 @@ https://github.com/missing-user/missing-user.github.io
   <div class="profile">
     <div class="container">
       <div class="row headerLinks">
-        {% for item in site.pages %}
+        {% for item in site.pages reversed %}
+        {% if item.title %}
         <a href="{{ item.url }}">{{ item.title }}</a>
+        {% endif %}
         {% endfor %}
       </div>
       <div class="row">
