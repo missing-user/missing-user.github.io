@@ -23,6 +23,10 @@ fields:
 - type: text
   name: link
   label: link
+  default: https://jurasic-park.de/projectlink/
 - type: text
   name: repository
   label: repository
+  default: https://github.com/missing-user/projectlink/
+  config:
+    required: false
