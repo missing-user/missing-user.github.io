@@ -30,3 +30,5 @@ fields:
   default: https://github.com/missing-user/projectlink/
   config:
     required: false
+pages:
+- _portfolio/expdesign.md
