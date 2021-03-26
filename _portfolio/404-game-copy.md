@@ -1,8 +1,8 @@
 ---
 title: 404 Game-(copy)
 date: 2021-02-13
-image: "/404.png"
-svg: "/404.svg"
+image: ''
+svg: ''
 link: https://jurasic-park.de/404
 repository: https://github.com/missing-user/missing-user.github.io
 published: false
