@@ -1,0 +1,28 @@
+---
+label: Portfolio Element
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: title
+- type: datetime
+  name: date
+  label: date
+- type: file
+  name: image
+  label: image
+- type: file
+  name: image_dark
+  label: image_dark
+- type: file
+  name: svg
+  label: svg
+- type: file
+  name: svg_dark
+  label: svg_dark
+- type: text
+  name: link
+  label: link
+- type: text
+  name: repository
+  label: repository
