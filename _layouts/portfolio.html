@@ -42,8 +42,6 @@ layout: default
           {% if ext == "svg" %}
             {% assign ext = "svg+xml" %}
           {% endif %}
-
-          {% if image  %}
           <source type="image/{{ ext }}" srcset="images{{ image }}" 
           {% if image contains "dark" %} media="(prefers-color-scheme: dark)" {% endif %} />
         {% endfor %}
