@@ -11,7 +11,9 @@ fields:
   config:
     export_format: YYYY-MM-DD
     display_utc: false
-    date_format: date_to_string
+    date_format: DD/MM/YYYY
+    required: false
+  default: now
 - name: images
   type: image_gallery
   config: {}
