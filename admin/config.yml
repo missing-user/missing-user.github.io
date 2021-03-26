@@ -3,8 +3,10 @@ backend:
   repo: missing-user/missing-user.github.io
   branch: master
   site_domain: jurasic-park.de
+  
+publish_mode: editorial_workflow
 
-media_folder: "images/uploads"
+media_folder: "images"
 
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
