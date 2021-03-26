@@ -9,7 +9,7 @@ fields:
   name: date
   label: Date
   config:
-    export_format: YYYY-MM-DD
+    export_format: ''
     display_utc: false
     date_format: ''
     required: false
