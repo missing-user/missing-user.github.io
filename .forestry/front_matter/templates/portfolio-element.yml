@@ -4,10 +4,16 @@ hide_body: false
 fields:
 - type: text
   name: title
-  label: title
+  label: Title
 - type: datetime
   name: date
   label: date
+- name: images
+  type: image_gallery
+  config: {}
+  label: Images
+  description: Preview images support <strong>.webp .svg .png</strong> and <strong>.jpg</strong><br>Dark
+    mode versions have to end with <strong>_dark</strong> before the file extension
 - type: file
   name: image
   label: image
@@ -22,11 +28,11 @@ fields:
   label: svg_dark
 - type: text
   name: link
-  label: link
+  label: Live URL
   default: https://jurasic-park.de/projectlink/
 - type: text
   name: repository
-  label: repository
+  label: Repository URL
   default: https://github.com/missing-user/projectlink/
   config:
     required: false
