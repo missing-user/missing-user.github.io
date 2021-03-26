@@ -12,6 +12,7 @@ layout: default
   <!-- {{ entry.title }} -->
   <div class="row">
     <h3>{{ entry.title }}</h3>
+    <em>{{ entry.date | date_to_string }}</em>
   </div>
   <div class="row">
     <div class="one-half column">
@@ -23,7 +24,7 @@ layout: default
             <button type="submit" class="u-full-width">go to website</button>
           </form>
         </div>
-        {% if entry.repository %}
+        {% if entry.repository and entry.repository != "" %}
         <div class="one-half column">
           <form action="{{ entry.repository }}" target="_blank">
             <button type="submit" class="u-full-width">view on GitHub</button>
@@ -36,17 +37,17 @@ layout: default
     <div class="one-half column img_cont">
       <a href="{{ entry.link }}">
         <picture>
-          {% if entry.svg_dark %}
-          <source type="image/svg+xml" srcset="images{{ entry.svg_dark }}" media="(prefers-color-scheme: dark)" />
+        {% for image in entry.images | reverse %}
+          {% assign ext = image | split: "." | last %}
+          {% if ext == "svg" %}
+            {% assign ext = "svg+xml" %}
           {% endif %}
-          {% if entry.svg %}
-          <source type="image/svg+xml" srcset="images{{ entry.svg }}" />
-          {% endif %}
-          {% if entry.image_dark %}
-          <source type="image/png" srcset="images{{ entry.image_dark }}" media="(prefers-color-scheme: dark)" />
-          {% endif %}
-          <source type="image/png" srcset="images{{ entry.image }}" />
-          <img loading="lazy" class="u-full-width img-hover-zoom" src="images{{ entry.image }}"
+
+          {% if image  %}
+          <source type="image/{{ ext }}" srcset="images{{ image }}" 
+          {% if image contains "dark" %} media="(prefers-color-scheme: dark)" {% endif %} />
+        {% endfor %}
+          <img loading="lazy" class="u-full-width img-hover-zoom" src="images{{ entry.images[0] }}"
             alt="{{ entry.title }} page preview" />
         </picture>
       </a>
