@@ -7,25 +7,18 @@ fields:
   label: Title
 - type: datetime
   name: date
-  label: date
+  label: Date
+  config:
+    export_format: YYYY-MM-DD
+    display_utc: false
+    date_format: date_to_string
 - name: images
   type: image_gallery
   config: {}
   label: Images
-  description: Preview images support <strong>.webp .svg .png</strong> and <strong>.jpg</strong><br>Dark
-    mode versions have to end with <strong>_dark</strong> before the file extension
-- type: file
-  name: image
-  label: image
-- type: file
-  name: image_dark
-  label: image_dark
-- type: file
-  name: svg
-  label: svg
-- type: file
-  name: svg_dark
-  label: svg_dark
+  description: Dark mode versions have to end with _<strong>dark</strong> before the
+    file extension. The file order must be:<em><br></em><strong>dark.svg<br>.svg<br>dark.webp<br>.webp<br>dark.png
+    / dark.jpg</strong>  <strong><br>.png / .jpg</strong>
 - type: text
   name: link
   label: Live URL
