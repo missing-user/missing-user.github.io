@@ -32,4 +32,5 @@ fields:
     required: false
 pages:
 - _portfolio/expdesign.md
+- _portfolio/units.md
 - _portfolio/virus_simulation.md
