@@ -16,8 +16,7 @@ layout: default
   </div>
   <div class="row">
     <div class="one-half column">
-      <p>{{ entry.content }}
-      </p>
+      {{ entry.content }}
       <div class="row">
         <div class="one-half column">
           <form action="{{ entry.link }}" target="_blank" style="margin-bottom: 0rem;">
@@ -37,15 +36,15 @@ layout: default
     <div class="one-half column img_cont">
       <a href="{{ entry.link }}">
         <picture>
-        {% for image in entry.images | reverse %}
+        {% for image in entry.images %}
           {% assign ext = image | split: "." | last %}
           {% if ext == "svg" %}
             {% assign ext = "svg+xml" %}
           {% endif %}
-          <source type="image/{{ ext }}" srcset="images{{ image }}" 
+          <source type="image/{{ ext }}" srcset="{{ image }}" 
           {% if image contains "dark" %} media="(prefers-color-scheme: dark)" {% endif %} />
         {% endfor %}
-          <img loading="lazy" class="u-full-width img-hover-zoom" src="images{{ entry.images[0] }}"
+          <img loading="lazy" class="u-full-width img-hover-zoom" src="{{ entry.images[0] }}"
             alt="{{ entry.title }} page preview" />
         </picture>
       </a>
