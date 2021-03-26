@@ -32,6 +32,7 @@ fields:
   config:
     required: false
 pages:
+- _portfolio/covid_counter.md
 - _portfolio/expdesign.md
 - _portfolio/fields.md
 - _portfolio/frust.md
