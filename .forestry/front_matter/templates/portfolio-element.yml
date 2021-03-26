@@ -33,6 +33,7 @@ fields:
     required: false
 pages:
 - _portfolio/expdesign.md
+- _portfolio/optics.md
 - _portfolio/physics_sim.md
 - _portfolio/solar.md
 - _portfolio/squarelights.md
