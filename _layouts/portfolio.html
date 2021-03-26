@@ -42,7 +42,7 @@ layout: default
     <div class="one-half column img_cont">
       <a href="{{ entry.link }}">
         <picture>
-          {% for image in entry.images | reverse %}
+          {% for image in entry.images reversed %}
           {% assign ext = image | split: "." | last %}
           {% if ext == "svg" %}
             {% assign ext = "svg+xml" %}
