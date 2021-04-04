@@ -40,7 +40,7 @@ https://github.com/missing-user/missing-user.github.io
   <div class="profile">
     <div class="container">
       <div class="row headerLinks">
-        {% for item in site.pages reversed %}
+        {% for item in site.pages %}
         {% if item.title and item.title != page.title %}
         <a href="{{ item.url }}">{{ item.title }}</a>
         {% endif %}
@@ -77,7 +77,7 @@ https://github.com/missing-user/missing-user.github.io
     </div>
 
     {% if page.title != "About" %}
-    <footer class="row" style="padding-bottom: 2em;">
+    <footer class="row" style="padding: 2em 0;">
     For requests, feedback and more, visit my <a href="/about" title="About me">about page</a>
     </footer>
     {% endif %}
