@@ -17,10 +17,8 @@ Hi, I'm Philipp Jurašić, a physics student from Germany. I love building elect
 
 ## Previous Work
 
-* I'm currently designing and managing the website for a local [dance school](https://musicalschulehaar.de/credits)
-* My term paper about measuring CO₂ levels in classrooms got awarded by the
-  [Hans Riegel Foundation](https://www.hans-riegel-fachpreise.com/news/herausragende-mint-schuelerarbeiten-erhalten-dr-hans-riegel-fachpreise)
+* I'm currently designing and managing the website for a local [dance school](https://musicalschulehaar.de/impressum "Dansation")
+* My term paper about measuring CO₂ levels in classrooms got awarded by the [Hans Riegel Foundation](https://www.hans-riegel-fachpreise.com/news/herausragende-mint-schuelerarbeiten-erhalten-dr-hans-riegel-fachpreise)
 * A few years ago a friend and I built a low cost SLA 3D printer using an old DLP projector for the regional science contest "Jugend Forscht", and were able to secure [first place in Munich](https://www.merkur.de/lokales/muenchen-lk/jugend-forscht-aus-spiel-wird-experiment-7412119.html)
 
-<hr style="margin: 5rem 0;">
-If you'd like me to make something for you, hit me up at [jurasic.developer@gmail.com](mailto:jurasic.developer@gmail.com) or on social media!
+<hr style="margin: 5rem 0;"> If you'd like me to make something for you, hit me up at [jurasic-park@gmx.de](mailto:jurasic-park@gmx.de "E-Mail") or on social media!
