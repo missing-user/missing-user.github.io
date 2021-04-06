@@ -15,12 +15,12 @@ https://github.com/missing-user/missing-user.github.io
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <!-- Primary Meta Tags -->
-  <title>Philipp Jurašić | {{ page.title }}</title>
+  <title>{{ page.title }} | Philipp Jurašić</title>
   <meta name="color-scheme" content="dark light">
   <meta name="description" content="{{ page.description }}">
   <!-- Open Graph / Facebook -->
   <meta property="og:url" content="https://jurasic-park.de/">
-  <meta property="og:title" content="Philipp Jurašić | {{ page.title }}">
+  <meta property="og:title" content="{{ page.title }} | Philipp Jurašić">
   <meta property="og:description" content="{{ page.description }}">
   <meta property="og:image" content="https://jurasic-park.de/images/social_preview.png">
   <!-- Twitter -->
@@ -39,10 +39,10 @@ https://github.com/missing-user/missing-user.github.io
 <body>
   <div class="profile">
     <div class="container">
-      <div class="row headerLinks lightText">
+      <div class="row headerLinks">
         {% for item in site.pages %}
         {% if item.title and item.title != page.title %}
-        <a href="{{ item.url }}">{{ item.title }}</a>
+        <a href="{{ item.url }}" class="lightText">{{ item.title }}</a>
         {% endif %}
         {% endfor %}
       </div>
