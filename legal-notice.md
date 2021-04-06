@@ -1,17 +1,12 @@
 ---
-date: '2021-04-04 07:14:58 +0000'
-link: https://jurasic-park.de/projectlink/
-repository: https://github.com/missing-user/projectlink/
-title: Disclaimer
-images: []
+title: Legal Disclaimer
 layout: default
-description: 'Legal Notice Page for '
-
+description: 'The obligatory Legal Notice Page'
 ---
 ## Legal Notice
 
-This website is owned and maintained by Philipp Jurašić.   
-If you think I'm infringing on your copyright or have any other legal issues with my site, contact me at [jurasic-park@gmx.de](mailto:jurasic-park@gmx.de "E-Mail") or send a letter to Santrigelstrasse 22, 81829 Munich, Germany
+This website is owned and maintained by Philipp Jurašić.
+If you think I'm infringing on your copyright or have any other legal issues with my site, contact me at [jurasic-park@gmx.de](mailto:jurasic-park@gmx.de "E-Mail") or send a letter to Santrigelstrasse 22, 81829 Munich, Germany.
 
 ## Before suing me....
 

@@ -11,6 +11,6 @@ Hi, I'm Philipp Jurašić, a physics student and web designer/developer from Ger
 
 If you want to build you a fast and modern site or web app, hit me up at [jurasic-park@gmx.de](mailto:jurasic-park@gmx.de "E-Mail")!
 
-For some of my recent work, just take a look at my [homepage](https://jurasic-park.de/).
+You can find some of my recent work on the [homepage](https://jurasic-park.de/).
 
 You can find me on [GitHub](https://github.com/missing-user), [Instagram](https://www.instagram.com/philippjurasic/) or [LinkedIn](https://www.linkedin.com/in/philipp-jurasic).

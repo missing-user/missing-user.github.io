@@ -52,6 +52,7 @@ h2 {
 .waveHand {
   display: inline-block;
   animation: handwave 1.5s infinite;
+  transform-origin: 80% 80%;
 }
 
 @keyframes handwave {
