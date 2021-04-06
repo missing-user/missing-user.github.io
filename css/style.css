@@ -3,30 +3,22 @@
   background: linear-gradient(0, #028cb3 0%, #6ac6b4 100%);
   padding-top: 1rem 0 0 0;
 }
-.headerLinks{
+
+.headerLinks {
   display: flex;
   justify-content: space-between;
   padding-bottom: 1rem;
 }
-.headerLinks:after{
+
+.headerLinks:after {
   content: none;
 }
 
-.headerLinks a{
-  color: #d3d7cf;
-}
-.headerLinks a:hover, .headerLinks a:focus, .headerLinks a:active{
-  opacity: .8;
+.headerLinks a:hover, .headerLinks a:focus, .headerLinks a:active {
+  opacity: .7;
 }
 
-@media (prefers-color-scheme:dark){
-  .headerLinks a{
-    color:#2e3436; 
-    border-color:#2e3436;
-  }
-}
-
-h2{
+h2 {
   margin-top: 5rem;
 }
 
@@ -47,6 +39,26 @@ h2{
 }
 
 /* The Transformation */
+
 .img-hover-zoom:hover {
   transform: scale(1.5);
+}
+
+.lightText {
+  color: #FFF;
+  border-color: #FFF;
+}
+
+::selection {
+  background: #1EAEDB;
+}
+
+@media (prefers-color-scheme:dark) {
+  .lightText {
+    color: #2e3436;
+    border-color: #2e3436
+  }
+  ::selection {
+    background: #729fcf;
+  }
 }
