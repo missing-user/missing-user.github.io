@@ -6,16 +6,16 @@
     font: inherit;
     color: inherit;
     border-radius: 4px;
+    width: 100%;
   }
 
   input[type="email"] {
     height: 40px;
-    width: 100%;
+    outline: none;
   }
 
   textarea {
     padding: 6px 4px;
-    width: 100%;
   }
 
   form .row {
@@ -29,8 +29,8 @@
     <input type="email" placeholder="mike@example.com" name="email">
   </div>
   <div class="row">
-    <label for="message">Message / Feedback / Movie recommendations</label>
-    <textarea name="message" rows="5" placeholder="Wow, I love your website!" required></textarea>
+    <label for="message">Message</label>
+    <textarea name="message" rows="4" placeholder="Wow, I love your website!" required></textarea>
   </div>
   <div class="row">
     <button type="submit">Send</button>

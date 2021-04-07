@@ -14,7 +14,8 @@ You can find some of my recent work on the [homepage](https://jurasic-park.de/).
 You can find me on [GitHub](https://github.com/missing-user), [Instagram](https://www.instagram.com/philippjurasic/) or [LinkedIn](https://www.linkedin.com/in/philipp-jurasic).
 
 
-If you want to build you a fast and modern site or web app, hit me up at [jurasic-park@gmx.de](mailto:jurasic-park@gmx.de "E-Mail") or leave a message down here!
+If you want me to build you a fast and modern site or web app, hit me up at [jurasic-park@gmx.de](mailto:jurasic-park@gmx.de "E-Mail") or down below!
 
-## I'd love to hear from you!
+## Leave me a message!
+Do you have feedback, requests or a movie reccommendation? Then drop me a message, I'd love to hear from you!
 {% include contact_form.html %}
