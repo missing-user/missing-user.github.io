@@ -17,4 +17,5 @@ If you want me to build you a fast and modern website, hit me up at [jurasic-par
 
 ## Leave me a message!
 
-Do you have feedback, requests or a movie recommendation? Then drop me a message, I'd love to hear from you! {% include contact_form.html %}
+Do you have feedback, requests or a movie recommendation? Then drop me a message, I'd love to hear from you! 
+{% include contact_form.html %}
