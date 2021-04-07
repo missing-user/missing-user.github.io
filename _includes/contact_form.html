@@ -1,0 +1,42 @@
+<style>
+  input[type="email"],
+  input[type="text"],
+  textarea {
+    display: block;
+    font: inherit;
+    color: inherit;
+    border-radius: 4px;
+  }
+
+  input[type="email"] {
+    height: 40px;
+    width: 100%;
+  }
+
+  textarea {
+    padding: 6px 4px;
+    width: 100%;
+  }
+
+  form .row {
+    padding: 1rem 0;
+  }
+</style>
+
+<form action="https://formspree.io/f/xknknbdq" method="POST">
+  <div class="row">
+    <div class=" column one-half">
+      <label for="email">Your email (optional)</label>
+      <input type="email" placeholder="mike@example.com" name="email">
+    </div>
+  </div>
+  <div class="row">
+    <div class=" column one-half">
+      <label for="message">Message / Feedback / Movie recommendations</label>
+      <textarea name="message" placeholder="Wow, I love your website!" required></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <button type="submit">Send</button>
+  </div>
+</form>
