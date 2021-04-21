@@ -39,6 +39,8 @@ https://github.com/missing-user/missing-user.github.io
 <body>
   <div class="profile">
     <div class="container">
+      
+      {% if page.url != "/" %} 
       <div class="row headerLinks">
         {% for item in site.pages %}
         {% if item.title and item.title != page.title %}
@@ -46,6 +48,8 @@ https://github.com/missing-user/missing-user.github.io
         {% endif %}
         {% endfor %}
       </div>
+      {% endif %}
+
       <div class="row">
         <div class="two-thirds column">
           <h1 class="lightText">{{ page.title | default: Philipp Jurašić }}</h1>

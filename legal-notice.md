@@ -1,5 +1,5 @@
 ---
-title: Legal Disclaimer
+title: Legal
 layout: default
 description: 'The obligatory Legal Notice Page'
 ---
