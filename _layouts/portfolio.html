@@ -25,15 +25,11 @@ layout: default
       {{ entry.content }}
       <div class="row">
         <div class="one-half column">
-          <form action="{{ entry.link }}" target="_blank" style="margin-bottom: 0rem;">
-            <button type="submit" class="u-full-width">go to website</button>
-          </form>
+          <a href="{{ entry.link }}" class="button u-full-width">go to website</a>
         </div>
         {% if entry.repository and entry.repository != "" %}
         <div class="one-half column">
-          <form action="{{ entry.repository }}" target="_blank">
-            <button type="submit" class="u-full-width">view on GitHub</button>
-          </form>
+          <a href="{{ entry.repository }}" class="button u-full-width">view on GitHub</a>
         </div>
         {% endif %}
       </div>
@@ -45,10 +41,10 @@ layout: default
           {% for image in entry.images reversed %}
           {% assign ext = image | split: "." | last %}
           {% if ext == "svg" %}
-            {% assign ext = "svg+xml" %}
+          {% assign ext = "svg+xml" %}
           {% endif %}
-          <source type="image/{{ ext }}" srcset="{{ image }}" 
-          {% if image contains "dark" %} media="(prefers-color-scheme: dark)" {% endif %} />
+          <source type="image/{{ ext }}" srcset="{{ image }}" {% if image contains "dark" %}
+            media="(prefers-color-scheme: dark)" {% endif %} />
           {% endfor %}
           <img loading="lazy" class="u-full-width img-hover-zoom" src="{{ entry.images[0] }}"
             alt="{{ entry.title }} page preview" />
