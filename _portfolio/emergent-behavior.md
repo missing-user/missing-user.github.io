@@ -7,4 +7,4 @@ images:
 - "/images/bubbles_min.png"
 
 ---
-A few experiments with complex behavior emerging from a set of simple rules. The projects were inspired by generative art by [Sage Jenson](https://sagejenson.com/physarum "Sage Jenson | Physarum") and [Anders Hoff](https://inconvergent.net/generative/ "Inconvergent"). 
+A few experiments with complex behavior emerging from a set of simple rules. The projects were inspired by generative art by [Sage Jenson](https://sagejenson.com/physarum "Sage Jenson - Physarum") and [Anders Hoff](https://inconvergent.net/generative/ "Inconvergent").
