@@ -9,4 +9,4 @@ images:
 - "/images/liveCounter.webp"
 
 ---
-A visualization of how often people get infected by corona/recover/die. The data is being fetched from [this API](https://corona.lmao.ninja/) and processed to calculate the average intervals. There's also a customizable[version for wallpaper engine](https://steamcommunity.com/sharedfiles/filedetails/?id=2062803896)!
+A visualization of how often people get infected by corona/recover/die. The data is being fetched from [this API](https://corona.lmao.ninja/) and processed to calculate the average intervals. There's also a customizable [version for wallpaper engine](https://steamcommunity.com/sharedfiles/filedetails/?id=2062803896)!
