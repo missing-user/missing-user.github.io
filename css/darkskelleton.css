@@ -101,7 +101,3 @@ code {
 td {
   border-bottom: 1px solid #eeeeec;
 }
-
-::selection{
-  background:#729fcf;
-}

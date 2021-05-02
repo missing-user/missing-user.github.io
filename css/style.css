@@ -40,22 +40,12 @@ h2 {
   transform: scale(1.5);
 }
 
-.lightText {
-  color: #FFF;
-  border-color: #FFF;
+.button {
+  color: #555;
+  border: 1px solid #bbb;
 }
 
-::selection {
-  background: #1EAEDB;
-}
-
-.waveHand {
-  display: inline-block;
-  animation: handwave 1.5s infinite;
-  transform-origin: 80% 80%;
-}
-
-a.button {
+.button {
   display: inline-block;
   padding: 8px 30px;
   margin-bottom: 16px;
@@ -65,6 +55,24 @@ a.button {
   font-size: .8em;
   text-decoration: none;
   white-space: nowrap;
+}
+
+@media (prefers-color-scheme: dark) {
+  .button {
+    color: #d3d7cf;
+    border: 1px solid #babdb6;
+  }
+}
+
+.lightText {
+  color: #FFF;
+  border-color: #FFF;
+}
+
+.waveHand {
+  display: inline-block;
+  animation: handwave 1.5s infinite;
+  transform-origin: 80% 80%;
 }
 
 @keyframes handwave {
@@ -98,8 +106,5 @@ a.button {
   .lightText {
     color: #2e3436;
     border-color: #2e3436
-  }
-  ::selection {
-    background: #729fcf;
   }
 }
