@@ -4,6 +4,13 @@
   padding-top: 1rem 0 0 0;
 }
 
+:focus {
+  outline-style: dashed;
+  outline-offset: .5rem;
+  outline-width: .2rem;
+  outline-color: inherit;
+}
+
 .headerLinks {
   display: flex;
   justify-content: space-between;
@@ -14,7 +21,7 @@
   content: none;
 }
 
-h2 {
+h1, h2 {
   margin-top: 5rem;
 }
 
@@ -36,7 +43,7 @@ h2 {
 
 /* The Transformation */
 
-.img-hover-zoom:hover {
+.img-hover-zoom:hover, a:focus .img-hover-zoom {
   transform: scale(1.5);
 }
 
@@ -57,16 +64,20 @@ h2 {
   white-space: nowrap;
 }
 
+.lightText {
+  color: #FFF;
+  border-color: #FFF;
+}
+
 @media (prefers-color-scheme: dark) {
   .button {
     color: #d3d7cf;
     border: 1px solid #babdb6;
   }
-}
-
-.lightText {
-  color: #FFF;
-  border-color: #FFF;
+  .lightText {
+    color: #2e3436;
+    border-color: #2e3436
+  }
 }
 
 .waveHand {
@@ -99,12 +110,5 @@ h2 {
   }
   100% {
     transform: rotate( 0.0deg)
-  }
-}
-
-@media (prefers-color-scheme:dark) {
-  .lightText {
-    color: #2e3436;
-    border-color: #2e3436
   }
 }

@@ -15,4 +15,6 @@ Connect with me on [GitHub](https://github.com/missing-user), [Instagram](https:
 
 ## Leave me a message!
 
-Do you have requests, feedback or simply a movie recommendation? Then drop me a message, I'd love to hear from you! {% include contact_form.html %}
+Do you have requests, feedback or simply a movie recommendation? Then drop me a message, I'd love to hear from you! 
+
+{% include contact_form.html %}
