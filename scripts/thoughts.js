@@ -23,7 +23,6 @@
     'Should have studied game design...',
     '<br> I love HTML',
     'Darkmode friendly 🌘',
-    'Maybe 2021 will be better',
     'Never gonna give you up',
     "I ❤️ Comic Sans",
     "The cake wasn't a lie after all!",
@@ -130,6 +129,9 @@
     document.getElementsByClassName("profile")[0].style.background = "linear-gradient(0, #ff0cb5 0%, #ffbaf3 100%)";
     (function () { var t = document.getElementById("snow"), e = t.getContext("2d"), i = []; t.style.display = ""; t.style.pointerEvents = "none", t.style.position = "fixed", t.style.top = 0, t.style.left = 0, t.style.width = "100vw", t.style.height = "100vh", t.height = t.offsetHeight, t.width = t.offsetWidth, window.onresize = function () { t.height = t.offsetHeight, t.width = t.offsetWidth }; var h = Math; setInterval(function () { e.clearRect(0, 0, t.width, t.height); e.beginPath(); var s = h.random(), a = .05 + .95 * s; for (flake = {}, flake.x = 1.5 * t.width * h.random() - .5 * t.width, flake.y = t.height + 9, flake.b = 2 * a * h.random(), flake.c = (3 + h.random()) * a, flake.a = h.pow(5 * s + 1, 2) / 5, flake.update = function () { this.x += this.b, this.y -= this.c, e.beginPath(), e.arc(this.x - this.a, this.y, this.a, .75 * h.PI, h.PI / 4), e.arc(this.x, this.y, this.a, 1.25 * h.PI, h.PI / 4), e.lineTo(this.x - this.a / 2, this.y + 1.7 * this.a), e.fillStyle = "#ff5ad1", e.fill() }, h.random() > 0.8 ? i.push(flake) : a, b = 0; b < i.length; b++)i[b].y < 0 ? i.splice(b, 1) : i[b].update() }, 16) })();
   }
+
+  //next year will be better
+  txt.push(`Maybe ${new Date().getFullYear()} will be better`)
 
   shuffleArray(txt)
   typeWriter()
