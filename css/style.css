@@ -112,3 +112,13 @@ h1, h2 {
     transform: rotate( 0.0deg)
   }
 }
+
+.pride {
+  --red: #d04b36;
+  --orange: #e36511;
+  --yellow: #ffba00;
+  --green: #00b180;
+  --blue: #147aab;
+  --indigo: #675997;
+  background: linear-gradient( var(--red) 0%, var(--red) 16.6666%, var(--orange) 16.6666%, var(--orange) 33.333%, var(--yellow) 33.333%, var(--yellow) 50%, var(--green) 50%, var(--green) 66.6666%, var(--blue) 66.6666%, var(--blue) 83.3333%, var(--indigo) 83.3333%, var(--indigo) 100%);
+}
