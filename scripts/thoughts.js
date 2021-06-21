@@ -74,6 +74,10 @@
     "Houston, we have a problem.",
     "What was the password again?",
     "Have you tried turning it off and on again?",
+    "Weddings Are Basically Funerals With A Cake",
+    "Wubba Lubba Dub Dub!",
+    "I'm Pickle Rick!"
+
   ];
 
   function typeWriter() {
