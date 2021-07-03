@@ -55,7 +55,7 @@
     "You're tearing me apart, Lisa!",
     "Anyway, how's your sex life?",
     "Was nothing real?",
-    "HELP! I’m In A Nutshell!",
+    "HELP! I’m In a Nutshell!",
     "Oh behave!",
     "REAL programmers use a magnetized needle",
     "Trying is the first step to failure",
@@ -76,8 +76,7 @@
     "Have you tried turning it off and on again?",
     "Weddings Are Basically Funerals With A Cake",
     "Wubba Lubba Dub Dub!",
-    "I'm Pickle Rick!"
-
+    "You can't fail if you don't even try"
   ];
 
   function typeWriter() {
