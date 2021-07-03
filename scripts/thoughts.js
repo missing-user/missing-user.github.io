@@ -76,7 +76,8 @@
     "Have you tried turning it off and on again?",
     "Weddings Are Basically Funerals With A Cake",
     "Wubba Lubba Dub Dub!",
-    "You can't fail if you don't even try"
+    "You can't fail if you don't even try",
+    "WHY ARE WE ALWAYS SCREAMING AT SQL?"
   ];
 
   function typeWriter() {
