@@ -4,7 +4,7 @@ link: https://jurasic-park.de/emergent_behaviour/
 repository: https://github.com/missing-user/emergent_behaviour
 title: Emergent Behavior
 images:
-- "/images/bubbles_min.png"
+- "/images/bubbles.jpg"
 
 ---
 A few experiments with complex behavior emerging from a set of simple rules. The projects were inspired by generative art by [Sage Jenson](https://sagejenson.com/physarum "Sage Jenson - Physarum") and [Anders Hoff](https://inconvergent.net/generative/ "Inconvergent").
