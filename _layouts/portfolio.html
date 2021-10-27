@@ -16,7 +16,7 @@ layout: default
   {% assign sorted = site.portfolio | reverse %}
   {% for entry in sorted %}
   <!-- {{ entry.title }} -->
-  <div class="row" style="padding-bottom: 2rem;">
+  <div class="row portfolio-entry">
     <h3>{{ entry.title }}</h3>
     <em>{{ entry.date | date_to_string }}</em>
   </div>
