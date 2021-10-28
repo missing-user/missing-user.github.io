@@ -1,13 +1,9 @@
 .profile {
-  scroll-snap-align: start;
   background: #028cb3;
   background: linear-gradient(0, #028cb3 0%, #6ac6b4 100%);
   padding-top: 1rem;
 }
 
-html{
-  scroll-snap-type: y proximity;
-}
 
 :focus {
   outline-style: dashed;
@@ -18,7 +14,6 @@ html{
 
 .portfolio-entry{
   padding-bottom: 2rem;
-  scroll-snap-align: start;
 }
 
 .headerLinks {
