@@ -6,13 +6,20 @@
     'Physics is harder than I thought',
     "Wait, the exam is next week?",
     "Welcome to my TED talk",
-    'Maybe next semester will be easier 🤡',
+    'How did you get here?',
     "It's muffin time",
     "Where did I save that file???",
     "¯\\_(ツ)_/¯",
+    "00111010 00101001",
+    'Hello There',
+    "Please send 1BTC to the following wallet:",
     "Sleep is overrated",
     "No, I won't fix your computer",
     "u/[deleted]",
+    "Is anyone even reading this?",
+    "I hope you have a good day",
+    "卄🝗㇄㇄ㄖ 山ㄖ尺㇄ᗪ",
+    "¡ɐᴉʅɐɹʇsn∀ oʅʅǝH",
     "Entropy isn’t what it used to be",
     "I’d tell a UDP joke, but you might not get it",
     "Lonely TCP packets in your area",
@@ -52,7 +59,6 @@
     "The proof is trivial",
     "Wake up, Neo",
     "Now I am become Death, the destroyer of worlds",
-    "Good bye, Mr. Anderson",
     '"I love RegEx!" - nobody ever',
     "Here's Johnny!",
     "You're tearing me apart, Lisa!",
@@ -86,7 +92,6 @@
     "It's not a problem, it's a learning opportunity",
     "I'm probably thinking about skiing right now"
   ];
-
   function typeWriter() {
     if (letterIndex < txt[thoughtIndex].length) {
       document.getElementById("thoughts").textContent += txt[thoughtIndex].charAt(letterIndex++)
