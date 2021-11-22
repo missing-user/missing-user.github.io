@@ -1,12 +1,12 @@
 ---
 title: Legal
 layout: default
-description: 'The obligatory Legal Notice Page'
+description: The obligatory Legal Notice Page
+
 ---
 ## Legal Notice
 
-This website is owned and maintained by Philipp Jurašić.
-If you think I'm infringing on your copyright or have any other legal issues with my site, contact me at [jurasic-park@gmx.de](mailto:jurasic-park@gmx.de "E-Mail") or send a letter to Santrigelstrasse 22, 81829 Munich, Germany.
+This website is owned and maintained by Philipp Jurašić. If you think I'm infringing on your copyright or have any other legal issues with my site, contact me at [jurasic-park@gmx.de](mailto:jurasic-park@gmx.de "E-Mail").
 
 ## Before suing me....
 
