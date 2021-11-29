@@ -7,7 +7,7 @@ description: Philipp Jurasic is a physics student and software developer from Ge
 ---
 ## Hi, I'm Philipp! <span class="waveHand">👋🏻</span>
 
-I'm Philipp, a physics student and software developer from Germany. I love building simulations, games, and electronics projects - especially anything visual and interactive.
+A physics student and software developer from Germany. I love building simulations, games, and electronics projects - especially anything visual and interactive.
 
 For some of my recent projects, check out my [homepage](https://jurasic-park.de/).
 
