@@ -1,6 +1,6 @@
 ---
 date: 2021-11-21 16:49:50 +0000
-link: https://jurasic-park.de/posts/posts-satellite-challenge-r-s-hackatum-2021-md
+link: https://devpost.com/software/hamiltumian
 repository: https://github.com/missing-user/SatChallenge
 title: HackaTUM R&S Satellite Challenge
 images:
