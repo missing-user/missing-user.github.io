@@ -1,6 +1,6 @@
 ---
 date: 2021-11-21 16:49:50 +0000
-link: https://jurasic-park.de/satelliteChallenge
+link: https://jurasic-park.de/posts/satelliteChallenge
 repository: https://github.com/missing-user/SatChallenge
 title: HackaTUM R&S Satellite Challenge
 images:
