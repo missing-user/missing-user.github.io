@@ -15,4 +15,5 @@ fields:
   name: description
   label: Description
 pages:
+- Posts/satellite-challenge-r-s-hackatum-2021.md
 - legal-notice.md
