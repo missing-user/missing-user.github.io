@@ -1,6 +1,6 @@
 ---
 layout: default
-title: satelliteChallenge
+title: Satellite Challenge R&S (HackaTUM 2021)
 description: d
 published: false
 
