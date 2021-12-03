@@ -2,11 +2,10 @@
   <h1 id="text">Your devmode is being activated...</h1>
   <script type="text/javascript">
     if (window.localStorage) {
-      console.log(window.localStorage.getItem("devmode"));
-      if (!!window.localStorage.getItem("devmode")) {
+      if (window.localStorage.getItem("_dev")) {
         document.getElementById('text').textContent = 'devmode was already active'
       } else {
-        window.localStorage.setItem("devmode", true)
+        window.localStorage.setItem("_dev", true)
         document.getElementById('text').textContent = 'devmode has now been activated'
       }
     } else {
