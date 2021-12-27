@@ -1,6 +1,6 @@
 let letterIndex = 0,
   thoughtIndex = 0;
-
+const thoughtsElement = document.getElementById("thoughts");
 let txt = [
   "3/10 can't recommend",
   "Robert'); DROP TABLE Students;--",
@@ -98,9 +98,7 @@ let txt = [
 
 function typeWriter() {
   if (letterIndex < txt[thoughtIndex].length) {
-    document.getElementById("thoughts").textContent += txt[thoughtIndex].charAt(
-      letterIndex++
-    );
+    thoughtsElement.textContent += txt[thoughtIndex].charAt(letterIndex++);
     setTimeout(typeWriter, 50);
   } else {
     setTimeout(resetThoughts, 1200);
@@ -116,15 +114,12 @@ function shuffleArray(array) {
 
 function resetThoughts() {
   if (letterIndex > 1) {
-    document.getElementById("thoughts").textContent = document
-      .getElementById("thoughts")
-      .textContent.slice(0, -1);
+    thoughtsElement.textContent = thoughtsElement.textContent.slice(0, -1);
     letterIndex--;
     setTimeout(resetThoughts, 10);
   } else {
     thoughtIndex = (thoughtIndex + 1) % txt.length;
-    document.getElementById("thoughts").textContent =
-      txt[thoughtIndex].charAt(0);
+    thoughtsElement.textContent = txt[thoughtIndex].charAt(0);
     typeWriter();
   }
 }
@@ -262,6 +257,7 @@ if (isThisToday({ month: 2, day: 14 })) {
 txt.push(`Maybe ${new Date().getFullYear()} will be better`);
 
 shuffleArray(txt);
+thoughtsElement.textContent = "";
 typeWriter();
 
 console.log(
