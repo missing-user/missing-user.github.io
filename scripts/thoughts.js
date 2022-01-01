@@ -209,7 +209,7 @@ function isThisToday(date) {
 }
 
 //pride month
-if (isThisToday({ month: 6 }) || isThisToday({ month: 1 })) {
+if (isThisToday({ month: 6 })) {
   for (pr of document.getElementsByClassName("profile"))
     pr.classList.add("pride");
   txt.push("Happy Pride Month");
