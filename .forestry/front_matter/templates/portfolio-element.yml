@@ -19,8 +19,8 @@ fields:
   config: {}
   label: Images
   description: Dark mode versions have to end with _<strong>dark</strong> before the
-    file extension. The file order must be:<em><br></em><strong>dark.svg<br>.svg<br>dark.webp<br>.webp<br>dark.png
-    / dark.jpg</strong>  <strong><br>.png / .jpg</strong>
+    file extension. The order in which they are added must be:<em><br></em><strong>dark.svg<br>.svg<br>dark.webp<br>.webp<br>dark.png
+    / dark.jpg</strong> <strong><br>.png / .jpg</strong>
 - type: text
   name: link
   label: Live URL
