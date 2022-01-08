@@ -38,7 +38,7 @@ form textarea{
 }
 
 .portfolio-entry{
-  padding: 2rem 0;
+  padding-bottom: 6.5rem;
 }
 
 .portfolio-entry h3{
@@ -46,6 +46,10 @@ form textarea{
 }
 .portfolio-entry hr{
   margin: 1rem 0;
+}
+
+.portfolio-entry>.img_cont{
+  grid-row: 1;
 }
 
 .headerLinks {
