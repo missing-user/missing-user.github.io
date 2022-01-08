@@ -1,4 +1,5 @@
 link: https://jurasic-park.de
 timezone: Europe/Paris
+permalink: /:year/:categories/:title/
 collections:
   - portfolio
