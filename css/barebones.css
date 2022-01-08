@@ -83,11 +83,11 @@
 --accent-color-hover: hsl(var(--accent-hue), 86%, 57%);	/* link hover; button-primary:hover:focus bg+border */
 
 --border-color: hsl(var(--theme-hue), 0%, 47%);					/* button border */
---border-color-softer: hsl(var(--theme-hue), 0%, 30%);	/* textarea,select,code,td,hr border	 */
+--border-color-softer: hsl(var(--theme-hue), 0%, 37%);	/* textarea,select,code,td,hr border	 */
 
 --background-color: hsl(var(--theme-hue), 47%, 6%);			/* body background; textarea,select background */
---background-color-softer: hsl(var(--theme-hue), 0%, 18%);
---code-background: hsl(var(--theme-hue), 0%, 5%);				/* code background*/
+--background-color-softer: hsl(var(--theme-hue), 47%, 12%);
+--code-background: hsl(var(--theme-hue), 47%, 5%);				/* code background*/
 
 --button-primary-color: white;
   }
