@@ -72,7 +72,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
 /* dark theme: light background, dark text, blue accent */
---theme-hue: 0;					/* black */
+--theme-hue: 194;					/* black */
 --accent-hue: 194;			/* blue */
 
 --text-color-richer: hsl(var(--theme-hue), 0%, 95%);		/* 		*/
@@ -85,7 +85,7 @@
 --border-color: hsl(var(--theme-hue), 0%, 47%);					/* button border */
 --border-color-softer: hsl(var(--theme-hue), 0%, 30%);	/* textarea,select,code,td,hr border	 */
 
---background-color: hsl(var(--theme-hue), 0%, 12%);			/* body background; textarea,select background */
+--background-color: hsl(var(--theme-hue), 47%, 6%);			/* body background; textarea,select background */
 --background-color-softer: hsl(var(--theme-hue), 0%, 18%);
 --code-background: hsl(var(--theme-hue), 0%, 5%);				/* code background*/
 
