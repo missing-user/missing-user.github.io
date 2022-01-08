@@ -3,9 +3,7 @@ layout: default
 ---
 
 {{ content }}
-
-</div>
-<div class="row" style="margin-top: 5rem;">
+<div style="margin-top: 5rem;">
   <h2>Projects</h2>
   <!-- Portfolio site specific styling -->
   <style>
@@ -15,42 +13,36 @@ layout: default
   </style>
   {% assign sorted = site.portfolio | reverse %}
   {% for entry in sorted %}
-  <!-- {{ entry.title }} -->
-  <div class="row portfolio-entry">
+
+  <div class="portfolio-entry">
     <h3>{{ entry.title }}</h3>
     <em>{{ entry.date | date_to_string }}</em>
-  </div>
-  <div class="row">
-    <div class="one-half column">
-      {{ entry.content }}
-      <div class="row">
-        <div class="one-half column">
-          <a href="{{ entry.link }}" class="button u-full-width">go to website</a>
-        </div>
+    <hr>
+    <div class="grid-container halves">
+      <div>
+        {{ entry.content }}
+        <a href="{{ entry.link }}" class="button u-full-width">go to website</a>
         {% if entry.repository and entry.repository != "" %}
-        <div class="one-half column">
-          <a href="{{ entry.repository }}" class="button u-full-width">view on GitHub</a>
-        </div>
+        <a href="{{ entry.repository }}" class="button u-full-width">view on GitHub</a>
         {% endif %}
       </div>
-    </div>
 
-    <div class="one-half column img_cont">
-      <a href="{{ entry.link }}">
-        <picture>
-          {% for image in entry.images reversed %}
-          {% assign ext = image | split: "." | last %}
-          {% if ext == "svg" %}
-          {% assign ext = "svg+xml" %}
-          {% endif %}
-          <source type="image/{{ ext }}" srcset="{{ image }}" {% if image contains "dark" %}
-            media="(prefers-color-scheme: dark)" {% endif %} />
-          {% endfor %}
-          <img loading="lazy" class="u-full-width img-hover-zoom" src="{{ entry.images[0] }}"
-            alt="{{ entry.title }} page preview" />
-        </picture>
-      </a>
+      <div class="img_cont">
+        <a href="{{ entry.link }}">
+          <picture>
+            {% for image in entry.images reversed %}
+            {% assign ext = image | split: "." | last %}
+            {% if ext == "svg" %}
+            {% assign ext = "svg+xml" %}
+            {% endif %}
+            <source type="image/{{ ext }}" srcset="{{ image }}" {% if image contains "dark" %}
+              media="(prefers-color-scheme: dark)" {% endif %} />
+            {% endfor %}
+            <img loading="lazy" class="u-full-width img-hover-zoom" src="{{ entry.images[0] }}"
+              alt="{{ entry.title }} page preview" {% imagesize entry.images[0]:props %} />
+          </picture>
+        </a>
+      </div>
     </div>
   </div>
-  <hr>
   {% endfor %}

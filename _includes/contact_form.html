@@ -1,41 +1,17 @@
-<style>
-  input[type="email"],
-  input[type="text"],
-  textarea {
-    display: block;
-    box-sizing: border-box;
-    font: inherit;
-    color: inherit;
-    border-radius: 4px;
-    width: 100%;
-  }
+<h2 id="contact">Contact</h2>
+<form action="https://formspree.io/f/xknknbdq" method="POST" class="grid-container full">
 
-  input[type="email"] {
-    height: 40px;
-    padding-left: 4px;
-    border: 1px solid #babdb6 !important;
-    box-shadow: none !important;
-  }
-
-  textarea {
-    padding: 6px 4px;
-  }
-
-  form .row {
-    padding: 1rem 0;
-  }
-</style>
-
-<form action="https://formspree.io/f/xknknbdq" method="POST">
-  <div class="row">
+  <div>
     <label for="email">Your email (optional)</label>
-    <input type="email" placeholder="mike@example.com" name="email">
+    <input class="u-full-width" type="email" placeholder="mike@example.com" name="email">
   </div>
-  <div class="row">
+  <div>
     <label for="message">Message</label>
-    <textarea name="message" rows="4" placeholder="Wow, I love your website!" required></textarea>
+    <textarea class="u-full-width" name="message" rows="4" placeholder="Wow, I love your website!" required></textarea>
   </div>
-  <div class="row">
+
+  <div>
     <button type="submit">Send</button>
   </div>
+
 </form>
