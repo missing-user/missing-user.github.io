@@ -171,3 +171,9 @@ body::-webkit-scrollbar {
 ::-webkit-scrollbar-thumb:window-inactive {
   background: var(--border-color-softer);
 }
+
+/* selection styling */
+::selection{
+  background-color: var(--text-color-normal);
+  color: var(--background-color)
+ }
