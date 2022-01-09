@@ -260,6 +260,35 @@ shuffleArray(txt);
 thoughtsElement.textContent = "";
 typeWriter();
 
+// change meta theme color on scroll (adapted from https://css-tricks.com/meta-theme-color-and-trickery/)
+if ("IntersectionObserver" in window) {
+  function setThemeColor(color) {
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) {
+      meta.setAttribute("content", color);
+    }
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const { isIntersecting, target } = entry;
+        if (isIntersecting) {
+          setThemeColor(getComputedStyle(document.body).backgroundColor);
+        } else {
+          setThemeColor("#6ac6b4"); //the color of the top part of the gradient
+        }
+      });
+    },
+    {
+      rootMargin: "1px 0px -100% 0px",
+      treshold: 0.1,
+    }
+  );
+
+  observer.observe(document.getElementsByTagName("main")[0]);
+}
+
 console.log(
   "Hello there, fellow developer!\nThe source code for this site can be found at:\nhttps://github.com/missing-user/missing-user.github.io"
 );

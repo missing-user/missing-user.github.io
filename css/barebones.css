@@ -41,8 +41,8 @@
 :root {
 
 	/* default theme: light background, dark text, blue accent */
-	--theme-hue: 0;					/* white */
-	--accent-hue: 214;			/* red */
+	--theme-hue: 214;				/* blue */
+	--accent-hue: 214;			/* blue */
 
 	--text-color-richer: hsl(var(--theme-hue), 0%, 5%);			/* #0d0d0d		*/
 	--text-color-normal: hsl(var(--theme-hue), 0%, 13%);		/* #222222 		text color; button:hover:focus color */
@@ -55,7 +55,7 @@
 	--border-color-softer: hsl(var(--theme-hue), 0%, 82%);	/* #d1d1d1		textarea,select,code,td,hr border	 */
 	
 	--background-color: white;														/* transparent body background; textarea,select background */
-	--background-color-softer: hsl(var(--theme-hue), 0%, 95%);
+	--background-color-softer: hsl(var(--theme-hue), 0%, 92%);
   --code-background: hsl(var(--theme-hue), 0%, 95%);			/* #f1f1f1 		code background*/
 
 	--button-primary-color: white;
@@ -71,22 +71,21 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-/* dark theme: light background, dark text, blue accent */
---theme-hue: 194;					/* black */
---accent-hue: 194;			/* blue */
+--theme-hue: 191;					/* black */
+--accent-hue: 191;			/* blue */
 
 --text-color-richer: hsl(var(--theme-hue), 0%, 95%);		/* 		*/
 --text-color-normal: hsl(var(--theme-hue), 0%, 90%);		/* text color; button:hover:focus color */
 --text-color-softer: hsl(var(--theme-hue), 0%, 77%);		/* button color; button:hover border */
 
---accent-color: hsl(var(--accent-hue), 76%, 49%);				/* link; button-primary bg+border; textarea,select:focus border */
---accent-color-hover: hsl(var(--accent-hue), 86%, 57%);	/* link hover; button-primary:hover:focus bg+border */
+--accent-color: hsl(var(--accent-hue), 61%, 44%);				/* link; button-primary bg+border; textarea,select:focus border */
+--accent-color-hover: hsl(var(--accent-hue), 76%, 57%);	/* link hover; button-primary:hover:focus bg+border */
 
 --border-color: hsl(var(--theme-hue), 0%, 47%);					/* button border */
 --border-color-softer: hsl(var(--theme-hue), 0%, 37%);	/* textarea,select,code,td,hr border	 */
 
 --background-color: hsl(var(--theme-hue), 47%, 6%);			/* body background; textarea,select background */
---background-color-softer: hsl(var(--theme-hue), 47%, 12%);
+--background-color-softer: hsl(var(--theme-hue), 47%, 15%);
 --code-background: hsl(var(--theme-hue), 47%, 5%);				/* code background*/
 
 --button-primary-color: white;
@@ -467,9 +466,8 @@ form {
 hr {
   margin-top: 3rem;
   margin-bottom: 3.5rem;
-  border-width: 0;
-  border-top: 1px solid var(--border-color-softer) !important;
-  border-bottom: 1px solid var(--border-color-softer) !important;
+  border: none;
+  border-top: 1px solid var(--border-color) !important;
 }
 
 /* Clearing

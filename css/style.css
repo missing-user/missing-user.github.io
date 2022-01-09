@@ -150,3 +150,24 @@ a.lightText:hover,.lightText:focus{
   --indigo: #675997;
   background: linear-gradient( var(--red) 0%, var(--red) 16.6666%, var(--orange) 16.6666%, var(--orange) 33.333%, var(--yellow) 33.333%, var(--yellow) 50%, var(--green) 50%, var(--green) 66.6666%, var(--blue) 66.6666%, var(--blue) 83.3333%, var(--indigo) 83.3333%, var(--indigo) 100%);
 }
+
+/* scrollbar styling */
+body{
+  overflow: overlay;
+}
+
+body::-webkit-scrollbar {
+  width: .75rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background: var(--border-color); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: var(--border-color-softer);
+}
