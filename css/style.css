@@ -48,7 +48,7 @@ form textarea{
   margin: 1rem 0;
 }
 
-.portfolio-entry>.img_cont{
+.portfolio-entry .img_cont{
   grid-row: 1;
 }
 
