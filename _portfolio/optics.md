@@ -1,7 +1,7 @@
 ---
 title: Optics
 date: 2021-01-27
-link: https://jurasic-park.de/optics/
+link: https://jurasic.dev/optics/
 repository: https://github.com/missing-user/optics/
 images:
   - "/images/optics.png"
