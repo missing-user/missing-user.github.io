@@ -1,7 +1,7 @@
 ---
 title: Units
 date: 2020-12-23
-link: https://jurasic.dev/units/
+link: https://jurasic-park.de/units/
 repository: https://github.com/missing-user/units/
 images:
   - "/images/units.jpg"

@@ -1,7 +1,7 @@
 ---
 title: Virus Simulation
 date: 2020-03-29
-link: https://jurasic.dev/pandemicSimulator/
+link: https://jurasic-park.de/pandemicSimulator/
 repository: https://github.com/missing-user/pandemicSimulator/
 images:
   - "/images/virussim.png"
