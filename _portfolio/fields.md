@@ -1,7 +1,7 @@
 ---
 title: Electric Fields
 date: 2020-04-20
-link: https://jurasic-park.de/elektrischeFelder/
+link: https://jurasic.dev/elektrischeFelder/
 repository: https://github.com/missing-user/elektrischeFelder/
 images:
   - "/images/electric.png"

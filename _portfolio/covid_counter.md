@@ -1,7 +1,7 @@
 ---
 title: COVID-19 Live Counter
 date: 2020-04-14
-link: https://jurasic-park.de/coronaTimer/
+link: https://jurasic.dev/coronaTimer/
 repository: https://github.com/missing-user/coronaTimer/
 images:
   - "/images/liveCounter.png"

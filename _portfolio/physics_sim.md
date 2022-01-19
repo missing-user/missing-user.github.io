@@ -1,7 +1,7 @@
 ---
 title: Spatial Hashing
 date: 2020-04-19
-link: https://jurasic-park.de/physicsSim/
+link: https://jurasic.dev/physicsSim/
 repository: https://github.com/missing-user/physicsSim/
 images:
   - "/images/physicssim.png"
