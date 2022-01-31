@@ -52,6 +52,8 @@
     <a href="/">Back to home</a>
     <canvas id=a style='height: 100%; width: 100%; object-fit: contain'>
       <script>
+        (()=>{
+
         // initialize keys states (u,r,d,l for directions, k for all the keyboard)
         c = a.getContext`2d`, k = [u = r = d = l = s = 0]
         BLOCK_SIZE = 32
@@ -243,4 +245,5 @@
         }
 
         startGame()
+        })()
       </script>
