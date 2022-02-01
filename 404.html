@@ -11,7 +11,7 @@
     }
 
     h1 {
-      font-size: 8rem;
+      font-size: 7rem;
       font-weight: 300;
       margin-bottom: 2rem;
     }
@@ -41,19 +41,46 @@
       left: 0;
       pointer-events: none;
     }
+
+    div{
+      position: absolute;
+      top: 0;
+      right: 1rem;
+      width: 7em;
+    }
+    li{
+      padding-left: 1rem;
+    width: 4em;
+    }
+
+    @media (max-width: 1200px) {
+      body {
+        font-size: 1.5rem;
+      }
+
+      h1 {
+        font-size: 5rem;
+      }
+    }
   </style>
   <section>
-    <h1 id="hud">404 Page not found</h1>
-    <p>The page you are looking for has been removed, or is temporarily unavailable.<br>
+    <h1 id=hud>404 Page not found</h1>
+    <p id=tut>The page you are looking for has been removed, or is temporarily unavailable.<br>
       Here's a little game to cheer you up instead.
 
       Press <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, <kbd>D</kbd> to move.
     </p>
     <a href="/">Back to home</a>
+<div>
+  <h3 id=tmk>Time: 00.0</h3>
+  <ol id=tms>
+  </ol>
+</div>
     <canvas id=a style='height: 100%; width: 100%; object-fit: contain'>
       <script>
         (()=>{
 
+        
         // initialize keys states (u,r,d,l for directions, k for all the keyboard)
         c = a.getContext`2d`, k = [u = r = d = l = s = 0]
         BLOCK_SIZE = 32
@@ -95,6 +122,8 @@
 
         txt = "404 Page not found"
 
+        started = !1
+
         md = [] //map data
 
         compressedData = [
@@ -115,7 +144,6 @@
         particles = []
         MAP_W = 40
         MAP_H = 27
-        start = new Date
 
 
         /*compress=(map)=> {
@@ -140,6 +168,10 @@
 
         //loads the next map and sets all 
         function nextMap() {
+          fds=document.createElement('li')
+          levelTime = new Date
+          tms.appendChild(fds)
+
           gamemap = [] //game map
           if (mi < md.length) {
             for (i = md[mi].length; i--;)
@@ -147,6 +179,11 @@
                 gamemap.push({ x: i % MAP_W, y: MAP_H - ~~(i / MAP_W), w: 1, h: 1, type: md[mi][i] })
           }
           else txt = `Page found in ${~~((new Date - start) / 100) / 10} seconds`  //Game over, you won
+
+
+
+
+
           gamemap.push({
             //floor
             x: 0,
@@ -169,7 +206,14 @@
         // ex: "press enter to open the menu" => `if(k[13])s=1;`
         ot = 0
         gameLoop = (nt) => {
-          //w = innerWidth, h = innerHeight
+          started = u||r||l||d||s||started
+          if(!started)
+            levelTime = start = new Date
+          else
+            tut.style.display='none', 
+            fds.textContent = ((new Date - levelTime)/1e3).toFixed(1) + " s",
+            tmk.textContent= "Time: "+((new Date - start)/1e3).toFixed(1) + " s"
+
           t = (nt - ot) / 7 //calculate delta time and store as t
           ot = nt
           a.width = w = MAP_W * BLOCK_SIZE, a.height = h = (MAP_H + 8) * BLOCK_SIZE
@@ -178,7 +222,7 @@
             for (i = 30; i--;)
               particles.push(new Particle(x + BLOCK_SIZE / 2, y + BLOCK_SIZE / 2))
           }
-          document.getElementById('hud').textContent = txt
+          hud.textContent = txt
 
           // main game
           colType = (b) => {
