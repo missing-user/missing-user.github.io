@@ -8,4 +8,4 @@ images:
 - "/images/404.svg"
 
 ---
-I recently found out about the [JS13k](https://js13kgames.com/) coding competition, where the goal is to create a web demo in under 13kb of JS code. Even though I missed last years contest, I took on it's theme and built a tiny platformer for my 404 page. **_The current record is 45.1 seconds!_**
+I recently found out about the [JS13k](https://js13kgames.com/) coding competition, where the goal is to create a web demo in under 13kb of JS code. Even though I missed last years contest, I took on it's theme and built a tiny platformer for my 404 page. **_The current record is 44.4 seconds!_**
