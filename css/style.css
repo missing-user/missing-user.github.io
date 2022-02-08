@@ -45,6 +45,10 @@ form textarea{
   .portfolio-entry{
     padding-bottom: 8rem;
   }
+  
+.contactform{
+  width: 50%;
+}
 }
 
 .portfolio-entry h3{
