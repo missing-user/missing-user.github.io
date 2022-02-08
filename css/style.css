@@ -1,5 +1,5 @@
 .profile {
-  background: #028cb3;
+  background-color: #028cb3;
   background: linear-gradient(0, #028cb3 0%, #6ac6b4 100%);
 }
 
@@ -38,7 +38,13 @@ form textarea{
 }
 
 .portfolio-entry{
-  padding-bottom: 6.5rem;
+  padding-bottom: 18rem;
+}
+
+@media (min-width: 600px) {
+  .portfolio-entry{
+    padding-bottom: 8rem;
+  }
 }
 
 .portfolio-entry h3{
@@ -46,6 +52,10 @@ form textarea{
 }
 .portfolio-entry hr{
   margin: 1rem 0;
+}
+
+.portfolio-entry em{
+  float: right;
 }
 
 .portfolio-entry .img_cont{
@@ -104,8 +114,12 @@ a.lightText:hover,.lightText:focus{
 
 @media (prefers-color-scheme: dark) {
   .lightText {
-    color: #2e3436;
+    color: #FFF;
+    color: var(--background-color);
   }
+
+  h1,h2,h3,h4,h5,h6{
+    font-weight: 600;}
 }
 
 .waveHand {
@@ -166,7 +180,8 @@ body::-webkit-scrollbar {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 1rem;
-  background: var(--border-color); 
+  background-color:#028cb3;
+  background: linear-gradient(0,#028cb3 0%,#6ac6b4 100%);
 }
 ::-webkit-scrollbar-thumb:window-inactive {
   background: var(--border-color-softer);

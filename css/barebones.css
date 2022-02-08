@@ -41,7 +41,7 @@
 :root {
 
 	/* default theme: light background, dark text, blue accent */
-	--theme-hue: 214;				/* blue */
+	--theme-hue: 191;				/* blue */
 	--accent-hue: 214;			/* blue */
 
 	--text-color-richer: hsl(var(--theme-hue), 0%, 5%);			/* #0d0d0d		*/
@@ -71,7 +71,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
---theme-hue: 191;					/* black */
+--theme-hue: 235;					/* black */
 --accent-hue: 191;			/* blue */
 
 --text-color-richer: hsl(var(--theme-hue), 0%, 95%);		/* 		*/
@@ -84,7 +84,7 @@
 --border-color: hsl(var(--theme-hue), 0%, 47%);					/* button border */
 --border-color-softer: hsl(var(--theme-hue), 0%, 37%);	/* textarea,select,code,td,hr border	 */
 
---background-color: hsl(var(--theme-hue), 47%, 6%);			/* body background; textarea,select background */
+--background-color: hsl(var(--theme-hue), 37%, 6%);			/* body background; textarea,select background */
 --background-color-softer: hsl(var(--theme-hue), 47%, 15%);
 --code-background: hsl(var(--theme-hue), 47%, 5%);				/* code background*/
 
