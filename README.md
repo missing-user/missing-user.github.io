@@ -5,3 +5,6 @@ Fear no more! Just check out [the website](https://missing-user.github.io) and y
 Everything is written in plain JS, CSS & HTML, should have no dependencies except for the font.
 
 I'm using Jekyll as the static site generator and forestry.io as my CMS. 
+
+## Usage
+To setup the local environment run ```npm install``` and then ```npm run dev```.
