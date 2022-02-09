@@ -194,12 +194,23 @@ function howLongUntilWeekend() {
   var d = new Date();
   if (d.getDay() == 6) return "Weekend's here!!!";
   if (d.getDay() == 0) return "Oh no, tomorrow is monday already...";
-  if (d.getDay() == 5) return "Weekend's almost here";
-  return "Just " + (6 - d.getDay()) + " more days till saturday";
+  if (d.getDay() == 5) return "Almost weekend!";
+  return "Just " + (6 - d.getDay()) + " more days until weekend!";
 }
 txt.push(howLongUntilWeekend());
 
-//something for the holidays
+function SetCssVar(varNames, varValue) {
+  // if varNames is an array, set each variable
+  if (Array.isArray(varNames)) {
+    for (var i = 0; i < varNames.length; i++) {
+      document.documentElement.style.setProperty(varNames[i], varValue);
+    }
+  } else {
+    document.documentElement.style.setProperty(varNames, varValue);
+  }
+}
+
+//check if it's a specific day or month
 function isThisToday(date) {
   var now = new Date();
   return (
@@ -215,6 +226,30 @@ if (isThisToday({ month: 6 })) {
   txt.push("Happy Pride Month");
 }
 
+//dies academicus
+if (isThisToday({ month: 12, day: 2 })) {
+  txt = [
+    "Dies Academicus",
+    "TUM excellence!",
+    "Let's go to the library!",
+    "Hooray!",
+    "TUM for life!",
+  ];
+  const profileDiv = document.getElementsByClassName("profile")[0];
+  profileDiv.style.background = "#0065BD";
+  profileDiv.getElementsByTagName("h1")[0].textContent = "TUM";
+
+  for (const lightText of document.getElementsByClassName("lightText")) {
+    lightText.style.color = "#fff";
+  }
+  SetCssVar(
+    ["--text-color-normal", "--border-color", "--text-color-softer"],
+    "#000"
+  );
+  SetCssVar(["--accent-color", "--accent-color-hover"], "#0065BD");
+  SetCssVar(["--background-color", "--background-color-softer"], "#fff");
+}
+
 //snow in december and january, add a quote
 if (isThisToday({ month: 12 }) || isThisToday({ month: 1 })) {
   fallingParticles();
@@ -228,29 +263,38 @@ if (isThisToday({ month: 12 }) || isThisToday({ month: 1 })) {
 
 //christmas quotes
 if (isThisToday({ day: 24, month: 12 }) || isThisToday({ day: 25, month: 12 }))
-  txt.push(
+  txt = [
+    "Sretan božič!",
+    "All I want for Christmas is you",
+    "Feliz Navidad",
     "Ho, ho, ho...",
     "Merry Christmas!",
     "I hope you get lots of presents",
     "Happy holidays!",
-    "Hey Google, play 'Last Christmas'"
-  );
+    "Hey Google, play 'Last Christmas'",
+    "🦌🦌🦌🛷🎅   ",
+  ];
 
 //birthday quotes
-if (isThisToday({ day: 11, month: 12 }))
-  txt.push(
+if (isThisToday({ day: 11, month: 12 })) {
+  txt = [
     "It's my birthday!!!",
     "I woder what presents I'll get",
     "You're invited!",
-    "Happy birthday to me"
-  );
+    "Happy birthday to me",
+  ];
+}
 
 //valentines day quotes
 if (isThisToday({ month: 2, day: 14 })) {
   document.getElementsByClassName("profile")[0].style.background =
     "linear-gradient(0, #ff0cb5 0%, #ffbaf3 100%)";
   fallingParticles(true);
-  txt.push("Happy valentines day");
+  txt = [
+    "Happy valentines day",
+    "I love you!",
+    "Are you going on a date tonight?",
+  ];
 }
 
 //next year will be better
