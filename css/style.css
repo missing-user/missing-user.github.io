@@ -58,7 +58,7 @@ form textarea{
   margin: 1rem 0;
 }
 
-.portfolio-entry em{
+.portfolio-entry .date{
   float: right;
 }
 
@@ -98,14 +98,36 @@ h1, h2 {
   overflow: hidden;
 }
 
-.img-hover-zoom {
-  transition: transform .25s ease;
+.img-hover-zoom, .source-button {
+  transition: transform .25s  cubic-bezier(0.18, 0.89, 0.32, 1.28);;
+}
+
+.source-button{  
+  display: inline-block;
+  margin-bottom: -2.5rem;
+  padding-left: 0.8rem;
+  vertical-align: top;
+
+}
+.source-button:hover .gh-icon{
+  transform: scale(1.2);
+  filter: brightness(1.15);
+}
+
+.gh-icon{     
+  transition: inherit;
+  background: url("/images/GitHubIcon.svg") no-repeat;
+  width:  5rem;
+  padding-top: 5rem;
+  vertical-align: middle;
+  margin-top: -0.25rem;
+  pointer-events: none;
 }
 
 /* The Transformation */
 
 .img-hover-zoom:hover, a:focus .img-hover-zoom {
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 
 .lightText {
@@ -123,7 +145,11 @@ a.lightText:hover,.lightText:focus{
   }
 
   h1,h2,h3,h4,h5,h6{
-    font-weight: 600;}
+    font-weight: 600;
+  }
+  .gh-icon{
+    background-image: url("/images/GitHubIconWhite.svg");
+  }
 }
 
 .waveHand {

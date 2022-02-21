@@ -4,19 +4,22 @@ const thoughtsElement = document.getElementById("thoughts");
 let txt = [
   "3/10 can't recommend",
   "Robert'); DROP TABLE Students;--",
-  "There's an XKCD for that",
+  "There's an XKCD for that!",
   "Physics is harder than I thought",
   "Wait, the exam is next week?",
+  "I'm not a robot, are you?",
   "Welcome to my TED talk",
   "Reality is an illusion!",
+  "Maybe I should redesign my website",
   "How did you get here?",
-  "It's muffin time",
+  "I'm not sure what I'm doing either",
   "Where did I save that file???",
   "¯\\_(ツ)_/¯",
   "00111010 00101001",
+  "Creative Quotes™",
   "Hello There",
   "Sleep is overrated",
-  "No, I won't fix your computer.",
+  "No, I won't fix your printer.",
   "u/[deleted]",
   "Pantone 448C is my favorite color",
   "Is anyone even reading this?",
@@ -47,6 +50,8 @@ let txt = [
   "My name is Inigo Montoya, prepare to die",
   "It's actually pronounced GIF",
   "404, Status not found",
+  "God does not play dice with the universe",
+  "Say my name",
   "sin(x) = tan(x) = x",
   "You gotta watch that movie!",
   "Congratulations, you won!",
@@ -65,7 +70,6 @@ let txt = [
   '"I love RegEx!" - nobody ever',
   "Here's Johnny!",
   "You're tearing me apart, Lisa!",
-  //"Anyway, how's your sex life?",
   "Was nothing real?",
   "HELP! I'm In a Nutshell!",
   "Oh behave!",
@@ -73,11 +77,11 @@ let txt = [
   "Trying is the first step to failure",
   "import numpy as plt",
   "Proficient in HQ9+",
-  '"I am justice!" - L',
+  "I am justice!",
   "Must be a compiler bug, my code is perfect",
   "Revive me Jett",
   "Don't worry, I got this",
-  "I have to return some videotapes",
+  "Recursion is its own reward",
   "The lettering is something called Silian Rail.",
   "Is something wrong? Patrick... You're sweating",
   "1.21 Gigawatts!?!",
@@ -219,6 +223,12 @@ function isThisToday(date) {
   );
 }
 
+if (new Date().getHours() > 22 || new Date().getHours() < 6) {
+  txt.push("You should probably go to bed");
+  txt.push("Good night!");
+  txt.push("It's getting late");
+}
+
 //pride month
 if (isThisToday({ month: 6 })) {
   for (pr of document.getElementsByClassName("profile"))
@@ -234,6 +244,7 @@ if (isThisToday({ month: 12, day: 2 })) {
     "Let's go to the library!",
     "Hooray!",
     "TUM for life!",
+    "Pantone 300 C",
   ];
   const profileDiv = document.getElementsByClassName("profile")[0];
   profileDiv.style.background = "#0065BD";

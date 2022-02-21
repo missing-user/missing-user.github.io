@@ -10,16 +10,22 @@ layout: default
   {% for entry in sorted %}
 
   <div class="portfolio-entry">
-    <em>{{ entry.date | date_to_string }}</em>
+    <em class="date">{{ entry.date | date_to_string }}</em>
     <h3>{{ entry.title }}</h3>
     <hr>
     <div class="grid-container halves">
       <div>
         {{ entry.content }}
-        <a href="{{ entry.link }}" class="button u-full-width">go to website</a>
-        {% if entry.repository and entry.repository != "" %}
-        <a href="{{ entry.repository }}" class="button u-full-width">view on GitHub</a>
-        {% endif %}
+
+        
+        <div>
+          <a href="{{ entry.link }}" class="button ">view project</a>
+          {% if entry.repository and entry.repository != "" %}
+          <a href="{{ entry.repository }}" class="source-button" aria-label="view source" title="view source on GitHub">
+
+<div class="gh-icon"></div>
+         </a>
+          {% endif %}</div>
       </div>
 
       <div class="img_cont">
