@@ -107,7 +107,7 @@ h1, h2 {
   margin-bottom: -2.5rem;
   padding-left: 0.8rem;
   vertical-align: top;
-  border-color: var(--border-color);
+  outline-color: var(--border-color);
 }
 .source-button:hover .gh-icon{
   transform: scale(1.2);
