@@ -63,7 +63,7 @@
 
   /* Note: Skeleton was based off a 1rem font sizing for REM  */
   /* 62.5% of typical 16px browser default = 1rem */
-  --base-font-size: 62.5%;
+  font-size: 62.5%;
 
   /* Grid Defaults - default to match orig skeleton settings */
   --grid-max-width: calc(50rem + 30vw);
@@ -135,7 +135,6 @@
 /* Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 html {
-  font-size: var(--base-font-size);
   scroll-behavior: smooth;
 }
 body {
@@ -509,6 +508,6 @@ there.
 /* Large Desktop */
 @media (min-width: 1800px) {
   :root {
-    font-size: 75%;
+    font-size: .5vw;
   }
 }

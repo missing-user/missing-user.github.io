@@ -26,6 +26,7 @@ let txt = [
   "I hope you have a good day",
   "卄🝗㇄㇄ㄖ 山ㄖ尺㇄ᗪ",
   "¡ɐᴉʅɐɹʇsn∀ oʅʅǝH",
+  "You're incomparable, like - what's that word...", //from what.
   "Entropy isn't what it used to be",
   "I'd tell a UDP joke, but you might not get it",
   "Lonely TCP packets in your area",
