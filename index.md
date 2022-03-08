@@ -1,10 +1,10 @@
 ---
 layout: portfolio
 title: Home
-description: Homepage of Philipp Jurašić, a physics student and freelance web developer
+description: Homepage of Philipp Jurašić, a physics student and software developer
   from Munich.
 
 ---
-Hi, I'm Philipp Jurašić, a physics student and freelance web developer from Munich. If you are looking for a fast and responsive website, just [drop me a message](/about#contact "contact form")!
+Hi, I'm Philipp Jurašić, a physics student and software developer from Munich. I love building [interactive simulations](https://jurasic.dev/optics/ "Optics simulator"), working with electronics and sometimes dabbling with [generative art](https://jurasic.dev/emergent_behaviour/)
 
-Below are some projects I've been working on.
+Below are some of the projects I've worked on.
