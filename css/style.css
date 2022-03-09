@@ -46,9 +46,17 @@ form textarea{
     padding-bottom: 8rem;
   }
   
-.contactform{
-  width: 50%;
+  .contactform{
+    width: 50%;
+  }
 }
+
+ 
+.contactform #name{
+  /* hide the honeypot offscreen */
+  position: absolute;
+  left: -8456px;
+  
 }
 
 .portfolio-entry h3{
