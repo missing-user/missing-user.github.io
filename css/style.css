@@ -52,11 +52,11 @@ form textarea{
 }
 
  
-.contactform #name{
+.contactform #product{
   /* hide the honeypot offscreen */
   position: absolute;
   left: -8456px;
-  
+
 }
 
 .portfolio-entry h3{
