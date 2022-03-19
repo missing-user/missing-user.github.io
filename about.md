@@ -11,6 +11,6 @@ A physics student and software developer from Germany. I love building websites,
 
 ## Leave me a message!
 
-If you'd like to collaborate on a project or leave some feedback, just drop me a message! I'd love to hear from you. You can also reach me at philipp@jurasic.dev or add me on [LinkedIn](https://www.linkedin.com/in/philipp-jurasic)!
+If you'd like to collaborate on a project or leave some feedback, just drop me a message! I'd love to hear from you. You can also reach me at [philipp@jurasic.dev](mailto:philipp@jurasic.dev "Contact email") or add me on [LinkedIn](https://www.linkedin.com/in/philipp-jurasic)!
 
 {% include contact_form.html %}
