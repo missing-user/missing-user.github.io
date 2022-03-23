@@ -7,4 +7,4 @@ images:
 - "/images/screenshot_20220323-081221.png"
 
 ---
-Animation Portfolio for a Client. Has a cool 3D effect on the homepage, that uses a depth map and shaders.
+Animation Portfolio for a client with lots of microinteractions and animated elements.
