@@ -10,4 +10,4 @@ images:
   - "/images/frust_dark.webp"
 ---
 
-A website for our fellow physics student to share their frustration. Click the button and everyone online can see what you're struggling with – _Live\!_
+A website for our fellow physics student to share their frustration. Click the button to tell everyone online what you're struggling with – _Live\!_

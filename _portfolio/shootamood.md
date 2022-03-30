@@ -7,4 +7,4 @@ images:
   - "/images/shootamood.png"
 ---
 
-A side scrolling portrait photography portfolio with bold font choices and cool animations.
+Side scrolling **photography portfolio** with bold page transitions and scroll interactions. I had a lot of fun designing and building this site, even though the unconventional format introduced quite a few unexpected challenges.

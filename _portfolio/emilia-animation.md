@@ -7,4 +7,4 @@ images:
   - "/images/emiliaanim.png"
 ---
 
-Animation Portfolio for a client with lots of microinteractions and animated elements.
+Unique **animation portfolio**, that really shows off the clients' personality. The site has lots of quirky **micro-interactions**, and each page is themed differently to match the project it showcases.
