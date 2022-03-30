@@ -8,4 +8,4 @@ images:
   - "/images/solarSystem.webp"
 ---
 
-Here's an attempt at simulating planetary orbits in our solar system. Since stability is key for such a simulation, this uses a Runge Kutta numerical integration method to solve the differential equations. Planet textures by [planetpixelemporium](https://planetpixelemporium.com/planets.html), the WEBGL library is [three.js](https://threejs.org/)
+Planetary solar system orbits **simulated in real time**. Since stability is key for this kind of simulation, I'm using the [Runge Kutta 4th order](https://jurasic.dev/ode/#rk4) integration method for the solver. Planet textures by [planetpixelemporium](https://planetpixelemporium.com/planets.html), the WEBGL library is [three.js](https://threejs.org/)

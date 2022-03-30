@@ -10,4 +10,4 @@ images:
   - "/images/physicssim_dark.webp"
 ---
 
-My attempt at implementing a spatial hashing algorithm for 2D physics. The algorithms uses circles, points and axis aligned rectangles as primitives and detects overlaps efficiently. Currently only simple spring forces are supported for the primitives. The solver is a semi implicit Euler implementation, so energy isn't perfectly conserved due to rounding errors
+Spatial hashing algorithm for simple 2D physics. The algorithms supports circles, points and axis aligned rectangles as primitives and detects overlaps efficiently. The solver is a semi implicit Euler implementation, so the system isn't perfectly stable.

@@ -1,10 +1,10 @@
 ---
 date: 2022-03-23 07:02:48 +0000
 link: https://shootamood.com
-repository: ''
+repository: ""
 title: shootamood.com
 images:
-- "/images/screenshot_20220323-080332-2.png"
-
+  - "/images/shootamood.png"
 ---
+
 A side scrolling portrait photography portfolio with bold font choices and cool animations.

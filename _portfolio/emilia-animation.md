@@ -1,10 +1,10 @@
 ---
-date: 2021-04-26T08:57:28.000+00:00
+date: 2022-01-26T08:57:28.000+00:00
 link: https://emiliaanimation.com/
-repository: ''
+repository: ""
 title: emiliaanimation.com
 images:
-- "/images/screenshot_20220323-081221.png"
-
+  - "/images/emiliaanim.png"
 ---
+
 Animation Portfolio for a client with lots of microinteractions and animated elements.

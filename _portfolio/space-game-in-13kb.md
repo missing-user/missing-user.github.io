@@ -7,4 +7,4 @@ images:
   - "/images/spacegamecover.png"
 ---
 
-This years entry for the JS13k competition, where the goal is to create a browser game in under 13kB. Music, graphics and code included!
+My entry for this years JS13k competition, where the goal is to create a browser game in **under 13kB**. _Music, graphics and code included!_
