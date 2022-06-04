@@ -232,7 +232,7 @@ if (new Date().getHours() > 22 || new Date().getHours() < 6) {
 
 //pride month
 if (isThisToday({ month: 6 })) {
-  for (pr of document.getElementsByClassName("profile"))
+  for (pr of document.getElementsByClassName("bannerAnchor"))
     pr.classList.add("pride");
   txt.push("Happy Pride Month");
 }

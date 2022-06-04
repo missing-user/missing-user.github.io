@@ -94,6 +94,7 @@ h1, h2 {
 
 .prpic {
   height: 100%;
+  z-index: 2;
   object-fit: contain;
   object-position: bottom;
   image-rendering: pixelated;
@@ -193,6 +194,13 @@ a.lightText:hover,.lightText:focus{
   }
 }
 
+.bannerAnchor{
+  width: 100%;
+  height: 4rem;
+  margin-top: -4rem;
+  position:absolute;
+  z-index: 1;
+}
 .pride {
   --red: #d04b36;
   --orange: #e36511;
@@ -237,18 +245,3 @@ span.fsss::after { content:"61 94+ :enohP" }
 span.fsss { unicode-bidi:bidi-override; direction:rtl }
 span.ddfas::after{content: "asse 22";}
 span.ddfas::before{content: "Santrig";}
-
-/* Ukraine */
-.ukb{
-  margin: 1rem;
-  padding: 10px 20px;
-  font-weight: 700;
-  border: .4rem solid;
-  border-image-slice: 1;
-  border-image-source: linear-gradient(0deg,rgba(255,213,0,1) 0%,rgba(255,213,0,1) 47%,rgba(0,91,187,1) 47%,rgba(0,91,187,1) 100%);
-  background: var(--background-color);
-  color: var(--text-color-normal);
-  position: fixed;
-  bottom: 0;
-  right: 0;
-}
