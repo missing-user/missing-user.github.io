@@ -99,6 +99,15 @@ let txt = [
   "It's dangerous to go alone, take this!",
   "It's not a problem, it's a learning opportunity",
   "I'm probably thinking about skiing right now",
+  "This is the story of a man named Stanley.",
+  "Employee #427's job was simple: ...",
+  "Place your companion cube in the incinerator",
+  "Aperture Science; We do what we must; Because we can",
+  "This was a triumph, I'm making a note here, HUGE SUCCESS!",
+  "I don't want your damn lemons!",
+  "Space. Space. I'm in space. SPAAAAAAACE!",
+  "Has anybody checked on pluto?",
+  "I'll take you to the moon. I promise.",
 ];
 
 function typeWriter() {
