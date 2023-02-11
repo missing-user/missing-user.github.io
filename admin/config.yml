@@ -9,18 +9,16 @@ collections:
   - name: "posts"
     label: "Post"
     folder: "_posts"
-    filter:
-      field: language
-      value: en
     fields:
-      - {label: "Language", name: "language"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown", sanitize_preview: true}
   - name: "portfolio"
     label: "Portfolio"
     folder: "_portfolio"
-    filter:
-      field: language
-      value: en
-    fields:
-      - {label: "Language", name: "language"}
-      - {label: "Body", name: "body", widget: "markdown"}
+    fields:  
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime", time_format: false, }
+      - {label: "Images", name: "images", widget: "image", media_library: {config: {multiple: true}}}
+      - {label: "Live URL", name: "link", widget: "string", default: "https://jurasic.dev/projectlink/"}
+      - {label: "Repository URL", name: "repository", widget: "string", default: "https://github.com/missing-user/projectlink/"}
+      - {label: "Body", name: "body", widget: "markdown", sanitize_preview: true}
