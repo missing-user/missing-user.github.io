@@ -1,6 +1,6 @@
 backend:
-  name: git-gateway
-  branch: master # Branch to update (optional; defaults to master
+  name: github
+  repo: missing-user/missing-user.github.io # Branch to update (optional; defaults to master
 publish_mode: editorial_workflow
 media_folder: "images" # Media files will be stored in the repo under images/uploads
 collections:
