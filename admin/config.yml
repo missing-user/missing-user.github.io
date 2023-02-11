@@ -1,6 +1,8 @@
 backend:
   name: github
-  repo: missing-user/missing-user.github.io # Branch to update (optional; defaults to master
+  repo: missing-user/missing-user.github.io 
+  branch: master
+  site_domain: admiring-carson-78d5f2.netlify.com
 publish_mode: editorial_workflow
 media_folder: "images" # Media files will be stored in the repo under images/uploads
 collections:
@@ -12,6 +14,7 @@ collections:
       value: en
     fields:
       - {label: "Language", name: "language"}
+      - {label: "Body", name: "body", widget: "markdown"}
   - name: "portfolio"
     label: "Portfolio"
     folder: "_portfolio"
@@ -20,3 +23,4 @@ collections:
       value: en
     fields:
       - {label: "Language", name: "language"}
+      - {label: "Body", name: "body", widget: "markdown"}
