@@ -37,7 +37,6 @@ let txt = [
   "Did I ever fix that memory leak?",
   "May contain traces of sarcasm",
   "Why doesn't this work?",
-  "Should have studied game design...",
   "<br> I love HTML",
   "Darkmode friendly 🌘",
   "Never gonna give you up",
