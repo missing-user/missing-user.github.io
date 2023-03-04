@@ -92,6 +92,12 @@ h1, h2 {
   height: auto;
 }
 
+main img{
+  height: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 .prpic {
   height: 100%;
   z-index: 2;
