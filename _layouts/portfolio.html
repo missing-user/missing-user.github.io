@@ -13,12 +13,13 @@ layout: default
     <h3>{{ entry.title }}</h3>
     <hr>
     <div class="grid-container halves">
+      
+      {% assign cntnt = entry.content | strip_newlines %}
+      {% assign exrpt = entry.excerpt | strip_newlines %}
       <div>
-        {{ entry.excerpt }}
+        {{ exrpt }}
 
         <div>
-          {% assign cntnt = entry.content | strip_newlines %}
-          {% assign exrpt = entry.excerpt | strip_newlines %}
           {% if cntnt == exrpt  %}
           <a href="{{ entry.link }}" class="button ">view project</a>
           {% else %}
@@ -32,7 +33,7 @@ layout: default
       </div>
 
       <div class="img_cont">
-        <a href="{{ entry.link }}">
+        <a href="{% if cntnt == exrpt  %}{{ entry.link }}{% else %}{{ entry.url }}{% endif %}">
           <picture>
             {% for image in entry.images reversed %}
             {% assign ext = image | split: "." | last %}
