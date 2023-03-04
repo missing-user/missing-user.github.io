@@ -1,6 +1,7 @@
 ---
+layout: post
 title: Experimental Design
-date: 2021-03-01
+
 link: https://jurasic.dev/design_experiments/
 repository: https://github.com/missing-user/design_experiments/
 images:

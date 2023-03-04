@@ -1,5 +1,5 @@
 ---
-date: 2022-05-21T11:10:09.000+00:00
+layout: post
 link: https://github.com/missing-user/RaytracingWeekend
 repository: https://github.com/missing-user/RaytracingWeekend
 title: Ray Tracing in One Weekend

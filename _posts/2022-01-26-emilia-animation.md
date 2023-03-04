@@ -1,5 +1,5 @@
 ---
-date: 2022-01-26T08:57:28.000+00:00
+layout: post
 link: https://emiliaanimation.com/
 repository: ""
 title: emiliaanimation.com

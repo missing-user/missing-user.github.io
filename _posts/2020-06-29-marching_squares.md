@@ -1,6 +1,7 @@
 ---
+layout: post
 title: Marching Squares
-date: 2020-06-29
+
 link: https://jurasic.dev/marching_squares/
 repository: https://github.com/missing-user/marching_squares/
 images:

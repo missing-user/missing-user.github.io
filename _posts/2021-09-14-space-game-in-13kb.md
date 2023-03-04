@@ -1,5 +1,5 @@
 ---
-date: 2021-09-14T19:09:04.000+00:00
+layout: post
 link: https://jurasic.dev/js13k_space/
 repository: https://github.com/missing-user/js13k_space
 title: Space Game in <13kB

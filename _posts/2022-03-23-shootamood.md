@@ -1,5 +1,5 @@
 ---
-date: 2022-03-23 07:02:48 +0000
+layout: post
 link: https://shootamood.com
 repository: ""
 title: shootamood.com

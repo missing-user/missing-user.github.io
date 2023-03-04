@@ -1,11 +1,15 @@
 ---
-layout: default
-title: Satellite Challenge R&S (HackaTUM 2021)
-description: Our winning submission to the HackaTUM 2021 Rohde & Schwarz Challenge.,
-  where the goal was to develop a satellite constellation for air traffic communication
-  in a single weekend.
+layout: post
+link: https://devpost.com/software/hamiltumian
+repository: https://github.com/missing-user/SatChallenge
+title: HackaTUM R&S Satellite Challenge
+images:
+- "/images/cover_image_min.jpg"
+- "/images/cover_image_min.webp"
 
 ---
+Our winning submission to the [HackaTUM](https://hack.tum.de/ "HackaTUM") 2021 Rohde & Schwarz challenge, where the goal was to develop a satellite constellation for air traffic communication in a single weekend.
+
 # HackaTUM 2021 Sat Challenge
 
 Here's the [Devpost link](https://devpost.com/software/hamiltumian "Devpost Link to our submission") to our final submission and the [original repository](https://github.com/RiaRosenauer/SatChallenge "Original Github repository of our challenge submission"). In [my fork of the repo](https://github.com/missing-user/SatChallenge "Fork of the submission with continued development"), we have continued development and added some features after the competition was over.

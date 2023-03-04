@@ -6,8 +6,7 @@ layout: default
   {{ content }}
   <h2>Projects</h2>
 
-  {% assign sorted = site.portfolio | reverse %}
-  {% for entry in sorted %}
+  {% for entry in site.posts %}
 
   <div class="portfolio-entry">
     <em class="date">{{ entry.date | date_to_string }}</em>
@@ -15,16 +14,20 @@ layout: default
     <hr>
     <div class="grid-container halves">
       <div>
-        {{ entry.content }}
+        {{ entry.excerpt }}
 
-        
         <div>
+          {% assign cntnt = entry.content | strip_newlines %}
+          {% assign exrpt = entry.excerpt | strip_newlines %}
+          {% if cntnt == exrpt  %}
           <a href="{{ entry.link }}" class="button ">view project</a>
+          {% else %}
+          <a href="{{ entry.url }}" class="button ">read more</a>
+          {% endif %}
           {% if entry.repository and entry.repository != "" %}
           <a href="{{ entry.repository }}" class="source-button" aria-label="view source" title="view source on GitHub">
-
-<div class="gh-icon"></div>
-         </a>
+            <div class="gh-icon"></div>
+          </a>
           {% endif %}</div>
       </div>
 

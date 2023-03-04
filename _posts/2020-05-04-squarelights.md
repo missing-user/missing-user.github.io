@@ -1,6 +1,7 @@
 ---
+layout: post
 title: Square Lights
-date: 2020-05-04
+
 link: https://square-lights.com/?utm_source=jurasicpark
 images:
   - "/images/coolGradient.jpg"
