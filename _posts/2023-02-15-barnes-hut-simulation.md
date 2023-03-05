@@ -22,3 +22,6 @@ As the algorithm traverses down the branches, it checks the distance between the
 If the distance between the particle and the sub-region is not large enough, the algorithm continues to traverse down the tree, eventually reaching the leaf nodes. At this point, the algorithm degenerates into a regular brute-force computation and calculates the exact force on the particle due to all the other particles in the sub-region.
 
 The Barnes-Hut algorithm is a highly efficient method for simulating the dynamics of galaxies. It can handle large numbers of particles with relative ease, and its hierarchical structure allows it to approximate forces with high accuracy while minimizing the number of calculations required. This makes it an ideal tool for studying the formation and evolution of galaxies, as well as other systems that exhibit complex gravitational interactions.
+
+
+{% include bh_visualizer.html %}
