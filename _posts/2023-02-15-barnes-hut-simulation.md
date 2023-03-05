@@ -23,5 +23,20 @@ If the distance between the particle and the sub-region is not large enough, the
 
 The Barnes-Hut algorithm is a highly efficient method for simulating the dynamics of galaxies. It can handle large numbers of particles with relative ease, and its hierarchical structure allows it to approximate forces with high accuracy while minimizing the number of calculations required. This makes it an ideal tool for studying the formation and evolution of galaxies, as well as other systems that exhibit complex gravitational interactions.
 
+## Interactive Demo
+
+T﻿he following demo was compiled to WebAssembly using Emscripten, but is otherwise based on the same C++ code as the main project. It requires WebGL to run and is best viewed in a Desktop browser. 
 
 {% include bh_visualizer.html %}
+
+
+
+## G﻿allery
+
+C﻿lustering of stars and galaxies from an expanding uniform initial distribution:
+
+![](/images/bigbang_clustering.png)
+
+T﻿he same principle can be used to simulate  other n-body problems, like the ones that arise in molecular dynamics. In fact, the only thing that needs to be changed is the interaction potential, e.g. by replacing the gravitational potential with a [Lennard Jones](https://en.wikipedia.org/wiki/Lennard-Jones_potential) interaction. After a while, the particles settle into an energetic equilibrium by forming a "crystal lattice":
+
+![](/images/hexagonal_structure.png)
