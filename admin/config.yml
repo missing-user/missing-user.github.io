@@ -2,13 +2,14 @@ backend:
   name: github
   repo: missing-user/missing-user.github.io 
   branch: master
-  auth_type: implicit
+  site_domain: admiring-carson-78d5f2.netlify.com
 #publish_mode: editorial_workflow
 media_folder: "images" # Media files will be stored in the repo under images/uploads
 collections:
   - name: "posts"
     label: "Post"
     create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" 
     folder: "_posts"
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
