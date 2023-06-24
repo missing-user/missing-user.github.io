@@ -240,9 +240,15 @@ if (new Date().getHours() > 22 || new Date().getHours() < 6) {
 
 //pride month
 if (isThisToday({ month: 6 })) {
-  for (pr of document.getElementsByClassName("bannerAnchor"))
-    pr.classList.add("pride");
-  txt.push("Happy Pride Month");
+  // Add custom CSS
+  var newCssLink=document.createElement('link');
+  newCssLink.rel='stylesheet';
+  newCssLink.href='/css/pride.css';
+  document.getElementsByTagName("head")[0].appendChild(newCssLink);
+
+  // Change profile picture, to one holding a flag
+  document.getElementsByClassName("prpic")[0].src = "/images/prpicpride.png";
+  txt.push("Happy Pride Month", "🏳️‍🌈   ", "Love is love");
 }
 
 //dies academicus

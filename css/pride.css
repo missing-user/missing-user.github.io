@@ -1,0 +1,30 @@
+.bannerAnchor {
+  --red: #d04b36;
+  --orange: #e36511;
+  --yellow: #ffba00;
+  --green: #00b180;
+  --blue: #147aab;
+  --indigo: #675997;
+  background: linear-gradient(var(--red) 0%,var(--red) 16.6666%,var(--orange) 16.6666%,var(--orange) 33.333%,var(--yellow) 33.333%,var(--yellow) 50%,var(--green) 50%,var(--green) 66.6666%,var(--blue) 66.6666%,var(--blue) 83.3333%,var(--indigo) 83.3333%,var(--indigo) 100%);
+  /* background: linear-gradient(45deg, black, transparent); */
+}
+a:hover:not(.button, .source-button) {
+  --red: #d04b36;--orange: #e36511;--yellow: #ffba00;--green: #00b180;--blue: #147aab;--indigo: #675997;
+  background: linear-gradient(90deg, var(--red) 0%, var(--red) 16.6666%, var(--orange) 16.6666%, var(--orange) 33.333%, var(--yellow) 33.333%, var(--yellow) 50%, var(--green) 50%, var(--green) 66.6666%, var(--blue) 66.6666%, var(--blue) 83.3333%, var(--indigo) 83.3333%, var(--indigo) 100%);
+  background-size:100% 3px;
+  background-repeat:no-repeat;
+  background-position: bottom left;
+  text-decoration:none;
+}
+button, .button {
+  --red: #d04b36;--orange: #e36511;--yellow: #ffba00;--green: #00b180;--blue: #147aab;--indigo: #675997;
+  background: linear-gradient(var(--red) 0%, var(--red) 16.6666%, var(--orange) 16.6666%, var(--orange) 33.333%, var(--yellow) 33.333%, var(--yellow) 50%, var(--green) 50%, var(--green) 66.6666%, var(--blue) 66.6666%, var(--blue) 83.3333%, var(--indigo) 83.3333%, var(--indigo) 100%);
+  background-size:0% 100%;
+  transition: background-size 100ms ease;
+  background-repeat:no-repeat;
+  
+}
+button:hover, .button:hover {
+ background-size:100% 100%;
+  
+}
