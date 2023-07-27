@@ -10,7 +10,7 @@ let txt = [
   "I'm not a robot, are you?",
   "Welcome to my TED talk",
   "Reality is an illusion!",
-  "Maybe I should redesign my website",
+  "Maybe I should redesign my website... again",
   "How did you get here?",
   "I'm not sure what I'm doing either",
   "Where did I save that file???",
@@ -76,8 +76,7 @@ let txt = [
   "REAL programmers use a magnetized needle",
   "Trying is the first step to failure",
   "import numpy as plt",
-  "Proficient in HQ9+",
-  "I am justice!",
+  "import matplotlib.pyplot as np",
   "Must be a compiler bug, my code is perfect",
   "Revive me Jett",
   "Don't worry, I got this",
@@ -85,7 +84,6 @@ let txt = [
   "The lettering is something called Silian Rail.",
   "Is something wrong? Patrick... You're sweating",
   "1.21 Gigawatts!?!",
-  "Shiver with Antici.....PATION",
   "Let's do the time warp again!",
   "Houston, we have a problem.",
   "What was the password again?",
@@ -103,10 +101,18 @@ let txt = [
   "Place your companion cube in the incinerator",
   "Aperture Science; We do what we must; Because we can",
   "This was a triumph, I'm making a note here, HUGE SUCCESS!",
-  "I don't want your damn lemons!",
+  "Life! I don't want your damn lemons!",
   "Space. Space. I'm in space. SPAAAAAAACE!",
   "Has anybody checked on pluto?",
+  "I wonder what JWST is doing right now",
   "I'll take you to the moon. I promise.",
+  "I void warranties for fun.", 
+  "Alt+F4 your problems away.", 
+  "You're just jealous of my well-documented code.", 
+  "I code, therefore I am... probably caffeinated.", 
+  "Send me nerdy jokes to confirm you are human", 
+  "Premature optimization is the root of all evil",
+  "Hello? is anyone there?",
 ];
 
 function typeWriter() {
@@ -238,6 +244,27 @@ if (new Date().getHours() > 22 || new Date().getHours() < 6) {
   txt.push("It's getting late");
 }
 
+//
+//browser specific quotes
+// detection from https://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browsers
+var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+var isFirefox = typeof InstallTrigger !== 'undefined';
+var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
+var isIE = /*@cc_on!@*/false || !!document.documentMode;
+var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+if(isOpera)
+  txt.push("Wow! An Opera user! Those are rare")
+if(isSafari)
+  txt.push("You're on Safari? Remember to stay hydrated!")
+if(isIE)
+  txt.push("You're using Internet Explorer? Seriously?!")
+if(isChrome)
+  txt.push("Another Chrome user! ")
+if(isFirefox)
+  txt.push("YAY! Firefox is awesome!")
+if(document.referrer.includes("bing"))
+  txt.push("Huh, so people really do use Bing...")
+
 //pride month
 if (isThisToday({ month: 6 })) {
   // Add custom CSS
@@ -320,6 +347,7 @@ if (isThisToday({ month: 2, day: 14 })) {
     "Happy valentines day",
     "I love you!",
     "Are you going on a date tonight?",
+    "Love is in the air",
   ];
 }
 
