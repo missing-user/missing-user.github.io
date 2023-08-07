@@ -9,4 +9,4 @@ images:
 repository: ""
 ---
 
-For the past year my colleague and I've been working on a smart lighting startup. We are producing music reactive LED Panels, so if that sounds like something you're interested in, please check us out!
+For some time [Tim](https://tim.guggenmos.me/) worked on a smart lighting startup for music reactive LED Panels. This is the mockup website we created for it.
