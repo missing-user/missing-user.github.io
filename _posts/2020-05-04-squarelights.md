@@ -9,4 +9,4 @@ images:
 repository: ""
 ---
 
-For some time [Tim](https://tim.guggenmos.me/) worked on a smart lighting startup for music reactive LED Panels. This is the mockup website we created for it.
+For some time [Tim](https://tim.guggenmos.me/) and I worked on a smart lighting startup for music reactive LED Panels. This is the mockup website we created for it.
