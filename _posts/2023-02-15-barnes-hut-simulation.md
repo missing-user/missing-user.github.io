@@ -2,7 +2,7 @@
 layout: post
 title: Barnes-Hut Simulation
 images: /images/spiral_galaxy.png
-link: https://github.com/missing-user/barnes-hut
+link: 
 repository: https://github.com/missing-user/barnes-hut
 ---
 Simulating a galaxy using the Barnes-Hut algorithm is an exciting way to explore the dynamics of celestial bodies and the formation of galaxies. It allows us to observe the evolution of our galaxy over time and gain insights into the complex gravitational interactions that govern the universe.

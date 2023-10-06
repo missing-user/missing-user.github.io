@@ -20,9 +20,10 @@ layout: default
         {{ exrpt }}
 
         <div>
-          {% if cntnt == exrpt  %}
+          {% if entry.link and entry.link != "" %}
           <a href="{{ entry.link }}" class="button ">view project</a>
-          {% else %}
+          {% endif %}
+          {% if cntnt != exrpt  %}
           <a href="{{ entry.url }}" class="button ">read more</a>
           {% endif %}
           {% if entry.repository and entry.repository != "" %}
