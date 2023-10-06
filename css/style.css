@@ -113,6 +113,11 @@ main img{
   overflow: hidden;
 }
 
+.portfolio-entry img{
+  aspect-ratio:3/2;
+  object-fit: cover;
+}
+
 .img-hover-zoom, .source-button {
   transition: transform .25s  cubic-bezier(0.18, 0.89, 0.32, 1.28);;
 }
