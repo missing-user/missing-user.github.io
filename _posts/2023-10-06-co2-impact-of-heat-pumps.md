@@ -133,17 +133,14 @@ According to the [Department of Economics at the University of Verona](http://ds
 * [Heizlastberechnung Bosy](http://www.bosy-online.de/heizlastberechnung_nach_din_en_12831.htm)
 * [Heizlastrechner Waermepumpe.de](https://www.waermepumpe.de/normen-technik/heizlastrechner/)
 * [NPro Heizlast profiles](https://www.npro.energy/main/de/load-profiles/heat-load-and-demand)
+* [Heating limit temperature](https://www.effizienzhaus-online.de/lexikon/heizgrenztemperatur/)
 
-### Heating limit temperature
-
-https://www.effizienzhaus-online.de/lexikon/heizgrenztemperatur/
-
-| Values for the 1980 house we used for comparisions |                          |
-| -------------------------------------------------- | ------------------------ |
-| Living area:                                       | 200 $m^2$                |
-| Window area:                                       | 51.9 $m^2$               |
-| Heat capacity:                                     | 328000 $\frac{kJ}{K}$    |
-| Average specific heat conductance:                 | 0.7293 $\frac{W}{m^2 K}$ |
-| Air volume:                                        | 1251  $m^3$              |
-| Historic heating oil consumption:                  | 3000 $l$                 |
-| Historic heating power consumption:                | 30000  $kWh$             |
+| Values for the 1980 house we used for comparisons |                          |
+| ------------------------------------------------- | ------------------------ |
+| Living area:                                      | 200 $m^2$                |
+| Window area:                                      | 51.9 $m^2$               |
+| Heat capacity:                                    | 328000 $\frac{kJ}{K}$    |
+| Average specific heat conductance:                | 0.7293 $\frac{W}{m^2 K}$ |
+| Air volume:                                       | 1251  $m^3$              |
+| Historic heating oil consumption:                 | 3000 $l$                 |
+| Historic heating power consumption:               | 30000  $kWh$             |
