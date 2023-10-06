@@ -53,15 +53,15 @@ $
 
 The simplified model is populated by a series of sensible defaults for all inputs, which are not exposed to the user. For example, we set the $A_{windows}$ to $20%$ of the living area, activate all available model assumptions except for weather forecast uncertainty and set the simulation range from 1. January to 31. December of the selected year. Based on $W/m^2$ heating requirement values from DIN EN 12831-1 we filter the available list of heat pump models and select a suitably sized pump automatically. By default the electricity mix is the German, historic electricity generation mix of the selected year, as downloaded from [SMARD](https://www.smard.de/en/downloadcenter/download-market-data/), a service offered by the Bundesnetzagentur. If no electricity data is available for the selected year, we repeat the closest available year periodically to fill the entire timeseries. 
 
-![Initial version of the simplified Dashboard produced during Ferienakademie has a limited number of simple user inputs, but still presents a lot of information](docs/limitedScreenshot.png)
-![Improvements after Ferienakademie reduce visual clutter. We limited the dashboard to only display four KPIs and a single plot.](docs/simple_dashboard.png)
+![Initial version of the simplified Dashboard produced during Ferienakademie has a limited number of simple user inputs, but still presents a lot of information](/images/limitedscreenshot.png)
+![Improvements after Ferienakademie reduce visual clutter. We limited the dashboard to only display four KPIs and a single plot.](/images/simple_dashboard.png)
 
 ### Academic
 
 The academic Dashboard version is intended for deeper exploration of the data. We tried to expose as much control over the simulation parameters as possible, including some model assumptions. Particularly the electricity mix input is valuable for testing hypothetical scenarios, e.g. different expansions of renewable energies in as part of the energy mix. 
-![The initial version of the academic Dashboard was entirely seperate and only shared the base layout and some of the controls.](docs/academicScreenshot.png)
+![The initial version of the academic Dashboard was entirely seperate and only shared the base layout and some of the controls.](/images/academicscreenshot.png)
 The academic dashboard has customizable plots where the user can select arbitrary timeseries data to display. We tried to make all intermediate calculation steps available. The units are always marked in square brackets after the variable name and are automatically displayed on the y-axis label in the new dashboard version. Selecting the bar display type sums up the values in bins over the individual months, e.g. to analyze the monthly electricity usage. Since we are using $1 h$ timesteps and units of $kW$ where sensible, the aggregated bars conveniently show the total monthly elecctricity usage in $kWh$. The area plot is mostly useful to show quantities, which have a cumulative meaning, e.g. the percentages of different electricity sources in the current mix.
-![Expanding the "Advanced Settings" and "Detailed Metrics" tabs now reveals additional information. plot customization options are now directly above the respective plot instead of the sidebar. All information from the base UI is still available at the top.](docs/advanced_dashboard.png)
+![Expanding the "Advanced Settings" and "Detailed Metrics" tabs now reveals additional information. plot customization options are now directly above the respective plot instead of the sidebar. All information from the base UI is still available at the top.](/images/advanced_dashboard.png)
 
 | Column                             | Unit                            | Description                                                                                                                                                                                                                                                                                                                     |
 | ---------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -89,10 +89,10 @@ Initially we used time window of $48 h$ for computation. We estimate the heat de
 
 We therefore introduced an extension to the base control strategy, that allows to choose a minimum and maximum temperature, from which a time window for optimization is computed. The window is simply determined by the time it takes for the building to get colder or hotter than the minimum temperature naturally. Thereby we ensure, that even in the most extreme cases (no heating for the entire period) the temperature deviation is limited. The controller is now able to produce a much more stable temperature profile, while still optimizing for $CO_2$ emissions. An added benefit is, that it can now also use longer periods for optimization if the house has a sufficient heat capacity to isolation ratio or when the outside temperature is close to target temperature anyway.
 
-![](docs/variable_24hperiod.png "Note that the temperature deviation is now limited to approximately $\pm 1 ^\circ C$ from the target temperature. Variations outside of this range are due to the imperfect weather forecast (4482.2 kg CO2eq total emissions)")
+![](/images/variable_24hperiod.png "Note that the temperature deviation is now limited to approximately $\pm 1 ^\circ C$ from the target temperature. Variations outside of this range are due to the imperfect weather forecast (4482.2 kg CO2eq total emissions)")
 
 Of course a larger temperature variation allows for lower $CO_2$ emissions, since the controller has more freedom to choose when to heat, as can be seen in the following figure. Note that allowing a larger temperature variation does not change the average temperature in the building.
-![Giving the controller more freedom to let the temperature vary improves $CO_2$ emissions](/images/CO2overVariation.png)
+![Giving the controller more freedom to let the temperature vary improves $CO_2$ emissions](/images/co2overvariation.png)
 All the figures in this section are computed for a $200 m^2$ building from 1980, with the reference usage profile set to family and simulation year 2021.
 
 ## Model validation and results
