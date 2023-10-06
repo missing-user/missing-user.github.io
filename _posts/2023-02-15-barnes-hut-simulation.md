@@ -7,7 +7,7 @@ repository: https://github.com/missing-user/barnes-hut
 ---
 Simulating a galaxy using the Barnes-Hut algorithm is an exciting way to explore the dynamics of celestial bodies and the formation of galaxies. It allows us to observe the evolution of our galaxy over time and gain insights into the complex gravitational interactions that govern the universe.
 
-T﻿he following demo was compiled to WebAssembly using Emscripten, but is otherwise based on the same C++ code as the main project. It requires WebGL to run and is best viewed in a Desktop browser. 
+The following demo was compiled to WebAssembly using Emscripten, but is otherwise based on the same C++ code as the main project. It requires WebGL to run and is best viewed in a Desktop browser. 
 
 {% include bh_visualizer.html %}
 
@@ -37,6 +37,6 @@ Formation of star and galaxy clusters from an expanding uniform initial distribu
 
 ![](/images/bigbang_clustering.png)
 
-T﻿he same principle can be used to simulate  other n-body problems, like the ones that arise in molecular dynamics. In fact, the only thing that needs to be changed is the interaction potential, e.g. by replacing the gravitational potential with a [Lennard Jones](https://en.wikipedia.org/wiki/Lennard-Jones_potential) interaction. At first the particles behave like a gas, but if we "cool down" the substance by continuously removing energy, the particles settle into an energetic equilibrium after a while, forming a "crystal lattice". This form of idealized matter is often called Lennard Jones fluid.
+The same principle can be used to simulate  other n-body problems, like the ones that arise in molecular dynamics. In fact, the only thing that needs to be changed is the interaction potential, e.g. by replacing the gravitational potential with a [Lennard Jones](https://en.wikipedia.org/wiki/Lennard-Jones_potential) interaction. At first the particles behave like a gas, but if we "cool down" the substance by continuously removing energy, the particles settle into an energetic equilibrium after a while, forming a "crystal lattice". This form of idealized matter is often called Lennard Jones fluid.
 
 ![](/images/hexagonal_structure.png)
