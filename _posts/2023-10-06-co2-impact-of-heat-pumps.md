@@ -5,8 +5,7 @@ images: /images/cover.png
 link: https://heat-pump.streamlit.app/
 repository: https://github.com/missing-user/heat-pump-dashboard/
 ---
-We simulated the emissions of residential heat pumps and built a dashboard to explore them at [Ferienakademie 2023](https://ferienakademie.de/﻿﻿)
-
+We simulated the emissions of residential heat pumps and built a dashboard to explore them at [Ferienakademie 2023](https://ferienakademie.de/)
 
 # Heat pump simulation
 
@@ -126,16 +125,14 @@ We follow the methodology described by [electricitymaps.com](https://www.electri
 According to the [Department of Economics at the University of Verona](http://dse.univr.it/home/workingpapers/wp2021n8.pdf) the effective carbon footprint is 31% above the grid average due to round trip losses. [electricitymaps.com](https://electricitymaps.com) does not account for these additional losses. Additionally the $CO_2$ intensity of German electricity is above the global average, so Germany's mean intensity should be used as the baseline instead.
 
 ### Electricity stats for Germany
-[SMARD](https://www.smard.de/en/downloadcenter/download-market-data/﻿)﻿
-https://www.smard.de/en/downloadcenter/download-market-data/﻿)
 
-h
+[SMARD](https://www.smard.de/en/downloadcenter/download-market-data/)﻿﻿
 
 ### Specific heat demand
 
-* http://www.bosy-online.de/heizlastberechnung_nach_din_en_12831.htm
-* https://www.waermepumpe.de/normen-technik/heizlastrechner/
-* https://www.npro.energy/main/de/load-profiles/heat-load-and-demand
+* [Heizlastberechnung Bosy](http://www.bosy-online.de/heizlastberechnung_nach_din_en_12831.htm)
+* [Heizlastrechner Waermepumpe.de](https://www.waermepumpe.de/normen-technik/heizlastrechner/)
+* [NPro Heizlast profiles](https://www.npro.energy/main/de/load-profiles/heat-load-and-demand)
 
 ### Heating limit temperature
 
