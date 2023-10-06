@@ -5,15 +5,13 @@ images: /images/newplot-2-~2.png
 link: https://heat-pump.streamlit.app/
 repository: https://github.com/missing-user/heat-pump-dashboard/
 ---
-We simulated the emissions of residential heat pumps and built a dashboard to explore them at [Ferienakademie 2023](https://ferienakademie.de/). You can try it out [on this website](https://heat-pump.streamlit.app/)
-
-[#﻿## Live Dashboard URL](https://heat-pump.streamlit.app/)
+We simulated the emissions of residential heat pumps and built a dashboard to explore them at [Ferienakademie 2023](https://ferienakademie.de/). 
 
 ## Introduction
 
 $25.2%$ of Germany's energy budget are used for heating buildings, the majority of which ($17.5%$ points) is in the residential sector. As such, it produces immense emissions, $126 Mt$ in 2019 for example [Bundesministerium für Wirtschaft und Klimaschutz](https://www.bmwk.de/Redaktion/DE/Publikationen/Energie/energieeffizienz-in-zahlen-entwicklungen-und-trends-in-deutschland-2021.html). Reducing these emissions is of utmost importance to achieve the climate goals and mitigate the impact of global warming. 
 
-With the expansion of renewable electricity sources, heat pumps have the potential to provide a completely $CO_2$ neutral way of heating, but even with today's electric mix, they usually produce less emissions than fossil based heat sources. In this project we built an tool analysis tool for researchers and end consumers to estimate the $CO_2$ impact of air-water heat pumps for residential buildings.
+With the expansion of renewable electricity sources, heat pumps have the potential to provide a completely $CO_2$ neutral way of heating, but even with today's electric mix, they usually produce less emissions than fossil based heat sources. In this project we built an tool analysis tool for researchers and end consumers to estimate their heating needs and the $CO_2$ impact of air-water heat pumps for residential buildings. [The dashboard is available here.](https://heat-pump.streamlit.app/)
 
 ## Model Description
 
