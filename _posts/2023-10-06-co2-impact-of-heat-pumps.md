@@ -126,8 +126,10 @@ We follow the methodology described by [electricitymaps.com](https://www.electri
 According to the [Department of Economics at the University of Verona](http://dse.univr.it/home/workingpapers/wp2021n8.pdf) the effective carbon footprint is 31% above the grid average due to round trip losses. [electricitymaps.com](https://electricitymaps.com) does not account for these additional losses. Additionally the $CO_2$ intensity of German electricity is above the global average, so Germany's mean intensity should be used as the baseline instead.
 
 ### Electricity stats for Germany
+[SMARD](https://www.smard.de/en/downloadcenter/download-market-data/﻿)﻿
+https://www.smard.de/en/downloadcenter/download-market-data/﻿)
 
-https://www.smard.de/en/downloadcenter/download-market-data/?downloadAttributes=%7B%22selectedCategory%22:1,%22selectedSubCategory%22:1,%22selectedRegion%22:false,%22selectedFileType%22:%22CSV%22,%22from%22:1514761200000,%22to%22:1672613999999%7D
+h
 
 ### Specific heat demand
 
