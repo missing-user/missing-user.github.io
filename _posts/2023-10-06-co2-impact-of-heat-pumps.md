@@ -7,6 +7,8 @@ repository: https://github.com/missing-user/heat-pump-dashboard/
 ---
 We simulated the emissions of residential heat pumps and built a dashboard to explore them at [Ferienakademie 2023](https://ferienakademie.de/)
 
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></﻿script>
+
 # Heat pump simulation
 
 ## Introduction
