@@ -7,7 +7,7 @@ repository: https://github.com/missing-user/heat-pump-dashboard/
 ---
 We simulated the emissions of residential heat pumps and built a dashboard to explore them at [Ferienakademie 2023](https://ferienakademie.de/)
 
-<
+
 
 # Heat pump simulation
 
@@ -92,7 +92,7 @@ We therefore introduced an extension to the base control strategy, that allows t
 ![](docs/variable_24hperiod.png "Note that the temperature deviation is now limited to approximately $\pm 1 ^\circ C$ from the target temperature. Variations outside of this range are due to the imperfect weather forecast (4482.2 kg CO2eq total emissions)")
 
 Of course a larger temperature variation allows for lower $CO_2$ emissions, since the controller has more freedom to choose when to heat, as can be seen in the following figure. Note that allowing a larger temperature variation does not change the average temperature in the building.
-![Giving the controller more freedom to let the temperature vary improves $CO_2$ emissions](docs/CO2overVariation.png)
+![Giving the controller more freedom to let the temperature vary improves $CO_2$ emissions](/images/CO2overVariation.png)
 All the figures in this section are computed for a $200 m^2$ building from 1980, with the reference usage profile set to family and simulation year 2021.
 
 ## Model validation and results
