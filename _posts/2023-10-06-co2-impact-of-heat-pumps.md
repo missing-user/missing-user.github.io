@@ -1,13 +1,13 @@
 ---
 layout: post
 title: CO2 Impact of Heat Pumps
-images: /images/cover.png
+images: /images/newplot-2-~2.png
 link: https://heat-pump.streamlit.app/
 repository: https://github.com/missing-user/heat-pump-dashboard/
 ---
 We simulated the emissions of residential heat pumps and built a dashboard to explore them at [Ferienakademie 2023](https://ferienakademie.de/)
 
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></﻿script>
+<
 
 # Heat pump simulation
 
@@ -85,11 +85,11 @@ The controller tries to minimize $CO_2$ emissions, by heating when electricity i
 
 Initially we used time window of $48 h$ for computation. We estimate the heat demand during that time interval based on a temperature and usage forecast, which we simulate by adding $10%$ uniform random noise to the true temperature and usage profiles. Using a fixed time window of $48 h$ the controller produced strong temperature oscillations in the winter, since in extreme cases it would heat for a day (e.g. a windy day, when the electricity is clean) and turn off the other day. In old buildings with poor isolation, this caused temperature deviations of up to $\pm 4 ^\circ C$ from the target temperature, since the cooling rate was simply too high to allow for such a long heating pause.  
 
-![Large temperature deviations of up to $\pm 4 ^\circ C$ from the target temperature (3681.5 kg CO2eq total emissions)](docs/fixed_24hperiod.png)
+![](/images/fixed_24hperiod.png "Large temperature deviations of up to $\pm 4 ^\circ C$ from the target temperature (3681.5 kg CO2eq total emissions)")
 
 We therefore introduced an extension to the base control strategy, that allows to choose a minimum and maximum temperature, from which a time window for optimization is computed. The window is simply determined by the time it takes for the building to get colder or hotter than the minimum temperature naturally. Thereby we ensure, that even in the most extreme cases (no heating for the entire period) the temperature deviation is limited. The controller is now able to produce a much more stable temperature profile, while still optimizing for $CO_2$ emissions. An added benefit is, that it can now also use longer periods for optimization if the house has a sufficient heat capacity to isolation ratio or when the outside temperature is close to target temperature anyway.
 
-![Note that the temperature deviation is now limited to approximately $\pm 1 ^\circ C$ from the target temperature. Variations outside of this range are due to the imperfect weather forecast (4482.2 kg CO2eq total emissions)](docs/variable_24hperiod.png)
+![](docs/variable_24hperiod.png "Note that the temperature deviation is now limited to approximately $\pm 1 ^\circ C$ from the target temperature. Variations outside of this range are due to the imperfect weather forecast (4482.2 kg CO2eq total emissions)")
 
 Of course a larger temperature variation allows for lower $CO_2$ emissions, since the controller has more freedom to choose when to heat, as can be seen in the following figure. Note that allowing a larger temperature variation does not change the average temperature in the building.
 ![Giving the controller more freedom to let the temperature vary improves $CO_2$ emissions](docs/CO2overVariation.png)
