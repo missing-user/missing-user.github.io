@@ -5,9 +5,9 @@ images: /images/newplot-2-~2.png
 link: https://heat-pump.streamlit.app/
 repository: https://github.com/missing-user/heat-pump-dashboard/
 ---
-We simulated the emissions of residential heat pumps and built a dashboard to explore them at [Ferienakademie 2023](https://ferienakademie.de/)
+We simulated the emissions of residential heat pumps and built a dashboard to explore them at [Ferienakademie 2023](https://ferienakademie.de/). You can try it out [on this website](https://heat-pump.streamlit.app/)
 
-<﻿a class="button button-primary" href="https://heat-pump.streamlit.app/">Try the dashboard yourself!</a>
+[#﻿## Live Dashboard URL](https://heat-pump.streamlit.app/)
 
 ## Introduction
 
