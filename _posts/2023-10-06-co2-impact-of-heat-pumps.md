@@ -1,7 +1,9 @@
 ---
 layout: post
 title: CO2 Impact of Heat Pumps
-images: /images/heat_pump_plot_dark.png
+images: 
+- /images/newplot-2-~2.png
+- /images/heat_pump_plot_dark.png
 link: https://heat-pump.streamlit.app/
 repository: https://github.com/missing-user/heat-pump-dashboard/
 ---
