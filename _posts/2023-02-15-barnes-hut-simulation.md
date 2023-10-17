@@ -5,7 +5,7 @@ images: /images/spiral_galaxy.png
 link: 
 repository: https://github.com/missing-user/barnes-hut
 ---
-Simulating a galaxy using the Barnes-Hut algorithm is an exciting way to explore the dynamics of celestial bodies and the formation of galaxies. It allows us to observe the evolution of our galaxy over time and gain insights into the complex gravitational interactions that govern the universe.
+The Barnes-Hut algorithm allows us to efficiently simulate celestial dynamics and the formation of galaxies. [Jimmy](https://instagram.com/j_adel__) and I wrote this as part of our [university course](https://www.tum.de/en/studies/degree-programs/detail/computational-science-and-engineering-cse-master-of-science-msc).
 
 The following demo was compiled to WebAssembly using Emscripten, but is otherwise based on the same C++ code as the main project. It requires WebGL to run and is best viewed in a Desktop browser. 
 
