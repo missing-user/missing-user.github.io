@@ -32,8 +32,6 @@ The Barnes-Hut algorithm is a highly efficient method for simulating the dynamic
 T﻿his project was created together with [Jimmy](https://instagram.com/j_adel__) as part of the advanced programming course in our CSE masters degree. He creates some amazing generative art, so make sure to check him out!
 
 ## G﻿allery
-
-## Video Gallery
 Visualization of how sorting the traversal order (indicated by the lines connecting different bodies) improves performance. Notice how the FPS immediately jump by 20% when the scene is Morton ordered:
 [![Watch the video](https://img.youtube.com/vi/SRe4MOF6JOs/maxresdefault.jpg)](https://youtu.be/SRe4MOF6JOs)
 
