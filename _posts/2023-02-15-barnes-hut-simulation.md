@@ -33,9 +33,16 @@ T﻿his project was created together with [Jimmy](https://instagram.com/j_adel__
 
 ## G﻿allery
 
-Formation of star and galaxy clusters from an expanding uniform initial distribution, similiar to the big-bang: 
+## Video Gallery
+Visualization of how sorting the traversal order (indicated by the lines connecting different bodies) improves performance. Notice how the FPS immediately jump by 20% when the scene is Morton ordered:
+[![Watch the video](https://img.youtube.com/vi/SRe4MOF6JOs/maxresdefault.jpg)](https://youtu.be/SRe4MOF6JOs)
 
+
+
+Formation of star and galaxy clusters from an expanding uniform initial distribution, similiar to the big-bang: 
 ![](/images/bigbang_clustering.png)
+The following image will redirect you to YouTube:
+[![Watch the video](https://img.youtube.com/vi/K-4VUi-bIeo/maxresdefault.jpg)](https://youtu.be/K-4VUi-bIeo)
 
 The same principle can be used to simulate  other n-body problems, like the ones that arise in molecular dynamics. In fact, the only thing that needs to be changed is the interaction potential, e.g. by replacing the gravitational potential with a [Lennard Jones](https://en.wikipedia.org/wiki/Lennard-Jones_potential) interaction. At first the particles behave like a gas, but if we "cool down" the substance by continuously removing energy, the particles settle into an energetic equilibrium after a while, forming a "crystal lattice". This form of idealized matter is often called Lennard Jones fluid.
 
