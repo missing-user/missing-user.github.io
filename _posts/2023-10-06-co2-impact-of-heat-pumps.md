@@ -1,13 +1,15 @@
 ---
 layout: post
 title: CO2 Impact of Heat Pumps
-images: 
-- /images/newplot-2-~2.png
-- /images/heat_pump_plot_dark.png
+images:
+  - /images/newplot-2-~2.png
+  - /images/heat_pump_plot_dark.png
 link: https://heat-pump.streamlit.app/
 repository: https://github.com/missing-user/heat-pump-dashboard/
 ---
 We simulated the emissions of residential heat pumps and built a dashboard to explore them at [Ferienakademie 2023](https://ferienakademie.de/). Big shout-out to my teammates [Julius Neszvecsko](https://www.linkedin.com/in/julius-neszvecsko-59a55a247), Larissa and Max for the amazing time!
+
+I﻿f you just want to play with the dashboard instead of reading about it, [go here](https://heat-pump.streamlit.app/).
 
 ## Introduction
 
@@ -17,30 +19,30 @@ With the expansion of renewable electricity sources, heat pumps have the potenti
 
 ## Model Description
 
-We model the building as an open thermodynamic system in a heat bath (outside environment). The entire building is assigned a single temperature, so like a homogeneous block in a perfectly equilibrated steady state. The building is parametrized by its heat capacity $C$, volume $V$, the specific heat transfer coefficients of its different surfaces $U_i$, the surface area of walls $A_{walls}$, roof $A_{roof}$, floor $A_{floor}$ and lastly windows $A_{windows}$. Specific heat capacities were taken from [this paper on the role of specific heat capacity on building energy performance and thermal discomfort](https://www.sciencedirect.com/science/article/pii/S2214509522005551) and interpolated manually for different building ages. The specific U values mapped to building age, according to the classes specified in [Gebäudeenergiegesetz (GEG), Anlage 1](https://www.wienerberger.de/content/dam/wienerberger/germany/marketing/documents-magazines/instructions-guidelines/wall/DE_MKT_DOC_PON_Schnelluebersicht_GEG_KfW_Wienerberger.pdf).
-If solar radiation is simulated, the windows are assigned a value $g_{window}$ depending on the building age, which specifies the transmittance of vertical radiation through glass. This is lower for more modern, multi layer windows and higher for older, single layer windows [Richtwerte finden sich in DIN 4108-4 als Gesamtenergiedurchlassgrade bei senkrechtem Strahlungseinfall](https://www.baunormenlexikon.de/norm/din-4108-4/c71c3881-b7fc-47d4-8992-2b1e8609dc03). All the surface areas are computed from the living area input by the user, evenly split among the given number of floors by assuming  $3 m$ height per floor and a flat, square roof and base of the building.
+We model the building as an open thermodynamic system in a heat bath (outside environment). The entire building is assigned a single temperature, so like a homogeneous block in a perfectly equilibrated steady state. The building is parametrized by its heat capacity $C$, volume $V$, the specific heat transfer coefficients of its different surfaces $U*i$, the surface area of walls $A*{walls}$, roof $A*{roof}$, floor $A*{floor}$ and lastly windows $A*{windows}$. Specific heat capacities were taken from [this paper on the role of specific heat capacity on building energy performance and thermal discomfort](https://www.sciencedirect.com/science/article/pii/S2214509522005551) and interpolated manually for different building ages. The specific U values mapped to building age, according to the classes specified in [Gebäudeenergiegesetz (GEG), Anlage 1](https://www.wienerberger.de/content/dam/wienerberger/germany/marketing/documents-magazines/instructions-guidelines/wall/DE_MKT_DOC_PON_Schnelluebersicht_GEG_KfW_Wienerberger.pdf).
+If solar radiation is simulated, the windows are assigned a value $g*{window}$ depending on the building age, which specifies the transmittance of vertical radiation through glass. This is lower for more modern, multi layer windows and higher for older, single layer windows [Richtwerte finden sich in DIN 4108-4 als Gesamtenergiedurchlassgrade bei senkrechtem Strahlungseinfall](https://www.baunormenlexikon.de/norm/din-4108-4/c71c3881-b7fc-47d4-8992-2b1e8609dc03). All the surface areas are computed from the living area input by the user, evenly split among the given number of floors by assuming  $3 m$ height per floor and a flat, square roof and base of the building.
 
 The transfer due to the temperature gradient to the outside at a given timestep is then: 
 
 $
 \begin{equation}
-\dot{Q}=UA\Delta T = \sum{U_{i} A_{i} (T_{outside} - T_{house})}
+\dot{Q}=UA\Delta T = \sum{U*{i} A*{i} (T*{outside} - T*{house})}
 \end{equation}
 $
 
 This equation gets additional terms for ventilation, heat produced by electrical appliances, habitants, and heating due to solar radiation.
 $
 \begin{equation}
-\dot{Q}=UA(T_{outside} - T_{house}) + 0.95\cdot P_{internal} + g_{window} P_{solar}  + P_{heat : pump} + n_{ventilation:rate} c_{air} V_{air} \rho_{air} 
+\dot{Q}=UA(T*{outside} - T*{house}) + 0.95\cdot P*{internal} + g*{window} P*{solar}  + P*{heat : pump} + n*{ventilation:rate} c*{air} V*{air} \rho*{air} 
 \end{equation}
 $
 
 Finally, the temperature in the house is defined as $T_{house} = \frac{Q}{C}$. The resulting ODE is integrated with an explicit Euler integrator with a step size of $1 h$, which is the time resolution at which we handle all the data.
 
-If "close window blinds in summer" is in the model assumptions, we redefine P_solar slightly, such that less solar radiation comes through the windows on hot days:
+If "close window blinds in summer" is in the model assumptions, we redefine P*solar slightly, such that less solar radiation comes through the windows on hot days:
 $
-P_{\text{solar:adjusted}} = \begin{cases}
-P_{\text{solar}} & \text{if } T_{\text{outside}} > 22^\circ \text{C} \
+P*{\text{solar:adjusted}} = \begin{cases}
+P*{\text{solar}} & \text{if } T*{\text{outside}} > 22^\circ \text{C} \
 0.1 \cdot P_{\text{solar}} & \text{else}
 \end{cases}
 $
@@ -64,7 +66,7 @@ The academic dashboard has customizable plots where the user can select arbitrar
 | Column                             | Unit                            | Description                                                                                                                                                                                                                                                                                                                     |
 | ---------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | p_solar (south/east/west)          | $kW/m^2$                        | Specific solar radiation strength for a vertical surface facing south/west/east respectively. This already includes corrective factors from literature for average shading, non-perpendicular radiation and self shadowing due to the window frame.                                                                             |
-| P_solar                            | $kW$                            | Total heating power due to solar irradiation, assuming equal distribution of windows over north, south, east and west. Computed as $\sum{A_{windows : i} \cdot p_{solar : i}}$                                                                                                                                                  |
+| P_solar                            | $kW$                            | Total heating power due to solar irradiation, assuming equal distribution of windows over north, south, east and west. Computed as $\sum{A*{windows : i} \cdot p*{solar : i}}$                                                                                                                                                  |
 | T_{outside}                        | $C^\circ$                       | Outside air temperature used for computing the heat losses and COP of the heat pump                                                                                                                                                                                                                                             |
 | T_{house}                          | $C^\circ$                       | Average temperature of the building. Air temperature and wall temperature are not treated independently.                                                                                                                                                                                                                        |
 | Wind offshore, Biomass, Nuclear... | $%$                             | Percentage of the specific energy source in the electricity mix.                                                                                                                                                                                                                                                                |
@@ -116,9 +118,10 @@ Time dependent electricity mix played a smaller role than expected. Especially w
 ## Appendix
 
 ### Heat pump library
+
 For accurate heat pump models we are using [hplib](https://github.com/FZJ-IEK3-VSA/hplib)
 
-Citation: Tjarko Tjaden, Hauke Hoops, Kai Rösken. (2021). RE-Lab-Projects/hplib: heat pump library (v2.0). Zenodo. [https://doi.org/10.5281/zenodo.5521597](https://doi.org/10.5281/zenodo.5521597)
+Citation: Tjarko Tjaden, Hauke Hoops, Kai Rösken. (2021). RE-Lab-Projects/hplib: heat pump library (v2.0). Zenodo. <https://doi.org/10.5281/zenodo.5521597>
 
 ### Load profiles
 
