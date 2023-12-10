@@ -5,7 +5,7 @@ images: /images/spiral_galaxy.png
 link: 
 repository: https://github.com/missing-user/barnes-hut
 ---
-Simulating a galaxy using the Barnes-Hut algorithm is an exciting way to explore the dynamics of celestial bodies and the formation of galaxies. It allows us to observe the evolution of our galaxy over time and gain insights into the complex gravitational interactions that govern the universe.
+The Barnes-Hut algorithm allows us to efficiently simulate celestial dynamics and the formation of galaxies. [Jimmy](https://instagram.com/j_adel__) and I wrote this as part of our [university course](https://www.tum.de/en/studies/degree-programs/detail/computational-science-and-engineering-cse-master-of-science-msc).
 
 The following demo was compiled to WebAssembly using Emscripten, but is otherwise based on the same C++ code as the main project. It requires WebGL to run and is best viewed in a Desktop browser. 
 
@@ -29,13 +29,18 @@ If the distance between the particle and the sub-region is not large enough, the
 
 The Barnes-Hut algorithm is a highly efficient method for simulating the dynamics of galaxies. It can handle large numbers of particles with relative ease, and its hierarchical structure allows it to approximate forces with high accuracy while minimizing the number of calculations required. This makes it an ideal tool for studying the formation and evolution of galaxies, as well as other systems that exhibit complex gravitational interactions.
 
-T﻿his project was created together with [Jimmy](https://twitter.com/j_maffe)as part of the advanced programming course in our CSE masters degree. He creates some amazing generative art, so make sure to check him out!
+T﻿his project was created together with [Jimmy](https://instagram.com/j_adel__) as part of the advanced programming course in our CSE masters degree. He creates some amazing generative art, so make sure to check him out!
 
 ## G﻿allery
+Visualization of how sorting the traversal order (indicated by the lines connecting different bodies) improves performance. Notice how the FPS immediately jump by 20% when the scene is Morton ordered:
+[![Watch the video](https://img.youtube.com/vi/SRe4MOF6JOs/maxresdefault.jpg)](https://youtu.be/SRe4MOF6JOs)
+
+
 
 Formation of star and galaxy clusters from an expanding uniform initial distribution, similiar to the big-bang: 
-
 ![](/images/bigbang_clustering.png)
+The following image will redirect you to YouTube:
+[![Watch the video](https://img.youtube.com/vi/K-4VUi-bIeo/maxresdefault.jpg)](https://youtu.be/K-4VUi-bIeo)
 
 The same principle can be used to simulate  other n-body problems, like the ones that arise in molecular dynamics. In fact, the only thing that needs to be changed is the interaction potential, e.g. by replacing the gravitational potential with a [Lennard Jones](https://en.wikipedia.org/wiki/Lennard-Jones_potential) interaction. At first the particles behave like a gas, but if we "cool down" the substance by continuously removing energy, the particles settle into an energetic equilibrium after a while, forming a "crystal lattice". This form of idealized matter is often called Lennard Jones fluid.
 
