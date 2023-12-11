@@ -6,6 +6,7 @@ images:
   - /images/heat_pump_plot_dark.png
 link: https://heat-pump.streamlit.app/
 repository: https://github.com/missing-user/heat-pump-dashboard/
+mathjax: true
 ---
 We simulated the emissions of residential heat pumps and built a dashboard to explore them at [Ferienakademie 2023](https://ferienakademie.de/). Big shout-out to my teammates [Julius Neszvecsko](https://www.linkedin.com/in/julius-neszvecsko-59a55a247), Larissa and Max for the amazing time!
 
