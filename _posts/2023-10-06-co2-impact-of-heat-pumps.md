@@ -14,39 +14,41 @@ I﻿f you just want to play with the dashboard instead of reading about it, [go 
 
 ## Introduction
 
-$25.2%$ of Germany's energy budget are used for heating buildings, the majority of which ($17.5%$ points) is in the residential sector. As such, it produces immense emissions, $126 Mt$ in 2019 for example [Bundesministerium für Wirtschaft und Klimaschutz](https://www.bmwk.de/Redaktion/DE/Publikationen/Energie/energieeffizienz-in-zahlen-entwicklungen-und-trends-in-deutschland-2021.html). Reducing these emissions is of utmost importance to achieve the climate goals and mitigate the impact of global warming. 
+$25.2 \%$ of Germany's energy budget are used for heating buildings, the majority of which ($17.5 \%$ points) is in the residential sector. As such, it produces immense emissions, $126 Mt$ in 2019 for example [Bundesministerium für Wirtschaft und Klimaschutz](https://www.bmwk.de/Redaktion/DE/Publikationen/Energie/energieeffizienz-in-zahlen-entwicklungen-und-trends-in-deutschland-2021.html). Reducing these emissions is of utmost importance to achieve the climate goals and mitigate the impact of global warming. 
 
 With the expansion of renewable electricity sources, heat pumps have the potential to provide a completely $CO_2$ neutral way of heating, but even with today's electric mix, they usually produce less emissions than fossil based heat sources. In this project we built an tool analysis tool for researchers and end consumers to estimate their heating needs and the $CO_2$ impact of air-water heat pumps for residential buildings. [The dashboard is available here.](https://heat-pump.streamlit.app/)
 
 ## Model Description
 
-We model the building as an open thermodynamic system in a heat bath (outside environment). The entire building is assigned a single temperature, so like a homogeneous block in a perfectly equilibrated steady state. The building is parametrized by its heat capacity $C$, volume $V$, the specific heat transfer coefficients of its different surfaces $U*i$, the surface area of walls $A*{walls}$, roof $A*{roof}$, floor $A*{floor}$ and lastly windows $A*{windows}$. Specific heat capacities were taken from [this paper on the role of specific heat capacity on building energy performance and thermal discomfort](https://www.sciencedirect.com/science/article/pii/S2214509522005551) and interpolated manually for different building ages. The specific U values mapped to building age, according to the classes specified in [Gebäudeenergiegesetz (GEG), Anlage 1](https://www.wienerberger.de/content/dam/wienerberger/germany/marketing/documents-magazines/instructions-guidelines/wall/DE_MKT_DOC_PON_Schnelluebersicht_GEG_KfW_Wienerberger.pdf).
-If solar radiation is simulated, the windows are assigned a value $g*{window}$ depending on the building age, which specifies the transmittance of vertical radiation through glass. This is lower for more modern, multi layer windows and higher for older, single layer windows [Richtwerte finden sich in DIN 4108-4 als Gesamtenergiedurchlassgrade bei senkrechtem Strahlungseinfall](https://www.baunormenlexikon.de/norm/din-4108-4/c71c3881-b7fc-47d4-8992-2b1e8609dc03). All the surface areas are computed from the living area input by the user, evenly split among the given number of floors by assuming  $3 m$ height per floor and a flat, square roof and base of the building.
+We model the building as an open thermodynamic system in a heat bath (outside environment). The entire building is assigned a single temperature, so like a homogeneous block in a perfectly equilibrated steady state. The building is parametrized by its heat capacity $C$, volume $V$, the specific heat transfer coefficients of its different surfaces $U_i$, the surface area of walls $A_{walls}$, roof $A_{roof}$, floor $A_{floor}$ and lastly windows $A_{windows}$. Specific heat capacities were taken from [this paper on the role of specific heat capacity on building energy performance and thermal discomfort](https://www.sciencedirect.com/science/article/pii/S2214509522005551) and interpolated manually for different building ages. The specific U values mapped to building age, according to the classes specified in [Gebäudeenergiegesetz (GEG), Anlage 1](https://www.wienerberger.de/content/dam/wienerberger/germany/marketing/documents-magazines/instructions-guidelines/wall/DE_MKT_DOC_PON_Schnelluebersicht_GEG_KfW_Wienerberger.pdf).
+If solar radiation is simulated, the windows are assigned a value $g_{window}$ depending on the building age, which specifies the transmittance of vertical radiation through glass. This is lower for more modern, multi layer windows and higher for older, single layer windows [Richtwerte finden sich in DIN 4108-4 als Gesamtenergiedurchlassgrade bei senkrechtem Strahlungseinfall](https://www.baunormenlexikon.de/norm/din-4108-4/c71c3881-b7fc-47d4-8992-2b1e8609dc03). All the surface areas are computed from the living area input by the user, evenly split among the given number of floors by assuming  $3 m$ height per floor and a flat, square roof and base of the building.
 
-The transfer due to the temperature gradient to the outside at a given timestep is then: 
+The transfer due to the temperature gradient to the outside at a given timestep is then:
 
-$
+$$
 \begin{equation}
-\dot{Q}=UA\Delta T = \sum{U*{i} A*{i} (T*{outside} - T*{house})}
+\dot{Q}=UA\Delta T = \sum{U_{i} A_{i} (T_{outside} - T_{house})}
 \end{equation}
-$
+$$
 
 This equation gets additional terms for ventilation, heat produced by electrical appliances, habitants, and heating due to solar radiation.
-$
+
+$$
 \begin{equation}
-\dot{Q}=UA(T*{outside} - T*{house}) + 0.95\cdot P*{internal} + g*{window} P*{solar}  + P*{heat : pump} + n*{ventilation:rate} c*{air} V*{air} \rho*{air} 
+\dot{Q}=UA(T_{outside} - T_{house}) + 0.95\cdot P_{internal} + g_{window} P_{solar}  + P_{heat : pump} + n_{ventilation:rate} c_{air} V_{air} \rho_{air} 
 \end{equation}
-$
+$$
 
 Finally, the temperature in the house is defined as $T_{house} = \frac{Q}{C}$. The resulting ODE is integrated with an explicit Euler integrator with a step size of $1 h$, which is the time resolution at which we handle all the data.
 
 If "close window blinds in summer" is in the model assumptions, we redefine P*solar slightly, such that less solar radiation comes through the windows on hot days:
-$
-P*{\text{solar:adjusted}} = \begin{cases}
-P*{\text{solar}} & \text{if } T*{\text{outside}} > 22^\circ \text{C} \
+
+$$
+P_{\text{solar:adjusted}} = \begin{cases}
+P_{\text{solar}} & \text{if } T_{\text{outside}} > 22^\circ \text{C} \
 0.1 \cdot P_{\text{solar}} & \text{else}
 \end{cases}
-$
+$$
 
 ## Dashboard Overview
 
@@ -67,7 +69,7 @@ The academic dashboard has customizable plots where the user can select arbitrar
 | Column                             | Unit                            | Description                                                                                                                                                                                                                                                                                                                     |
 | ---------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | p_solar (south/east/west)          | $kW/m^2$                        | Specific solar radiation strength for a vertical surface facing south/west/east respectively. This already includes corrective factors from literature for average shading, non-perpendicular radiation and self shadowing due to the window frame.                                                                             |
-| P_solar                            | $kW$                            | Total heating power due to solar irradiation, assuming equal distribution of windows over north, south, east and west. Computed as $\sum{A*{windows : i} \cdot p*{solar : i}}$                                                                                                                                                  |
+| P_solar                            | $kW$                            | Total heating power due to solar irradiation, assuming equal distribution of windows over north, south, east and west. Computed as $\sum{A_{windows : i} \cdot p_{solar : i}}$                                                                                                                                                  |
 | T_{outside}                        | $C^\circ$                       | Outside air temperature used for computing the heat losses and COP of the heat pump                                                                                                                                                                                                                                             |
 | T_{house}                          | $C^\circ$                       | Average temperature of the building. Air temperature and wall temperature are not treated independently.                                                                                                                                                                                                                        |
 | Wind offshore, Biomass, Nuclear... | $%$                             | Percentage of the specific energy source in the electricity mix.                                                                                                                                                                                                                                                                |
@@ -78,13 +80,13 @@ The academic dashboard has customizable plots where the user can select arbitrar
 | Q_dot_demand                       | $kW$                            | Theoretical heat demand to fulfil the temperature requirements.                                                                                                                                                                                                                                                                 |
 | Q_dot_supplied                     | $kW$                            | Actual amount of heat supplied to the building by the heat pump. May be less than Q_dot_demand if the heat pump is chosen too small                                                                                                                                                                                             |
 | Q_dot_transferred                  | $kW$                            | Heat transfer to the outside of the building through walls, windows, ceiling and floor.                                                                                                                                                                                                                                         |
-| Q_dot_ventilation                  | $kW$                            | Heat transfer due to periodic ventilation of the building. We assume that $35%$ of the air volume in the building are replaced per hour ([According to Standard 62.2-2016 - Ventilation and Acceptable Indoor Air Quality in Residential Buildings](https://www.ashrae.org/technical-resources/bookstore/standards-62-1-62-2)). |
+| Q_dot_ventilation                  | $kW$                            | Heat transfer due to periodic ventilation of the building. We assume that $35 \%$ of the air volume in the building are replaced per hour ([According to Standard 62.2-2016 - Ventilation and Acceptable Indoor Air Quality in Residential Buildings](https://www.ashrae.org/technical-resources/bookstore/standards-62-1-62-2)). |
 
 ## $CO_2$ controller
 
 The controller tries to minimize $CO_2$ emissions, by heating when electricity is less $CO_2$ intensive. It is based on the single household model, described in [Paper](https://doi.org/10.1016/j.jclepro.2021.128926) but was extended to use a variable optimization period. Initially we thought the metric to optimize for was `g CO2eq/kWh` of the current electricity mix, but we soon realized, that the temperature dependent COP of the heat pump also has to be taken into consideration. We actually want to heat when `g CO2eq/kWh heating` is minimal. This metric takes into account both the temperature dependent COP and the $CO_2$ intensity of the electricity mix.
 
-Initially we used time window of $48 h$ for computation. We estimate the heat demand during that time interval based on a temperature and usage forecast, which we simulate by adding $10%$ uniform random noise to the true temperature and usage profiles. Using a fixed time window of $48 h$ the controller produced strong temperature oscillations in the winter, since in extreme cases it would heat for a day (e.g. a windy day, when the electricity is clean) and turn off the other day. In old buildings with poor isolation, this caused temperature deviations of up to $\pm 4 ^\circ C$ from the target temperature, since the cooling rate was simply too high to allow for such a long heating pause.  
+Initially we used time window of $48 h$ for computation. We estimate the heat demand during that time interval based on a temperature and usage forecast, which we simulate by adding $10 \%$ uniform random noise to the true temperature and usage profiles. Using a fixed time window of $48 h$ the controller produced strong temperature oscillations in the winter, since in extreme cases it would heat for a day (e.g. a windy day, when the electricity is clean) and turn off the other day. In old buildings with poor isolation, this caused temperature deviations of up to $\pm 4 ^\circ C$ from the target temperature, since the cooling rate was simply too high to allow for such a long heating pause.  
 
 ![](/images/fixed_24hperiod.png "Large temperature deviations of up to $\pm 4 ^\circ C$ from the target temperature (3681.5 kg CO2eq total emissions)")
 
@@ -102,9 +104,9 @@ To validate our model, we compared the results to various rule of thumb formulas
 
 There are tabular reference values for the maximum outside temperature at which heating is required (Heizgrenztemperatur) defined in the standard. Since real buildings have a significant heat capacity, they react delayed to temperature changes. We therefore read off the 7 day moving average of $T_{outside}$ at points when the heat pump turned off for more than 7 consecutive days. The results deviated by $\le 0.5^\circ C$ from the tabular values in all trsted buildings below KfW70. For modern buildings, our simulation predicted shorter heating periods than the standard.
 
-We also compared our model to [standard heating load profiles](https://www.npro.energy/main/de/load-profiles/heat-load-and-demand) and got results within a reasonable deviation range of $\pm 10%$.
+We also compared our model to [standard heating load profiles](https://www.npro.energy/main/de/load-profiles/heat-load-and-demand) and got results within a reasonable deviation range of $\pm 10 \%$.
 
-Finally we compared our results to a real single family house from 1980, for which we knew the heat demand in previous years. We also had estimated heat demands, heat capacities and specific transfer coefficients of the building as determined by a heating consultant. The heat capacity computed by the model is $22%$ below our reference. The heat transfer estimate on the other hand is very close. Our model predicts $34600 kWh$ of heat demand in 2021 ($29700 kWh$ in 2020, due to a milder winter), compared to the $\approx 30000 kWh$ historically used for heating.
+Finally we compared our results to a real single family house from 1980, for which we knew the heat demand in previous years. We also had estimated heat demands, heat capacities and specific transfer coefficients of the building as determined by a heating consultant. The heat capacity computed by the model is $22 \%$ below our reference. The heat transfer estimate on the other hand is very close. Our model predicts $34600 kWh$ of heat demand in 2021 ($29700 kWh$ in 2020, due to a milder winter), compared to the $\approx 30000 kWh$ historically used for heating.
 
 In general we noticed that our model predicted lower heat demand for modern KfW70, KfW40 and GEG20 buildings, compared to the DIN standard. We also observed excessive heating in the summer, due to solar radiation and other internal gains. This is apparently a [known issue with the standard](https://www.haustec.de/heizung/waermeerzeugung/heizlast-nach-din-en-12831-die-luecke-zwischen-regelwerk-und-realitaet), as it completely ignores internal heat sources, even though they are a relevant factor in well isolated buildings.
 
@@ -114,7 +116,7 @@ Take into account more factors, e.g. To further enhance our analysis, it is cruc
 
 In addition, exploring the economic implications alongside environmental impacts presents an intriguing avenue. This can be achieved with minimal algorithmic adjustments, primarily involving the substitution of data sources. Although we briefly experimented with modeling a hot water storage tank within the household, it only resulted in minimal impact on the outcome. In reality, hot water storage tanks are essential for any heat pump installation, as they service the short bursts of domestic hot water demands, for which the heat pump would react too slowly.
 
-Time dependent electricity mix played a smaller role than expected. Especially when using the $CO_2$ aware control strategy, the difference is very small. With an increasing flow temperature (disabled floor heating model assumption), the impact becomes more noticable. In those cases, doing the simulation with the average intensity would underestimate the $CO_2$ impact of heat pumps by up to $10%$.
+Time dependent electricity mix played a smaller role than expected. Especially when using the $CO_2$ aware control strategy, the difference is very small. With an increasing flow temperature (disabled floor heating model assumption), the impact becomes more noticable. In those cases, doing the simulation with the average intensity would underestimate the $CO_2$ impact of heat pumps by up to $10 \%$.
 
 ## Appendix
 
@@ -131,7 +133,7 @@ Electric and hot water load profiles for different households were generated by 
 ### Carbon intensity factors
 
 We follow the methodology described by [electricitymaps.com](https://www.electricitymaps.com/methodology) with most data aggregated from this [2014 IPCC report](https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf#page=7). Hydro pumped storage was adjusted for Germany, as the global estomate is too optimistic.
-According to the [Department of Economics at the University of Verona](http://dse.univr.it/home/workingpapers/wp2021n8.pdf) the effective carbon footprint is 31% above the grid average due to round trip losses. [electricitymaps.com](https://electricitymaps.com) does not account for these additional losses. Additionally the $CO_2$ intensity of German electricity is above the global average, so Germany's mean intensity should be used as the baseline instead.
+According to the [Department of Economics at the University of Verona](http://dse.univr.it/home/workingpapers/wp2021n8.pdf) the effective carbon footprint is $31 \%$ above the grid average due to round trip losses. [electricitymaps.com](https://electricitymaps.com) does not account for these additional losses. Additionally the $CO_2$ intensity of German electricity is above the global average, so Germany's mean intensity should be used as the baseline instead.
 
 ### Electricity stats for Germany
 
