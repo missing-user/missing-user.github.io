@@ -40,10 +40,11 @@ Finally, the temperature in the house is defined as $T_{house} = \frac{Q}{C}$. T
 
 If "close window blinds in summer" is in the model assumptions, we redefine P*solar slightly, such that less solar radiation comes through the windows on hot days:
 
-$$P_{\text{solar:adjusted}} = \begin{cases}
-P_{\text{solar}} & \text{if } T_{\text{outside}} > 22^\circ \text{C} \
+$$\begin{equation} P_{\text{solar:adjusted}} = \begin{cases}
+P_{\text{solar}} & \text{if } T_{\text{outside}} \le 22^\circ \text{C} \
 0.1 \cdot P_{\text{solar}} & \text{else}
-\end{cases}$$
+\end{cases}
+\end{equation}$$
 
 ## Dashboard Overview
 
