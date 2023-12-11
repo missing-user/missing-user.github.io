@@ -25,30 +25,25 @@ If solar radiation is simulated, the windows are assigned a value $g_{window}$ d
 
 The transfer due to the temperature gradient to the outside at a given timestep is then:
 
-$$
-\begin{equation}
+$$\begin{equation}
 \dot{Q}=UA\Delta T = \sum{U_{i} A_{i} (T_{outside} - T_{house})}
 \end{equation}
 $$
 
 This equation gets additional terms for ventilation, heat produced by electrical appliances, habitants, and heating due to solar radiation.
 
-$$
-\begin{equation}
+$$\begin{equation}
 \dot{Q}=UA(T_{outside} - T_{house}) + 0.95\cdot P_{internal} + g_{window} P_{solar}  + P_{heat : pump} + n_{ventilation:rate} c_{air} V_{air} \rho_{air} 
-\end{equation}
-$$
+\end{equation}$$
 
 Finally, the temperature in the house is defined as $T_{house} = \frac{Q}{C}$. The resulting ODE is integrated with an explicit Euler integrator with a step size of $1 h$, which is the time resolution at which we handle all the data.
 
 If "close window blinds in summer" is in the model assumptions, we redefine P*solar slightly, such that less solar radiation comes through the windows on hot days:
 
-$$
-P_{\text{solar:adjusted}} = \begin{cases}
+$$P_{\text{solar:adjusted}} = \begin{cases}
 P_{\text{solar}} & \text{if } T_{\text{outside}} > 22^\circ \text{C} \
 0.1 \cdot P_{\text{solar}} & \text{else}
-\end{cases}
-$$
+\end{cases}$$
 
 ## Dashboard Overview
 

@@ -29,7 +29,7 @@ If the distance between the particle and the sub-region is not large enough, the
 
 The Barnes-Hut algorithm is a highly efficient method for simulating the dynamics of galaxies. It can handle large numbers of particles with relative ease, and its hierarchical structure allows it to approximate forces with high accuracy while minimizing the number of calculations required. This makes it an ideal tool for studying the formation and evolution of galaxies, as well as other systems that exhibit complex gravitational interactions.
 
-T﻿his project was created together with [Jimmy](https://instagram.com/j_adel__) as part of the advanced programming course in our CSE masters degree. He creates some amazing generative art, so make sure to check him out!
+T﻿his project was created together with [Jimmy](https://instagram.com/j_adel__) as part of the advanced programming course in our [CSE masters degree](https://www.tum.de/en/studies/degree-programs/detail/computational-science-and-engineering-cse-master-of-science-msc). He creates some amazing generative art, so make sure to check him out!
 
 ## G﻿allery
 Visualization of how sorting the traversal order (indicated by the lines connecting different bodies) improves performance. Notice how the FPS immediately jump by 20% when the scene is Morton ordered:
