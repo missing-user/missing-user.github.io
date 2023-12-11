@@ -16,4 +16,5 @@ collections:
       - {label: "Images", name: "images", widget: "image", media_library: {config: {multiple: true}}}
       - {label: "Live URL", name: "link", widget: "string", default: "https://jurasic.dev/projectlink/"}
       - {label: "Repository URL", name: "repository", widget: "string", default: "https://github.com/missing-user/projectlink/"}
+      - {label: "Latex Support", name: "mathjax", widget: "boolean", default: false, required: false}
       - {label: "Body", name: "body", widget: "markdown", sanitize_preview: true}
