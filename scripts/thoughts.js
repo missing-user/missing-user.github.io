@@ -279,31 +279,6 @@ if (isThisToday({ month: 6 })) {
   txt.push("Happy Pride Month", "🏳️‍🌈   ", "Love is love");
 }
 
-//dies academicus
-if (isThisToday({ month: 12, day: 2 })) {
-  txt = [
-    "Dies Academicus",
-    "TUM excellence!",
-    "Let's go to the library!",
-    "Hooray!",
-    "TUM for life!",
-    "Pantone 300 C",
-  ];
-  const profileDiv = document.getElementsByClassName("profile")[0];
-  profileDiv.style.background = "#0065BD";
-  profileDiv.getElementsByTagName("h1")[0].textContent = "TUM";
-
-  for (const lightText of document.getElementsByClassName("lightText")) {
-    lightText.style.color = "#fff";
-  }
-  SetCssVar(
-    ["--text-color-normal", "--border-color", "--text-color-softer"],
-    "#000"
-  );
-  SetCssVar(["--accent-color", "--accent-color-hover"], "#0065BD");
-  SetCssVar(["--background-color", "--background-color-softer"], "#fff");
-}
-
 //snow in december and january, add a quote
 if (isThisToday({ month: 12 }) || isThisToday({ month: 1 })) {
   fallingParticles();
@@ -316,7 +291,7 @@ if (isThisToday({ month: 12 }) || isThisToday({ month: 1 })) {
 }
 
 //christmas quotes
-if (isThisToday({ day: 24, month: 12 }) || isThisToday({ day: 25, month: 12 }))
+if (isThisToday({ day: 23, month: 12 }) || isThisToday({ day: 24, month: 12 }) || isThisToday({ day: 25, month: 12 }))
   txt = [
     "Sretan božič!",
     "All I want for Christmas is you",
@@ -349,6 +324,7 @@ if (isThisToday({ month: 2, day: 14 })) {
     "I love you!",
     "Are you going on a date tonight?",
     "Love is in the air",
+    "How romantic!"
   ];
 }
 
