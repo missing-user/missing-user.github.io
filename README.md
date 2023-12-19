@@ -1,5 +1,4 @@
-![pages status](https://github.com/missing-user/missing-user.github.io/actions/workflows/pages-build-deployment/badge.svg)
-
+[![pages-build-deployment](https://github.com/missing-user/missing-user.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/missing-user/missing-user.github.io/actions/workflows/pages/pages-build-deployment)
 # Personal website
 
 My little web dev playground... Have you been wondering what kinds of projects I've been building lately?
