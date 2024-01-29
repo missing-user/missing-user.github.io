@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Barnes-Hut Simulation
+title: Galaxy Simulation
 images: /images/spiral_galaxy.png
 link: 
 repository: https://github.com/missing-user/barnes-hut
 ---
-The Barnes-Hut algorithm allows us to efficiently simulate celestial dynamics and the formation of galaxies. [Jimmy](https://instagram.com/j_adel__) and I wrote this as part of our [university course](https://www.tum.de/en/studies/degree-programs/detail/computational-science-and-engineering-cse-master-of-science-msc).
+We wrote a simulator for celestial dynamics and the formation of galaxies using the Barnes-Hut algorithm for efficient computation of the gravitational forces. [Jimmy](https://instagram.com/j_adel__) and I wrote this as part of a [university course](https://www.tum.de/en/studies/degree-programs/detail/computational-science-and-engineering-cse-master-of-science-msc).
 
 The following demo was compiled to WebAssembly using Emscripten, but is otherwise based on the same C++ code as the main project. It requires WebGL to run and is best viewed in a Desktop browser. 
 
