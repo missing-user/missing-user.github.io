@@ -41,7 +41,7 @@ Both visualizations together gave us the ability to validate and test new satell
 
 Finally we also simulated which satellites would be connected to a given geo-region at a given time, handling cases where multiple satellites may be able to service a region simultaneously. This boils down to a bipartite graph matching problem and is visualized in the following video (line of the same color as the pizza slice indicates the satellite is matched to the region. Equatorial satellites are excluded from the visualization):
 <video autoplay="autoplay" loop="loop" controls class="u-full-width" alt="3d visualization of satellite matching">
-  <source src="/images/satellite_challenge/satellitematchin.webm" type="video/webm">
+  <source src="/images/satellite_challenge/satellitematching.webm" type="video/webm">
 </video>
 
 ## Challenges we ran into
