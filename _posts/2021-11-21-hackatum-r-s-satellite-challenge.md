@@ -26,7 +26,19 @@ In this challenge, we were supposed to propose a satellite constellation that fu
 
 ## How we built it
 
-Since the problem statement itself is quite complicated, our main focus at the start was to gain a better understanding of the problem, and decide how to approach it. We started by trying to mathematically characterize the problem - specifically the constraints. We were able to simplify the problem, by assuming the earth's surface is covered in planes flying in every direction at the same time. This transformed it into a pure coverage optimization problem, without any moving planes on earth, just moving satellites. After gaining some insight on how to determine which points on earth are covered by a given satellite, we decided to create a 3D simulation (using Unity) and a 2D visualization (using Matplotlib). The 3D Simulation uses shaders to compute and visualize the sections covered by the satellites, the 2D visualization uses equirectangular projection to calculate the covered areas. These visualizations gave us the ability to validate and test new satellite configurations. We opted to use 8 satellites in geostationary orbit to cover a majority of the planet around the equator. To cover the Poles, we used 6 rings of satellites, each containing 9 equally spaced satellites in geosynchronous orbits. This constellation guarantees constant coverage of all geographic regions at all times.
+Since the problem statement itself is quite complicated, our main focus at the start was to gain a better understanding of the problem, and decide how to approach it. We started by trying to mathematically characterize the problem - specifically the constraints. We were able to simplify the problem, by assuming the earth's surface is covered in planes flying in every direction at the same time. This transformed it into a pure coverage optimization problem, without any moving planes on earth, just moving satellites. After gaining some insight on how to determine which points on earth are covered by a given satellite, we decided to create a 3D simulation (using Unity) and a 2D visualization (using Matplotlib). The 3D Simulation uses shaders to compute and visualize the sections covered by the satellites, the 2D visualization uses equirectangular projection to calculate the covered areas. 
+
+Using the 2D simulation, we were able to get an intuition for the coverage of an orbiting satellite. The map projection leads to these distorted looking coverage cones. 
+![2D map view](/images/satellite_challenge/mapview.png)
+
+
+In the 3D visualization, the coverage area of the satellite is marked in green, with red and blue regions indicating that the doppler shift has exceeded the acceptable threshold. Since planes and satellites may move in opposing directions, the communication signal will get shifted by the doppler frequency. If this frequency shift is too high, communication becomes impossible.  
+![3d visualization of satellite coverage with doppler shift](/images/satellite_challenge/dopplershift.webm)
+
+Both visualizations together gave us the ability to validate and test new satellite configurations. We opted to use 8 satellites in geostationary orbit to cover a majority of the planet around the equator. To cover the Poles, we used 6 rings of satellites, each containing 9 equally spaced satellites in geosynchronous orbits. This constellation guarantees constant coverage of all geographic regions at all times.
+
+Finally we also simulated which satellites would be connected to a given geo-region at a given time, handling cases where multiple satellites may be able to service a region simultaneously. This boils down to a bipartite graph matching problem and is visualized in the following video (line of the same color as the pizza slice indicates the satellite is matched to the region. Equatorial satellites are excluded from the visualization):
+![3d visualization of satellite matching](/images/satellite_challenge/satellitematchin.webm)
 
 ## Challenges we ran into
 
