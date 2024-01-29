@@ -8,7 +8,7 @@ images:
 - "/images/cover_image_min.webp"
 
 ---
-Our winning submission to the [HackaTUM](https://hack.tum.de/ "HackaTUM") 2021 Rohde & Schwarz challenge, where the goal was to develop a satellite constellation for air traffic communication in <48 h.
+Our winning submission to the [HackaTUM](https://hack.tum.de/ "HackaTUM") 2021 Rohde & Schwarz challenge, where the goal was to develop a satellite constellation for air traffic communication in <48h.
 
 Here's the [Devpost link](https://devpost.com/software/hamiltumian "Devpost Link to our submission") to our final submission and the [original repository](https://github.com/RiaRosenauer/SatChallenge "Original Github repository of our challenge submission"). In [my fork of the repo](https://github.com/missing-user/SatChallenge "Fork of the submission with continued development"), we have continued development and added some features after the competition was over.
 
@@ -33,12 +33,16 @@ Using the 2D simulation, we were able to get an intuition for the coverage of an
 
 
 In the 3D visualization, the coverage area of the satellite is marked in green, with red and blue regions indicating that the doppler shift has exceeded the acceptable threshold. Since planes and satellites may move in opposing directions, the communication signal will get shifted by the doppler frequency. If this frequency shift is too high, communication becomes impossible.  
-![3d visualization of satellite coverage with doppler shift](/images/satellite_challenge/dopplershift.webm)
+<video autoplay="autoplay" loop="loop" controls class="u-full-width" alt="3d visualization of satellite coverage with doppler shift">
+  <source src="/images/satellite_challenge/dopplershift.webm" type="video/webm">
+</video>
 
 Both visualizations together gave us the ability to validate and test new satellite configurations. We opted to use 8 satellites in geostationary orbit to cover a majority of the planet around the equator. To cover the Poles, we used 6 rings of satellites, each containing 9 equally spaced satellites in geosynchronous orbits. This constellation guarantees constant coverage of all geographic regions at all times.
 
 Finally we also simulated which satellites would be connected to a given geo-region at a given time, handling cases where multiple satellites may be able to service a region simultaneously. This boils down to a bipartite graph matching problem and is visualized in the following video (line of the same color as the pizza slice indicates the satellite is matched to the region. Equatorial satellites are excluded from the visualization):
-![3d visualization of satellite matching](/images/satellite_challenge/satellitematchin.webm)
+<video autoplay="autoplay" loop="loop" controls class="u-full-width" alt="3d visualization of satellite matching">
+  <source src="/images/satellite_challenge/satellitematchin.webm" type="video/webm">
+</video>
 
 ## Challenges we ran into
 
