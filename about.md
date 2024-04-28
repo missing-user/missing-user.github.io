@@ -1,13 +1,12 @@
 ---
 layout: default
 title: About
-description: Philipp Jurasic is a physics student and software developer from Germany.
-  Find out more about him and his projects here!
-
+description: Philipp Jurasic builds high performance physics simulations and
+  interactive digital projects. Find out more about him here!
 ---
 ## Hi, I'm Philipp! <span class="waveHand">👋🏻</span>
 
-A physics student and software developer from Germany. I love building websites, simulations, and electronics projects - especially anything that's visual and interactive.
+Studying Computational Science and Engineering at TUM, I specialize in physics simulations and high performance computing. Right now I'm working on my master's thesis in Fusion Research with [IPP](https://www.ipp.mpg.de/en) and [Proxima Fusion](https://www.proximafusion.com/).
 
 ## Leave me a message!
 
