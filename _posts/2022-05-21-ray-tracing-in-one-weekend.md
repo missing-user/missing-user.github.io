@@ -29,7 +29,7 @@ Programmatically generated scene with concentric glass spheres.
 
 ## Dispersion
 
-Ever since Pink Floyd's iconic album "The Dark Side of the Moon" showcased the mesmerizing effects of light dispersion, humans were fascinated by it.
+Ever since Pink Floyd invented prisms in their iconic publication "The Dark Side of the Moon", humans were fascinated by dispersion and the pretty lights it produces.
 ![pink floyd prism poster dark side of the moon](/images/Dark_Side_of_the_Moon.png) 
 
 Dispersion means that different wavelengths of light bend by varying degrees, when passing through a medium. The dispersion relation is a material specific property, and not all exhibit it to the same degree (that's why diamons sparkle in so many colors and glass shards do not). To simulate it correctly, I needed to include [spectral information in the rendering](https://pbr-book.org/3ed-2018/Color_and_Radiometry/Spectral_Representation). Each traced ray now also has a wavelength associated with it, which is used when computing the dispersion and converted back to a color when writing the pixel.
