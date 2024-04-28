@@ -2,8 +2,6 @@ url: https://jurasic.dev
 timezone: Europe/Paris
 permalink: /:year/:title/
 
-plugins:
-  - jekyll-feed
 title: missing-user's blog
 description: A blog about physics, programming and occasinally art.
 author: Philipp Jurasic
