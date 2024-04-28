@@ -18,3 +18,7 @@ collections:
       - {label: "Repository URL", name: "repository", widget: "string", default: "https://github.com/missing-user/projectlink/"}
       - {label: "Latex Support", name: "mathjax", widget: "boolean", default: false, required: false}
       - {label: "Body", name: "body", widget: "markdown", sanitize_preview: true}
+  - name: "other"
+    label: "Other"
+    create: false
+    folder: "/"
