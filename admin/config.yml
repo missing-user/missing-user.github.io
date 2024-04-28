@@ -18,7 +18,28 @@ collections:
       - {label: "Repository URL", name: "repository", widget: "string", default: "https://github.com/missing-user/projectlink/"}
       - {label: "Latex Support", name: "mathjax", widget: "boolean", default: false, required: false}
       - {label: "Body", name: "body", widget: "markdown", sanitize_preview: true}
-  - name: "other"
-    label: "Other"
-    create: false
-    folder: "/"
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "About Page"
+        name: "about"
+        file: "about.md"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Description, name: description, widget: markdown, sanitize_preview: true}
+          - {label: "Body", name: "body", widget: "markdown", sanitize_preview: true}
+
+      - label: "Home Page"
+        name: "index"
+        file: "index.md"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Description, name: description, widget: markdown, sanitize_preview: true}
+          - {label: "Body", name: "body", widget: "markdown", sanitize_preview: true}
+      - label: "Legal"
+        name: "legal-notice"
+        file: "legal-notice.md"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Description, name: description, widget: markdown, sanitize_preview: true}
+          - {label: "Body", name: "body", widget: "markdown", sanitize_preview: true}
