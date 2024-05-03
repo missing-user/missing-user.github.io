@@ -8,7 +8,7 @@ link: https://quick-bench.com/q/1uCnfwnH8nvIXB_ncuU_KDT1Cxc
 repository: https://gist.github.com/missing-user/3114bacb98bc035156ec362c6b73251c
 mathjax: false
 ---
-
+Optimizing code usually means trading between code readability and performance, but sometimes the stars align in your favor. Here's how I added user defined pairwise force interaction functions to the barnes-hut code, without sacrificing vectorized performance or readability.
 
 # Auto-Vectorized function application
 
