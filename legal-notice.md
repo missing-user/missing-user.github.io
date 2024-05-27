@@ -5,9 +5,8 @@ description: The obligatory Legal Notice Page. (boring)
 ---
 ## Before suing me....
 
+This website is owned and maintained by Philipp Jurašić.
 If you have any legal concerns with my content, please contact me at [philipp@jurasic.dev](mailto:philipp@jurasic.dev "contact Email")
-
-This website is owned and maintained by Philipp Jurašić
 
 ## Additional disclaimer
 
