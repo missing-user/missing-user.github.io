@@ -10,6 +10,4 @@ Studying Computational Science and Engineering at TUM, I specialize in physics s
 
 ## Leave me a message!
 
-If you'd like to collaborate on a project or leave some feedback, just drop me a message! I'd love to hear from you. You can also reach me at [philipp@jurasic.dev](mailto:philipp@jurasic.dev "Contact email") or add me on [LinkedIn](https://www.linkedin.com/in/philipp-jurasic)!
-
-{% include contact_form.html %}
+If you'd like to collaborate on a project or leave some feedback, just drop me a message at [philipp@jurasic.dev](mailto:philipp@jurasic.dev "Contact email")! I'd love to hear from you. You can also find me on [GitHub](https://github.com/missing-user) or [LinkedIn](https://www.linkedin.com/in/philipp-jurasic)!
