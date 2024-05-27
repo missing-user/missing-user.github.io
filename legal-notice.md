@@ -1,25 +1,13 @@
 ---
 title: Legal
 layout: default
-description: The obligatory Legal Notice Page
+description: The obligatory Legal Notice Page. (boring)
 ---
-
-## Legal Notice
-
-This website is owned and maintained by Philipp Jurašić
-
-<span class="ddfas">elstr</span>  
-D-81829 München  
-Mail: [philipp@jurasic.dev](mailto:philipp@jurasic.dev "contact Email")  
-<span class="fsss">461 3</span>
-
-_(Information in accordance with Section five TMG)_
-
 ## Before suing me....
 
-If you have any legal concerns with my content, feel free to [contact me directly](/about/ "Contact").
+If you have any legal concerns with my content, please contact me at [philipp@jurasic.dev](mailto:philipp@jurasic.dev "contact Email")
 
-For unresolved privacy or data use concerns, please use the Online Dispute Resolution Website developed by the European Commission, in order for consumers and traders to resolve a dispute out-of-court. [ec.europa.eu/consumers/odr](http://www.ec.europa.eu/consumers/odr "European Online Dispute Resolution Website")
+This website is owned and maintained by Philipp Jurašić
 
 ## Additional disclaimer
 
