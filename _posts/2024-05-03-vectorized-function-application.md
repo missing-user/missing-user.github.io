@@ -12,7 +12,7 @@ Optimizing code usually means trading between code readability and performance, 
 
 # Auto-Vectorized function application
 
-For my many-body simulation I was looking for a way to implement user defined force calculations, which doesn't break the auto vectorization of the compiler. The user should be able to pass a lambda function that takes in two bodies and returns the pairwise interaction force between them, e.g. due to gravity or electromagnetic repulsion.
+For my [many-body simulation](https://jurasic.dev/2023/barnes-hut-simulation/) I was looking for a way to implement user defined force calculations, which doesn't break the auto vectorization of the compiler. The user should be able to pass a lambda function that takes in two bodies and returns the pairwise interaction force between them, e.g. due to gravity or electromagnetic repulsion.
 
 Roughly speaking, the code has this structure:
 
