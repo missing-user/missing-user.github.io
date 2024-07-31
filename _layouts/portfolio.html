@@ -34,7 +34,7 @@ layout: default
       </div>
 
       <div class="img_cont">
-        <a href="{% if cntnt == exrpt  %}{{ entry.link }}{% else %}{{ entry.url }}{% endif %}">
+        <a href="{% if cntnt == exrpt  %}{{ entry.link }}{% else %}{{ entry.url }}{% endif %}" aria-hidden="true">
           <picture>
             {% for image in entry.images reversed %}
             {% assign ext = image | split: "." | last %}
