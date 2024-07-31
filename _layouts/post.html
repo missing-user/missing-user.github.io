@@ -1,16 +1,16 @@
 ---
 layout: default
 ---
-<div>
-  <div class="headerLinks">
-    {% if entry.link and entry.link != "" %}
-    <a href="{{ entry.link }}" class="button">view project</a>
-    {% endif %}
-    {% if entry.repository and entry.repository != "" %}
-    <a href="{{ entry.repository }}" class="source-button" aria-label="read the source code on GitHub" title="source code available on GitHub">
-      <div class="gh-icon img-hover-zoom"></div><div class="button" style="padding-left: 1ch;">view source</div>
-    </a>
-    {% endif %}</div>
+<div class="headerLinks">
+  {% if page.link and page.link != "" %}
+  <a href="{{ entry.link }}" class="button">view project</a>
+  {% endif %}
+  {% if page.repository and page.repository != "" %}
+  <a href="{{ entry.repository }}" class="source-button" aria-label="read the source code on GitHub" title="source code available on GitHub">
+    <div class="gh-icon img-hover-zoom"></div>
+    <div class="button" style="padding-left: 1ch;">view source</div>
+  </a>
+  {% endif %}
 </div>
 <div>
 {{ content | remove_first:page.excerpt }}
