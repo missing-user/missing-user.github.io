@@ -114,28 +114,21 @@ main img{
 }
 
 .portfolio-entry img{
-  aspect-ratio:3/2;
+  aspect-ratio: 3/2;
   object-fit: cover;
 }
 
-.img-hover-zoom, .source-button {
+.img-hover-zoom {
   transition: transform .25s  cubic-bezier(0.18, 0.89, 0.32, 1.28);;
 }
 
-.source-button{  
-  display: inline-block;
-  margin-bottom: -2.5rem;
-  padding-left: 0.8rem;
+.source-button{ 
   vertical-align: top;
   outline-color: var(--border-color);
 }
-.source-button:hover .gh-icon{
-  transform: scale(1.2);
-  filter: brightness(1.15);
-}
 
-.gh-icon{     
-  transition: inherit;
+.gh-icon{ 
+  display: inline-block;
   background: url("/images/GitHubIcon.svg") no-repeat;
   width:  5rem;
   padding-top: 5rem;
@@ -145,6 +138,9 @@ main img{
 }
 
 /* The Transformation */
+.gh-icon:focus, a:focus .gh-icon{
+  filter: brightness(1.15);
+}
 
 .img-hover-zoom:hover, a:focus .img-hover-zoom {
   transform: scale(1.2);
