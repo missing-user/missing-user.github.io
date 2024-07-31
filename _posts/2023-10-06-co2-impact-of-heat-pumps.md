@@ -10,8 +10,6 @@ mathjax: true
 ---
 We simulated the emissions of residential heat pumps and built a dashboard to explore them at [Ferienakademie 2023](https://ferienakademie.de/). Big shout-out to my teammates [Julius Neszvecsko](https://www.linkedin.com/in/julius-neszvecsko-59a55a247), Larissa and Max for the amazing time!
 
-I﻿f you just want to play with the dashboard instead of reading about it, [go here](https://heat-pump.streamlit.app/).
-
 ## Introduction
 
 25.2 % of Germany's energy budget are used for heating buildings, the majority of which (17.5 % points) is in the residential sector. As such, it produces immense emissions, $126 Mt$ in 2019 for example [Bundesministerium für Wirtschaft und Klimaschutz](https://www.bmwk.de/Redaktion/DE/Publikationen/Energie/energieeffizienz-in-zahlen-entwicklungen-und-trends-in-deutschland-2021.html). Reducing these emissions is of utmost importance to achieve the climate goals and mitigate the impact of global warming. 
