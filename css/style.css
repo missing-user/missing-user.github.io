@@ -7,6 +7,10 @@
   margin-top: 2rem;
 }
 
+main{
+  padding-top: 2rem;
+}
+
 .limit-width {
   max-width: var(--grid-max-width);
   margin: 0 auto;
