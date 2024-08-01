@@ -3,10 +3,15 @@
   background: linear-gradient(0, #028cb3 0%, #6ac6b4 100%);
 }
 
+.profile h1 {
+  margin-top: 2rem;
+}
+
 .limit-width {
   max-width: var(--grid-max-width);
   margin: 0 auto;
-  padding: 0 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 form textarea{
@@ -42,6 +47,10 @@ form textarea{
 }
 
 @media (min-width: 600px) {
+  .profile h1 {
+    margin-top: 5rem;
+  }
+  
   .portfolio-entry{
     padding-bottom: 8rem;
   }
@@ -77,15 +86,10 @@ form textarea{
 .headerLinks {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 1rem;
 }
 
 .headerLinks:after {
   content: none;
-}
-
-h1, h2 {
-  margin-top: 5rem;
 }
 
 .u-full-width {
@@ -134,7 +138,6 @@ main img{
   padding-top: 5rem;
   vertical-align: middle;
   margin-top: -0.25rem;
-  pointer-events: none;
 }
 
 /* The Transformation */
