@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Auto-Vectorized user functions
+title: C++ Functions as Arguments
 images:
   - /images/carbon_light.png
   - /images/carbon_dark.png
@@ -8,11 +8,13 @@ link: https://quick-bench.com/q/1uCnfwnH8nvIXB_ncuU_KDT1Cxc
 repository: https://gist.github.com/missing-user/3114bacb98bc035156ec362c6b73251c
 mathjax: false
 ---
-Optimizing code usually means trading between code readability and performance, but sometimes the stars align in your favor and allow for both. This is is such a time. 
+When implementing a numerical solver, it is often desirable to let the user pass their problem as an arbitrary callable function to your library. Unfortunately, the C++ compiler struggles with this, and often fails to Auto-Vectorize such functions, leaving precious performance on the table. 
 
-For my [many-body simulation](https://jurasic.dev/2023/barnes-hut-simulation/) I was looking for a way to implement user defined force calculations, which doesn't break the auto vectorization of the compiler. The user should be able to pass a lambda function that takes in two bodies and returns the pairwise interaction force between them, e.g. due to gravity or electromagnetic repulsion.
+This could be a function they want to integrate, a custom potential they want to simulate, or a force (e.g. to simulate non-standard interaction forces like in molecular simulations or when dealing with [modified Newtonian gravity](https://en.wikipedia.org/wiki/Modified_Newtonian_dynamics))
 
-Roughly speaking, the code has this structure:
+For my [many-body simulation](https://jurasic.dev/2023/barnes-hut-simulation/) I was also looking for a way to implement user defined force calculations, but without compromising performance. The user should be able to pass a function that takes in two bodies and returns the pairwise interaction force between them, e.g. due to gravity or electromagnetic repulsion.
+
+Roughly speaking, a naive many-body code has this structure:
 
 ```cpp
 for(int i=0; i<particles.size(); i++){
@@ -31,7 +33,7 @@ Turns out that passing the `pairwise_force` using a `std::function<double(Partic
 
 ![Quick Bench results of different ways to pass the function](/images/function_application_table.png)
 
-Turns out there is a really nice way to fix this issue! By making the argument `pairwise_force` of a template type instead of `std::function<double(Particle, Particle)>`, we force the compiler to inline the function. The result is a more readable, flexible implementation, where the user can pass their own force implementation, but at the performance level of a hardcoded routine.   
+But there is a really nice way to fix this issue! By making the argument `pairwise_force` of a template type instead of `std::function<double(Particle, Particle)>`, we force the compiler to inline the function. The result is a more readable, flexible implementation, where the user can pass their own force implementation, but at the performance level of a hardcoded routine.   
 
 ## Compiler Explorer
 
@@ -58,4 +60,4 @@ std::_Function_handler<double (double, double), main::{lambda(double, double)#1}
 ## References
 
 * During my investigation I came across [this great benchmark](https://quick-bench.com/q/ZOCYEdFoOkuYa0og6BngFh0nj00) comparing different ways of passing function, that is applied to a vector of elements. 
-* I had already given up on this topic, but looked into it again after a discussion with [Fabio Gratl](https://www.cs.cit.tum.de/en/sccs/people/fabio-gratl/), the mastermind behind the incredible [AutoPas library](https://github.com/AutoPas/AutoPas). Thank you so much for the tip of using templates!
+* Thanks for the helpful input by [Fabio Gratl](https://www.cs.cit.tum.de/en/sccs/people/fabio-gratl/), developer of the amazing [AutoPas library](https://github.com/AutoPas/AutoPas).
