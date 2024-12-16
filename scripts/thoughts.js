@@ -2,7 +2,6 @@ let letterIndex = 0,
   thoughtIndex = 0;
 const thoughtsElement = document.getElementById("thoughts");
 let txt = [
-  "3/10 can't recommend",
   "Robert'); DROP TABLE Students;--",
   "There's an XKCD for that!",
   "Physics is harder than I thought",
@@ -49,7 +48,7 @@ let txt = [
   "Nobody expects the spanish inquisition!",
   "My name is Inigo Montoya, prepare to die",
   "Inconceivable!",
-  "You Keep Using That Word. I Do Not Think It Means What You Think It Means.",
+  "You keep using that word. I don't think it means what you think it means",
   "It's actually pronounced GIF",
   "404, Status not found",
   "God does not play dice with the universe",
@@ -75,7 +74,6 @@ let txt = [
   "Was nothing real?",
   "HELP! I'm In a Nutshell!",
   "Oh behave!",
-  "REAL programmers use a magnetized needle",
   "Trying is the first step to failure",
   "import numpy as plt",
   "import matplotlib.pyplot as np",
@@ -122,12 +120,17 @@ let txt = [
   "Modern C++ is actually quite nice!",
   "Julia is like Python, but FAST? Count me in.",
   "Is it time to learn Rust?",
+  "REAL programmers use Assembly",
+  "REAL programmers use a magnetized needle",
   "REAL programmers flip the bits by hand",
   "What are the AI bros on about today?",
   "9€ ticket was the best",
   "Let's go hiking together!",
   "Let's go climbing together!",
   "Let's go skiing together!",
+  "Wow - you managed to Segfault Python?",
+  "CERN: Just one more collider bro, trust me.",
+  "Hurry up ITER, I want to see fusion",
 ];
 
 function typeWriter() {
