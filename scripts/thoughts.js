@@ -48,6 +48,8 @@ let txt = [
   "No tracking 🍪 in sight",
   "Nobody expects the spanish inquisition!",
   "My name is Inigo Montoya, prepare to die",
+  "Inconceivable!",
+  "You Keep Using That Word. I Do Not Think It Means What You Think It Means.",
   "It's actually pronounced GIF",
   "404, Status not found",
   "God does not play dice with the universe",
@@ -114,6 +116,18 @@ let txt = [
   "Send me nerdy jokes to confirm you are human", 
   "Premature optimization is the root of all evil",
   "Hello? is anyone there?",
+  "Scanning: [earth] // No signs of intelligent life.",
+  "Fusion is just 10 years away!",
+  "Stellerator > Tokamak",
+  "Modern C++ is actually quite nice!",
+  "Julia is like Python, but FAST? Count me in.",
+  "Is it time to learn Rust?",
+  "REAL programmers flip the bits by hand",
+  "What are the AI bros on about today?",
+  "9€ ticket was the best",
+  "Let's go hiking together!",
+  "Let's go climbing together!",
+  "Let's go skiing together!",
 ];
 
 function typeWriter() {
