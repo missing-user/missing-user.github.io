@@ -8,36 +8,38 @@ link: https://quick-bench.com/q/1uCnfwnH8nvIXB_ncuU_KDT1Cxc
 repository: https://gist.github.com/missing-user/3114bacb98bc035156ec362c6b73251c
 mathjax: false
 ---
-When implementing a numerical solver, it is often desirable to let the user pass their problem as an arbitrary callable function to your library. Unfortunately, the C++ compiler struggles with this, and often fails to Auto-Vectorize such functions, leaving precious performance on the table. 
+When implementing a numerical solver, we often want the user to pass their problem as an arbitrary callable function to your library. Unfortunately, C++ compilers usually fail to auto-vectorize such functions when they are in another source file, leaving precious performance on the table. Using templates, we can fix this.
 
-This could be a function they want to integrate, a custom potential they want to simulate, or a force (e.g. to simulate non-standard interaction forces like in molecular simulations or when dealing with [modified Newtonian gravity](https://en.wikipedia.org/wiki/Modified_Newtonian_dynamics))
+To give a slightly more concrete example, let's imagine we wrote some integration routines and want the argument to these routines to be the user function. How should the call signature look? Should it be an `std::function`? A function pointer? Something else entirely? Does it even matter? 
 
-For my [many-body simulation](https://jurasic.dev/2023/barnes-hut-simulation/) I was also looking for a way to implement user defined force calculations, but without compromising performance. The user should be able to pass a function that takes in two bodies and returns the pairwise interaction force between them, e.g. due to gravity or electromagnetic repulsion.
+Unfortunately it does. For my [many-body simulation](https://jurasic.dev/2023/barnes-hut-simulation/) I was facing this exact situation when looking for a way to implement user defined force calculations. The user should be able to pass a function that takes in two bodies and returns the pairwise interaction force between them, e.g. due to gravity or electromagnetic repulsion.
 
 Roughly speaking, a naive many-body code has this structure:
 
 ```cpp
 for(int i=0; i<particles.size(); i++){
-  double acceleration = 0.0;
+  float acceleration = 0.0;
   for(int j=0; j<particles.size(); j++){
     acceleration += pairwise_force(particles[i], particles[j]);
   }
 }
 ```
 
-Turns out that passing the `pairwise_force` using a `std::function<double(Particle, Particle)>` is a really bad idea, because it turns this into an entirely scalar loop, even if the same code was vectorizing perfectly fine when inlined. Since this was the hot-loop in my simulation, the resulting performance drop of 8-16x is completely unacceptable. 
+When refactoring from a hard coded force calculation to `pairwise_force` using a `std::function<double(Particle, Particle)>`, I immediately noticed a slowdown of 8-16x. Suspicious - that's right around the vector length using AVX2 and single precision (256bit / 32bit = 8). Turns out, both Intel and GCC keep this as an entirely scalar loop, even if the same code was vectorizing perfectly fine before. 
 
-[Quick Bench Link](https://quick-bench.com/q/06TMup5sU8Q81zAOkE6ge-sbupY)
+This is the case, even when both definitions are in the same translation unit. Passing a function pointer causes the same problem. 
 
-[](https://quick-bench.com/q/06TMup5sU8Q81zAOkE6ge-sbupY)
+The solution is surprisingly simple! By making the argument `pairwise_force` of a template type instead of `std::function<double(Particle, Particle)>`, we force the compiler to inline the function. The result is a more readable, flexible implementation, where the user can pass their own force implementation (e.g. as a lambda function), without compromising runtime performance. 
+
+[Quick Bench Link](https://quick-bench.com/q/06TMup5sU8Q81zAOkE6ge-sbupY)[](https://quick-bench.com/q/06TMup5sU8Q81zAOkE6ge-sbupY)
 
 ![Quick Bench results of different ways to pass the function](/images/function_application_table.png)
 
-But there is a really nice way to fix this issue! By making the argument `pairwise_force` of a template type instead of `std::function<double(Particle, Particle)>`, we force the compiler to inline the function. The result is a more readable, flexible implementation, where the user can pass their own force implementation, but at the performance level of a hardcoded routine.   
+
 
 ## Compiler Explorer
 
-Looking at the compiled cssembly in [Compiler Explorer](https://godbolt.org/) reveals that the fast implementations were all successfully vectorized and use the `YMM` registers
+Looking at the compiled assembly in [Compiler Explorer](https://godbolt.org/) reveals that the fast implementations were all successfully vectorized and use the `YMM` registers
 
 ```
 .L21:
