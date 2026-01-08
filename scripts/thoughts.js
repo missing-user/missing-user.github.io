@@ -140,6 +140,14 @@ let txt = [
   "Can we please go back to internet before AI?",
   "Test commit, don't merge.",
   "▉▊▋▌▍▎▏▎▍▌▋▊▉",
+  "Who/What is Adam? I think this is a serious typo",
+  "It's Jason, isn't it.",
+  "You're absolutely right! Let me try again.",
+  "I'll allow it. ",
+  "Assume point mass cow ",
+  "u/F1exician", 
+  "Never forget Chivesgate",
+  "I love JET 🌈" 
 ];
 
 function typeWriter() {
