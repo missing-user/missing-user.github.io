@@ -156,7 +156,8 @@ let txt = [
   "Mischief. Mayhem. Soap.",
   "Out of the door, line on the left, one cross each.",
   "Discombobulating... ",
-  "You're absolutely right" 
+  "You're absolutely right",
+  "I have two Microsoft Outlooks and neither one of those are working" 
 ];
 
 function typeWriter() {
